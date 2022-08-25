@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
+		BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */; };
+		BD9D07D328B729C400CC5F0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D228B729C400CC5F0A /* ViewController.swift */; };
+		BD9D07D628B729C400CC5F0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9D07D428B729C400CC5F0A /* Main.storyboard */; };
+		BD9D07D828B729C600CC5F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9D07D728B729C600CC5F0A /* Assets.xcassets */; };
+		BD9D07DB28B729C600CC5F0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD9D07D928B729C600CC5F0A /* LaunchScreen.storyboard */; };
+		BD9D07E628B729C700CC5F0A /* DemocracyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07E528B729C700CC5F0A /* DemocracyTests.swift */; };
+		BD9D07F028B729C700CC5F0A /* DemocracyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07EF28B729C700CC5F0A /* DemocracyUITests.swift */; };
+		BD9D07F228B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD9D07E228B729C700CC5F0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD9D07C328B729C400CC5F0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9D07CA28B729C400CC5F0A;
+			remoteInfo = Democracy;
+		};
+		BD9D07EC28B729C700CC5F0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD9D07C328B729C400CC5F0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9D07CA28B729C400CC5F0A;
+			remoteInfo = Democracy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD9D07D228B729C400CC5F0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD9D07D528B729C400CC5F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD9D07D728B729C600CC5F0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD9D07DA28B729C600CC5F0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD9D07DC28B729C600CC5F0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD9D07E128B729C700CC5F0A /* DemocracyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemocracyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9D07E528B729C700CC5F0A /* DemocracyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemocracyTests.swift; sourceTree = "<group>"; };
+		BD9D07EB28B729C700CC5F0A /* DemocracyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemocracyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9D07EF28B729C700CC5F0A /* DemocracyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemocracyUITests.swift; sourceTree = "<group>"; };
+		BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemocracyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD9D07C828B729C400CC5F0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07DE28B729C700CC5F0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07E828B729C700CC5F0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD9D07C228B729C400CC5F0A = {
+			isa = PBXGroup;
+			children = (
+				BD9D07CD28B729C400CC5F0A /* Democracy */,
+				BD9D07E428B729C700CC5F0A /* DemocracyTests */,
+				BD9D07EE28B729C700CC5F0A /* DemocracyUITests */,
+				BD9D07CC28B729C400CC5F0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD9D07CC28B729C400CC5F0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D07CB28B729C400CC5F0A /* Democracy.app */,
+				BD9D07E128B729C700CC5F0A /* DemocracyTests.xctest */,
+				BD9D07EB28B729C700CC5F0A /* DemocracyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD9D07CD28B729C400CC5F0A /* Democracy */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
+				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
+				BD9D07D228B729C400CC5F0A /* ViewController.swift */,
+				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
+				BD9D07D728B729C600CC5F0A /* Assets.xcassets */,
+				BD9D07D928B729C600CC5F0A /* LaunchScreen.storyboard */,
+				BD9D07DC28B729C600CC5F0A /* Info.plist */,
+			);
+			path = Democracy;
+			sourceTree = "<group>";
+		};
+		BD9D07E428B729C700CC5F0A /* DemocracyTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D07E528B729C700CC5F0A /* DemocracyTests.swift */,
+			);
+			path = DemocracyTests;
+			sourceTree = "<group>";
+		};
+		BD9D07EE28B729C700CC5F0A /* DemocracyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D07EF28B729C700CC5F0A /* DemocracyUITests.swift */,
+				BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */,
+			);
+			path = DemocracyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD9D07CA28B729C400CC5F0A /* Democracy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9D07F528B729C700CC5F0A /* Build configuration list for PBXNativeTarget "Democracy" */;
+			buildPhases = (
+				BD9D07C728B729C400CC5F0A /* Sources */,
+				BD9D07C828B729C400CC5F0A /* Frameworks */,
+				BD9D07C928B729C400CC5F0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Democracy;
+			productName = Democracy;
+			productReference = BD9D07CB28B729C400CC5F0A /* Democracy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD9D07E028B729C700CC5F0A /* DemocracyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9D07F828B729C700CC5F0A /* Build configuration list for PBXNativeTarget "DemocracyTests" */;
+			buildPhases = (
+				BD9D07DD28B729C700CC5F0A /* Sources */,
+				BD9D07DE28B729C700CC5F0A /* Frameworks */,
+				BD9D07DF28B729C700CC5F0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9D07E328B729C700CC5F0A /* PBXTargetDependency */,
+			);
+			name = DemocracyTests;
+			productName = DemocracyTests;
+			productReference = BD9D07E128B729C700CC5F0A /* DemocracyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD9D07EA28B729C700CC5F0A /* DemocracyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9D07FB28B729C700CC5F0A /* Build configuration list for PBXNativeTarget "DemocracyUITests" */;
+			buildPhases = (
+				BD9D07E728B729C700CC5F0A /* Sources */,
+				BD9D07E828B729C700CC5F0A /* Frameworks */,
+				BD9D07E928B729C700CC5F0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9D07ED28B729C700CC5F0A /* PBXTargetDependency */,
+			);
+			name = DemocracyUITests;
+			productName = DemocracyUITests;
+			productReference = BD9D07EB28B729C700CC5F0A /* DemocracyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD9D07C328B729C400CC5F0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					BD9D07CA28B729C400CC5F0A = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					BD9D07E028B729C700CC5F0A = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = BD9D07CA28B729C400CC5F0A;
+					};
+					BD9D07EA28B729C700CC5F0A = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = BD9D07CA28B729C400CC5F0A;
+					};
+				};
+			};
+			buildConfigurationList = BD9D07C628B729C400CC5F0A /* Build configuration list for PBXProject "Democracy" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD9D07C228B729C400CC5F0A;
+			productRefGroup = BD9D07CC28B729C400CC5F0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD9D07CA28B729C400CC5F0A /* Democracy */,
+				BD9D07E028B729C700CC5F0A /* DemocracyTests */,
+				BD9D07EA28B729C700CC5F0A /* DemocracyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD9D07C928B729C400CC5F0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9D07DB28B729C600CC5F0A /* LaunchScreen.storyboard in Resources */,
+				BD9D07D828B729C600CC5F0A /* Assets.xcassets in Resources */,
+				BD9D07D628B729C400CC5F0A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07DF28B729C700CC5F0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07E928B729C700CC5F0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD9D07C728B729C400CC5F0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9D07D328B729C400CC5F0A /* ViewController.swift in Sources */,
+				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
+				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07DD28B729C700CC5F0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9D07E628B729C700CC5F0A /* DemocracyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9D07E728B729C700CC5F0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9D07F228B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift in Sources */,
+				BD9D07F028B729C700CC5F0A /* DemocracyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD9D07E328B729C700CC5F0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD9D07CA28B729C400CC5F0A /* Democracy */;
+			targetProxy = BD9D07E228B729C700CC5F0A /* PBXContainerItemProxy */;
+		};
+		BD9D07ED28B729C700CC5F0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD9D07CA28B729C400CC5F0A /* Democracy */;
+			targetProxy = BD9D07EC28B729C700CC5F0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD9D07D428B729C400CC5F0A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD9D07D528B729C400CC5F0A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD9D07D928B729C600CC5F0A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD9D07DA28B729C600CC5F0A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD9D07F328B729C700CC5F0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD9D07F428B729C700CC5F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD9D07F628B729C700CC5F0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Democracy/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.Democracy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD9D07F728B729C700CC5F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Democracy/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.Democracy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BD9D07F928B729C700CC5F0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.DemocracyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Democracy.app/Democracy";
+			};
+			name = Debug;
+		};
+		BD9D07FA28B729C700CC5F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.DemocracyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Democracy.app/Democracy";
+			};
+			name = Release;
+		};
+		BD9D07FC28B729C700CC5F0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.DemocracyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Democracy;
+			};
+			name = Debug;
+		};
+		BD9D07FD28B729C700CC5F0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NZTKYG24L3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LiamDowd.DemocracyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Democracy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD9D07C628B729C400CC5F0A /* Build configuration list for PBXProject "Democracy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9D07F328B729C700CC5F0A /* Debug */,
+				BD9D07F428B729C700CC5F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9D07F528B729C700CC5F0A /* Build configuration list for PBXNativeTarget "Democracy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9D07F628B729C700CC5F0A /* Debug */,
+				BD9D07F728B729C700CC5F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9D07F828B729C700CC5F0A /* Build configuration list for PBXNativeTarget "DemocracyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9D07F928B729C700CC5F0A /* Debug */,
+				BD9D07FA28B729C700CC5F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9D07FB28B729C700CC5F0A /* Build configuration list for PBXNativeTarget "DemocracyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9D07FC28B729C700CC5F0A /* Debug */,
+				BD9D07FD28B729C700CC5F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD9D07C328B729C400CC5F0A /* Project object */;
+}
