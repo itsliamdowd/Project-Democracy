@@ -67,18 +67,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     print("refreshed")
                     DispatchQueue.main.async { self.stateElections.reloadData() }
                     //"U.S. Senate", "U.S. Representative in Congress",
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Dana Point, United States":
                     print("Dana Point")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Laguna Niguel, United States":
                     print("Laguna Niguel")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Laguna Beach, United States":
                     print("Laguna Beach")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "San Clemente, United States":
                     print("San Clemente")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Irvine, United States":
                     print("Irvine")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Orange, United States":
-                    print("Irvine")
+                    print("Orange")
+                    UserDefaults.standard.set(citycountrydata, forKey: "city")
                 default:
                     print("Error")
             }
