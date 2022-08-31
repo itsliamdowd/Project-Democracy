@@ -6,6 +6,8 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
+		<key>mainData</key>
+		<string></string>
 		<key>canidateName</key>
 		<string></string>
 		<key>electionName</key>

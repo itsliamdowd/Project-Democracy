@@ -35,7 +35,7 @@ extension ElectionScreen: UITableViewDataSource {
 
 class ElectionScreen: UIViewController {
     
-    var data = ["Loading...", "Loading...", "Loading...", "Loading...", "Loading..."]
+    var data = ["Donald Trump (R)", "Joe Biden (D)", "Loading... (O)", "Loading... (O)", "Loading... (O)"]
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var canidateTable: UITableView!

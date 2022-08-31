@@ -79,5 +79,10 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        streetInput.becomeFirstResponder()
+    }
 
 }
