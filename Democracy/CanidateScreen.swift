@@ -49,6 +49,8 @@ class CanidateScreen: UIViewController {
                 //canidateParty.text = "Green"
         }
         if UserDefaults.standard.string(forKey: "canidateName") != nil {
+            print(self.canidateName.text)
+            print(UserDefaults.standard.string(forKey: "canidateName"))
             self.canidateName.text = UserDefaults.standard.string(forKey: "canidateName")
         }
         else {

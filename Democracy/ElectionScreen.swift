@@ -10,9 +10,10 @@ import UIKit
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
+        //removes party from canidate name
         print(data[indexPath.row])
         var dataSplit = data[indexPath.row].split(separator: " ")
-        var dataTwo = [String].self
+        var dataTwo = ""
         var i = 0
         for dataOne in dataSplit {
             i = i+1
@@ -20,16 +21,16 @@ extension ElectionScreen: UITableViewDelegate {
                 print("pass")
             }
             else if i != dataSplit.count {
-                //dataTwo.append(dataOne)
+                dataTwo = dataTwo + " " + dataOne
                 print("else if")
             }
             else {
-                //dataTwo.append(dataOne)
+                dataTwo = dataTwo + " " + dataOne
                 print("else")
             }
         }
             
-        UserDefaults.standard.set(data[indexPath.row], forKey: "canidateName")
+        UserDefaults.standard.set(dataTwo, forKey: "canidateName")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "CanidateScreen")
