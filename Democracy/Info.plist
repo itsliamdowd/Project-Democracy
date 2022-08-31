@@ -6,6 +6,8 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
+		<key>loggedIn</key>
+		<string></string>
 		<key>candidate</key>
 		<string></string>
 		<key>whichEvent</key>

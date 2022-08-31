@@ -38,6 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("true", forKey: "loggedIn")
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -47,7 +48,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -69,21 +69,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     //"U.S. Senate", "U.S. Representative in Congress",
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Dana Point, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("Dana Point")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Laguna Niguel, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("Laguna Niguel")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Laguna Beach, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("Laguna Beach")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "San Clemente, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("San Clemente")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Irvine, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("Irvine")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 case "Orange, United States":
+                    self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
+                    print("refreshed")
+                    DispatchQueue.main.async { self.stateElections.reloadData() }
                     print("Orange")
                     UserDefaults.standard.set(citycountrydata, forKey: "city")
                 default:

@@ -16,6 +16,9 @@
 		BD9D07E628B729C700CC5F0A /* DemocracyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07E528B729C700CC5F0A /* DemocracyTests.swift */; };
 		BD9D07F028B729C700CC5F0A /* DemocracyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07EF28B729C700CC5F0A /* DemocracyUITests.swift */; };
 		BD9D07F228B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */; };
+		BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */; };
+		BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */; };
+		BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		BD9D07EB28B729C700CC5F0A /* DemocracyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemocracyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07EF28B729C700CC5F0A /* DemocracyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemocracyUITests.swift; sourceTree = "<group>"; };
 		BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemocracyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchCheck.swift; sourceTree = "<group>"; };
+		BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionScreen.swift; sourceTree = "<group>"; };
+		BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,12 @@
 		BD9D07CD28B729C400CC5F0A /* Democracy */ = {
 			isa = PBXGroup;
 			children = (
+				BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */,
+				BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */,
+				BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */,
+				BD9D07D228B729C400CC5F0A /* ViewController.swift */,
 				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
 				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
-				BD9D07D228B729C400CC5F0A /* ViewController.swift */,
 				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
 				BD9D07D728B729C600CC5F0A /* Assets.xcassets */,
 				BD9D07D928B729C600CC5F0A /* LaunchScreen.storyboard */,
@@ -258,7 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* ViewController.swift in Sources */,
+				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
+				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 			);
@@ -445,6 +457,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +467,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,6 +486,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +496,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
