@@ -379,7 +379,7 @@ class JSONNull: Codable, Hashable {
 
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected a button...")
+        print("selected a button")
         print(data[indexPath.row])
         UserDefaults.standard.set(data[indexPath.row], forKey: "electionName")
         DispatchQueue.main.async {
@@ -404,7 +404,7 @@ extension HomeScreen: UITableViewDataSource {
 
 class HomeScreen: UIViewController {
     
-    var data = ["Loading...", "Loading...", "Loading...", "Loading...", "Loading..."]
+    var data = ["Loading", "Loading", "Loading", "Loading", "Loading"]
     
     @IBOutlet var stateElections: UITableView!
     

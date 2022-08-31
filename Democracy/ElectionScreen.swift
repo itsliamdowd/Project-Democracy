@@ -9,8 +9,26 @@ import UIKit
 
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected a button...")
+        print("selected a button")
         print(data[indexPath.row])
+        var dataSplit = data[indexPath.row].split(separator: " ")
+        var dataTwo = [String].self
+        var i = 0
+        for dataOne in dataSplit {
+            i = i+1
+            if i == dataSplit.count {
+                print("pass")
+            }
+            else if i != dataSplit.count {
+                //dataTwo.append(dataOne)
+                print("else if")
+            }
+            else {
+                //dataTwo.append(dataOne)
+                print("else")
+            }
+        }
+            
         UserDefaults.standard.set(data[indexPath.row], forKey: "canidateName")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -35,7 +53,7 @@ extension ElectionScreen: UITableViewDataSource {
 
 class ElectionScreen: UIViewController {
     
-    var data = ["Donald Trump (R)", "Joe Biden (D)", "Loading... (O)", "Loading... (O)", "Loading... (O)"]
+    var data = ["Donald Trump (R)", "Joe Biden (D)", "Loading (O)", "Loading (O)", "Loading (O)"]
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var canidateTable: UITableView!
