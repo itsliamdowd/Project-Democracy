@@ -9,14 +9,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
-extension ViewController: UITableViewDelegate {
+extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button...")
         print(data[indexPath.row])
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -28,7 +28,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class HomeScreen: UIViewController, CLLocationManagerDelegate {
     
     var data = ["Loading...", "Loading...", "Loading...", "Loading...", "Loading..."]
     
