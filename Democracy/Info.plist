@@ -6,6 +6,8 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
+		<key>electionName</key>
+		<string></string>
 		<key>latitude</key>
 		<string></string>
 		<key>longitude</key>

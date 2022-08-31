@@ -381,6 +381,12 @@ extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button...")
         print(data[indexPath.row])
+        UserDefaults.standard.set(data[indexPath.row], forKey: "electionName")
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen")
+            self.present(vc, animated: true)
+        }
     }
 }
 
