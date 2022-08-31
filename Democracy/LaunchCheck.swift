@@ -17,7 +17,8 @@ class LaunchCheck: UIViewController {
             case "true":
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
+                        //let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PromotionScreen")
                     self.present(vc, animated: true)
                 }
             case "false" :
