@@ -24,22 +24,13 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func currentLocationButton(_ sender: Any) {
-        // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
-
-        // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
-
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        //DispatchQueue.main.async {
-        //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //    let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
-        //    self.present(vc, animated: true)
-        //}
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
