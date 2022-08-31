@@ -6,6 +6,10 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
+		<key>latitude</key>
+		<string></string>
+		<key>longitude</key>
+		<string></string>
 		<key>loggedIn</key>
 		<string></string>
 		<key>candidate</key>
