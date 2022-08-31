@@ -16,10 +16,21 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
-            self.present(vc, animated: true)
+        if streetInput.text == nil {
+            print("Error")
+        }
+        else if streetInput.text == "" {
+            print("Error")
+        }
+        else if streetInput.text != "" && streetInput.text != nil {
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
+                self.present(vc, animated: true)
+            }
+        }
+        else {
+            print("Error")
         }
     }
     
@@ -30,6 +41,9 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+        }
+        else {
+            print("Must provide location services to use feature")
         }
     }
     
