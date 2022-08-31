@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
+		BD3BFE3128BFD00C00582962 /* CanidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */; };
 		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
 		BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */; };
 		BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D228B729C400CC5F0A /* HomeScreen.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
+		BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanidateScreen.swift; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */,
 				BD9D07D228B729C400CC5F0A /* HomeScreen.swift */,
 				BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */,
+				BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */,
 				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
 				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
 				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3BFE3128BFD00C00582962 /* CanidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,

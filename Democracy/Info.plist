@@ -6,6 +6,8 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
+		<key>canidateName</key>
+		<string></string>
 		<key>electionName</key>
 		<string></string>
 		<key>latitude</key>
@@ -14,15 +16,11 @@
 		<string></string>
 		<key>loggedIn</key>
 		<string></string>
-		<key>candidate</key>
-		<string></string>
-		<key>whichEvent</key>
-		<string></string>
-		<key>city</key>
-		<string></string>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used to determine elections in your area</string>
+	<string>Used to determine your election district</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Used to determine your election district</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
