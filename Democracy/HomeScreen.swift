@@ -433,12 +433,7 @@ class HomeScreen: UIViewController {
                 return
               }
               print(String(data: data, encoding: .utf8)!)
-              do {
-                  try data.encode(to: Codable.self as! Encoder)
-              }
-              catch {
-                  print("Error")
-              }
+                
               semaphore.signal()
             }
 
