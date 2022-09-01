@@ -20,7 +20,11 @@ extension ElectionScreen: UITableViewDelegate {
             if i == dataSplit.count {
                 print("pass")
             }
-            else if i != dataSplit.count {
+            else if i == 1 {
+                dataTwo = String(dataOne)
+                print("pass")
+            }
+            else if i != dataSplit.count &&  i != 1 {
                 dataTwo = dataTwo + " " + dataOne
                 print("else if")
             }
