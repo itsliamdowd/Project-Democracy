@@ -28,12 +28,14 @@ class CanidateScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to canidate screen")
-        var party = "Republican Party"
         canidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
         nextView.layer.cornerRadius = 15
         backView.layer.cornerRadius = 15
+        
+        //Sets party
+        var party = "Nonpartisan"
         switch party {
             case "Republican Party":
                 print("Republican")
@@ -51,23 +53,31 @@ class CanidateScreen: UIViewController {
                 print("Green")
                 canidateParty.backgroundColor = UIColor.green
                 canidateParty.setTitle("Green Party", for: .normal)
+            case "Nonpartisan":
+                print("Nonpartisan")
+                canidateParty.backgroundColor = UIColor.gray
+                canidateParty.setTitle("Nonpartisan", for: .normal)
             default:
                 print("Other")
                 canidateParty.backgroundColor = UIColor.gray
                 canidateParty.setTitle(party, for: .normal)
         }
-        var incumbent = "true"
+        
+        //Sets incumbent
+        var incumbent = "false"
         switch incumbent {
             case "true":
                 print("Incumbent")
-                //incumbent.isVisible = true
+                self.incumbent.isHidden = false
             case "false":
                 print("Not incumbent")
-                //incumbent.display = false
+                self.incumbent.isHidden = true
             default:
                 print("Other")
-                //incumbent.display = false
+                self.incumbent.isHidden = true
         }
+        
+        //Sets name
         if UserDefaults.standard.string(forKey: "canidateName") != nil {
             print(self.canidateName.text)
             print(UserDefaults.standard.string(forKey: "canidateName"))
@@ -76,6 +86,32 @@ class CanidateScreen: UIViewController {
         else {
             print("Error")
         }
+        
+        //Sets occupation
+        if UserDefaults.standard.string(forKey: "canidateOccupation") != nil {
+            print(self.canidateName.text)
+            print(UserDefaults.standard.string(forKey: "canidateOccupation"))
+            self.canidateOccupation.text = UserDefaults.standard.string(forKey: "canidateOccupation")
+        }
+        else {
+            print("Error")
+            self.canidateOccupation.text = "Mayor"
+        }
+        
+        //Sets image to image from url
+        if let url = URL(string: "") {
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+
+                DispatchQueue.main.async {
+                    self.canidateImage.contentMode = .center
+                    self.canidateImage.image = UIImage(data: data)
+                }
+            }
+            
+            task.resume()
+        }
+        
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipe.direction = UISwipeGestureRecognizer.Direction.right
         self.view.addGestureRecognizer(swipe)
