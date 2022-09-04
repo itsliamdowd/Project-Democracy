@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
+		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
 		BD3BFE3128BFD00C00582962 /* CanidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */; };
 		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanidateScreen.swift; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +92,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62B1B3F328C42629000EB586 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */,
+				BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */,
+				BD9D07D228B729C400CC5F0A /* HomeScreen.swift */,
+				BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */,
+				BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62B1B3F428C42637000EB586 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				62B1B3F528C42641000EB586 /* Endpoint.swift */,
+				62B1B3F728C42B1C000EB586 /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		BD9D07C228B729C400CC5F0A = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +136,9 @@
 		BD9D07CD28B729C400CC5F0A /* Democracy */ = {
 			isa = PBXGroup;
 			children = (
+				62B1B3F428C42637000EB586 /* Utility */,
+				62B1B3F328C42629000EB586 /* Views */,
 				BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */,
-				BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */,
-				BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */,
-				BD9D07D228B729C400CC5F0A /* HomeScreen.swift */,
-				BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */,
-				BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */,
 				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
 				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
 				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
@@ -282,8 +304,10 @@
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
+				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
+				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NZTKYG24L3;
+				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -490,7 +514,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NZTKYG24L3;
+				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -415,35 +415,35 @@ class HomeScreen: UIViewController {
         stateElections.dataSource = self
         stateElections.delegate = self
         
-        var semaphore = DispatchSemaphore (value: 0)
-        var latitude = UserDefaults.standard.string(forKey: "latitude")
-        var longitude = UserDefaults.standard.string(forKey: "longitude")
-        if (latitude != nil) && (longitude != nil) {
-            var URLBuilder = "https://api4.ballotpedia.org/myvote_redistricting?long=" + longitude! + "&lat=" + latitude! + "&include_volunteer=true"
-            var request = URLRequest(url: URL(string: URLBuilder)!,timeoutInterval: Double.infinity)
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("capacitor://myvote.org", forHTTPHeaderField: "Origin")
 
-            request.httpMethod = "GET"
-
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-              guard let data = data else {
-                print(String(describing: error))
-                semaphore.signal()
-                return
-              }
-              print(String(data: data, encoding: .utf8)!)
-                
-              semaphore.signal()
+        if  let latitude = UserDefaults.standard.string(forKey: "latitude"),
+            let longitude = UserDefaults.standard.string(forKey: "longitude") {
+            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Double(latitude)!),
+                                                  longitude: CLLocationDegrees(Double(longitude)!))
+            let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
+            fetchData(api: request) {(success, errorDescription, data) in
+                print(String(data: data!, encoding: .utf8))
             }
-
-            task.resume()
-            semaphore.wait()
         }
         else {
             print("Error")
         }
 
+    }
+
+    func fetchData(api: Endpoint,
+                   completion: @escaping  (Bool, String?, Data?) -> Void) {
+        URLSession.shared.dataTask(with: api.request) {(data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode),
+                  let data = data
+            else {
+                let error = error?.localizedDescription ?? ""
+                completion(false, error, nil)
+                return
+            }
+            completion(true, nil, data)
+        }.resume()
     }
     
 
