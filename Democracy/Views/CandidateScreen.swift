@@ -1,5 +1,5 @@
 //
-//  CanidateScreen.swift
+//  CandidateScreen.swift
 //  Democracy
 //
 //  Created by Liam Dowd on 8/31/22.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class CanidateScreen: UIViewController {
+class CandidateScreen: UIViewController {
     
-    //set photo of canidate to one recieved from api call earlier
+    //set photo of candidate to one recieved from api call earlier
     
     var swipeindex = 0
     
-    @IBOutlet var canidateName: UILabel!
-    @IBOutlet var canidateParty: UIButton!
-    @IBOutlet var canidateOccupation: UILabel!
-    @IBOutlet var canidateImage: UIImageView!
+    @IBOutlet var candidateName: UILabel!
+    @IBOutlet var candidateParty: UIButton!
+    @IBOutlet var candidateOccupation: UILabel!
+    @IBOutlet var candidateImage: UIImageView!
     @IBOutlet var swipeScreen: UIView!
     @IBOutlet var textScreen: UIView!
     @IBOutlet var nextView: UIView!
@@ -27,8 +27,8 @@ class CanidateScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Made it to canidate screen")
-        canidateParty.layer.cornerRadius = 15
+        print("Made it to candidate screen")
+        candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
         nextView.layer.cornerRadius = 15
@@ -39,28 +39,28 @@ class CanidateScreen: UIViewController {
         switch party {
             case "Republican Party":
                 print("Republican")
-                canidateParty.backgroundColor = UIColor.red
-                canidateParty.setTitle("Republican", for: .normal)
+                candidateParty.backgroundColor = UIColor.red
+                candidateParty.setTitle("Republican", for: .normal)
             case "Democratic Party":
                 print("Democrat")
-                canidateParty.backgroundColor = UIColor.blue
-                canidateParty.setTitle("Democrat", for: .normal)
+                candidateParty.backgroundColor = UIColor.blue
+                candidateParty.setTitle("Democrat", for: .normal)
             case "Libertarian Party":
                 print("Libertarian")
-                canidateParty.backgroundColor = UIColor.yellow
-                canidateParty.setTitle("Libertarian", for: .normal)
+                candidateParty.backgroundColor = UIColor.yellow
+                candidateParty.setTitle("Libertarian", for: .normal)
             case "Green Party":
                 print("Green")
-                canidateParty.backgroundColor = UIColor.green
-                canidateParty.setTitle("Green Party", for: .normal)
+                candidateParty.backgroundColor = UIColor.green
+                candidateParty.setTitle("Green Party", for: .normal)
             case "Nonpartisan":
                 print("Nonpartisan")
-                canidateParty.backgroundColor = UIColor.gray
-                canidateParty.setTitle("Nonpartisan", for: .normal)
+                candidateParty.backgroundColor = UIColor.gray
+                candidateParty.setTitle("Nonpartisan", for: .normal)
             default:
                 print("Other")
-                canidateParty.backgroundColor = UIColor.gray
-                canidateParty.setTitle(party, for: .normal)
+                candidateParty.backgroundColor = UIColor.gray
+                candidateParty.setTitle(party, for: .normal)
         }
         
         //Sets incumbent
@@ -78,24 +78,24 @@ class CanidateScreen: UIViewController {
         }
         
         //Sets name
-        if UserDefaults.standard.string(forKey: "canidateName") != nil {
-            print(self.canidateName.text)
-            print(UserDefaults.standard.string(forKey: "canidateName"))
-            self.canidateName.text = UserDefaults.standard.string(forKey: "canidateName")
+        if UserDefaults.standard.string(forKey: "candidateName") != nil {
+            print(self.candidateName.text)
+            print(UserDefaults.standard.string(forKey: "candidateName"))
+            self.candidateName.text = UserDefaults.standard.string(forKey: "candidateName")
         }
         else {
             print("Error")
         }
         
         //Sets occupation
-        if UserDefaults.standard.string(forKey: "canidateOccupation") != nil {
-            print(self.canidateName.text)
-            print(UserDefaults.standard.string(forKey: "canidateOccupation"))
-            self.canidateOccupation.text = UserDefaults.standard.string(forKey: "canidateOccupation")
+        if UserDefaults.standard.string(forKey: "candidateOccupation") != nil {
+            print(self.candidateName.text)
+            print(UserDefaults.standard.string(forKey: "candidateOccupation"))
+            self.candidateOccupation.text = UserDefaults.standard.string(forKey: "candidateOccupation")
         }
         else {
             print("Error")
-            self.canidateOccupation.text = "Mayor"
+            self.candidateOccupation.text = "Mayor"
         }
         
         //Sets image to image from url
@@ -104,8 +104,8 @@ class CanidateScreen: UIViewController {
                 guard let data = data, error == nil else { return }
 
                 DispatchQueue.main.async {
-                    self.canidateImage.contentMode = .center
-                    self.canidateImage.image = UIImage(data: data)
+                    self.candidateImage.contentMode = .center
+                    self.candidateImage.image = UIImage(data: data)
                 }
             }
             
@@ -125,10 +125,10 @@ class CanidateScreen: UIViewController {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.right:
                 print("Swiped right")
-                //if swipeindex != canidatesData.count {
+                //if swipeindex != candidatesData.count {
                   //  swipeindex = swipeindex + 1
                     //print("Insert reset to highest number in list if swiped right")
-              //  else if swipeindex == canidatesData.count {
+              //  else if swipeindex == candidatesData.count {
                //     swipeindex = 0
                // }
                // else {
@@ -139,7 +139,7 @@ class CanidateScreen: UIViewController {
             case UISwipeGestureRecognizer.Direction.left:
                 print("Swiped left")
                 //if swipeindex == 0 {
-                    //swipeindex = canidatesData.count
+                    //swipeindex = candidatesData.count
                  //   print("Insert reset to highest number in list if swiped right")
                 //else if swipeindex != 0 {
                 //    swipeindex = swipeindex - 1

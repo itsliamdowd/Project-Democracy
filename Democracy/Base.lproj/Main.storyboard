@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="-656.52173913043487" y="176.78571428571428"/>
         </scene>
-        <!--Canidate Screen-->
+        <!--Candidate Screen-->
         <scene sceneID="Jsq-79-SKa">
             <objects>
-                <viewController storyboardIdentifier="CanidateScreen" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P4h-Li-TM2" customClass="CanidateScreen" customModule="Democracy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CandidateScreen" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P4h-Li-TM2" customClass="CandidateScreen" customModule="Democracy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSf-Kj-3Pq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" causesPageTurn="YES"/>
                                                 </accessibility>
-                                                <mutableString key="text">Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph </mutableString>
+                                                <string key="text">Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph </string>
                                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -270,10 +270,10 @@
                     </view>
                     <connections>
                         <outlet property="backView" destination="AnV-oD-U7O" id="FwL-aG-OUS"/>
-                        <outlet property="canidateImage" destination="Ofi-CX-86l" id="j7K-yb-T9M"/>
-                        <outlet property="canidateName" destination="WIR-OQ-tKJ" id="6ti-6e-1wS"/>
-                        <outlet property="canidateOccupation" destination="HmM-BP-gaB" id="WaH-ig-BhQ"/>
-                        <outlet property="canidateParty" destination="EbO-LD-2D2" id="3Rw-lj-oE6"/>
+                        <outlet property="candidateImage" destination="Ofi-CX-86l" id="wQa-lG-9SW"/>
+                        <outlet property="candidateName" destination="WIR-OQ-tKJ" id="ac5-Nf-OaH"/>
+                        <outlet property="candidateOccupation" destination="HmM-BP-gaB" id="PjQ-Wv-a7n"/>
+                        <outlet property="candidateParty" destination="EbO-LD-2D2" id="gT0-vK-Y3c"/>
                         <outlet property="incumbent" destination="shL-ic-QJg" id="AzX-NQ-4IY"/>
                         <outlet property="nextView" destination="VBL-oD-cmB" id="Oii-eP-lmm"/>
                         <outlet property="screenText" destination="8jB-Ld-hb9" id="NJE-8k-caR"/>
@@ -365,7 +365,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="canidateTable" destination="b9D-P7-dgr" id="1jB-em-niu"/>
+                        <outlet property="candidateTable" destination="b9D-P7-dgr" id="H22-Jb-8ZG"/>
                         <outlet property="electionName" destination="Ik6-Rw-dKO" id="fai-ML-uaW"/>
                     </connections>
                 </viewController>
