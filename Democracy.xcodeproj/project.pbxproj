@@ -11,6 +11,8 @@
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
 		BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */; };
+		BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */; };
+		BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */; };
 		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
 		BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */; };
 		BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D228B729C400CC5F0A /* HomeScreen.swift */; };
@@ -48,6 +50,8 @@
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateScreen.swift; sourceTree = "<group>"; };
+		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
+		BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateTwitterScreen.swift; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				BD9D07D228B729C400CC5F0A /* HomeScreen.swift */,
 				BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */,
 				BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */,
+				BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */,
+				BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,10 +307,12 @@
 			files = (
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
+				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,
+				BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
