@@ -11,7 +11,7 @@ class CandidateScreen: UIViewController {
     
     //set photo of candidate to one recieved from api call earlier
     
-    var swipeindex = 0
+    //var swipeindex = 0
     
     @IBOutlet var candidateName: UILabel!
     @IBOutlet var candidateParty: UIButton!
@@ -77,7 +77,6 @@ class CandidateScreen: UIViewController {
         
         //Sets name
         if UserDefaults.standard.string(forKey: "candidateName") != nil {
-            print(self.candidateName.text)
             print(UserDefaults.standard.string(forKey: "candidateName"))
             self.candidateName.text = UserDefaults.standard.string(forKey: "candidateName")
         }
@@ -87,7 +86,6 @@ class CandidateScreen: UIViewController {
         
         //Sets occupation
         if UserDefaults.standard.string(forKey: "candidateOccupation") != nil {
-            print(self.candidateName.text)
             print(UserDefaults.standard.string(forKey: "candidateOccupation"))
             self.candidateOccupation.text = UserDefaults.standard.string(forKey: "candidateOccupation")
         }

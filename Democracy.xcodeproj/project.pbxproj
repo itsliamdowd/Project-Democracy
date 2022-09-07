@@ -28,6 +28,8 @@
 		BD9D080728BF14B200CC5F0A /* Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9D080628BF14B200CC5F0A /* Flag.png */; };
 		BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B7F28C839B5000E82E1 /* SourceCode.swift */; };
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
+		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
+		BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8528C83C6F000E82E1 /* Privacy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		BD9D080628BF14B200CC5F0A /* Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag.png; sourceTree = "<group>"; };
 		BDD90B7F28C839B5000E82E1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
+		BDD90B8528C83C6F000E82E1 /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */,
 				BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */,
 				BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */,
+				BDD90B8528C83C6F000E82E1 /* Privacy.swift */,
+				BDD90B8328C83C67000E82E1 /* Terms.swift */,
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
 			);
 			path = Views;
@@ -316,6 +322,8 @@
 				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
+				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
+				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */,
 				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,

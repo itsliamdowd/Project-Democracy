@@ -17,6 +17,7 @@ class SettingsScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Made it to settings screen")
         privacy.layer.cornerRadius = 15
         terms.layer.cornerRadius = 15
         source.layer.cornerRadius = 15

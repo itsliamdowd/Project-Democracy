@@ -519,6 +519,9 @@
                                 <state key="normal" title="Privacy Policy">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="u5P-eV-WPY" kind="showDetail" id="ayN-rP-W1d"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBx-C3-fAT">
                                 <rect key="frame" x="29" y="422" width="356" height="80"/>
@@ -540,6 +543,9 @@
                                 <state key="normal" title="Terms and Conditions">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="KWp-5N-CAA" kind="showDetail" id="N6P-GU-VSZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wdn-h8-E81"/>
@@ -554,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOT-Ew-cco" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.608695652173921" y="991.74107142857133"/>
+            <point key="canvasLocation" x="-1103" y="992"/>
         </scene>
         <!--Source Code-->
         <scene sceneID="93U-tC-y6X">
@@ -583,7 +589,65 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwG-n5-Cj6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82.608695652173921" y="1662.7232142857142"/>
+            <point key="canvasLocation" x="-180" y="878"/>
+        </scene>
+        <!--Privacy-->
+        <scene sceneID="wV8-0t-tCB">
+            <objects>
+                <viewController storyboardIdentifier="Privacy" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5P-eV-WPY" customClass="Privacy" customModule="Democracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1W9-mC-TUY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2Y-YA-0f3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r3e-RZ-Sfc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="PrivacyWebView" destination="v2Y-YA-0f3" id="PMC-5Y-I8D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQP-B3-jxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181" y="1528"/>
+        </scene>
+        <!--Terms-->
+        <scene sceneID="w16-ua-Tgy">
+            <objects>
+                <viewController storyboardIdentifier="Terms" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KWp-5N-CAA" customClass="Terms" customModule="Democracy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ltg-rT-uey">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cU-Mc-QR4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9eX-2j-jkK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="TermsWebView" destination="2cU-Mc-QR4" id="XAT-Wp-AT2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcA-ZU-hUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="498" y="1276"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Eb6-Eo-vBG">
