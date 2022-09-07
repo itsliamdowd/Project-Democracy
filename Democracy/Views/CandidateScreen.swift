@@ -19,8 +19,6 @@ class CandidateScreen: UIViewController {
     @IBOutlet var candidateImage: UIImageView!
     @IBOutlet var swipeScreen: UIView!
     @IBOutlet var textScreen: UIView!
-    @IBOutlet var nextView: UIView!
-    @IBOutlet var backView: UIView!
     @IBOutlet var screenTitle: UILabel!
     @IBOutlet var screenText: UITextView!
     @IBOutlet var incumbent: UIButton!
@@ -31,11 +29,9 @@ class CandidateScreen: UIViewController {
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
-        nextView.layer.cornerRadius = 15
-        backView.layer.cornerRadius = 15
-        
+
         //Sets party
-        var party = "Nonpartisan"
+        var party = "Democratic Party"
         switch party {
             case "Republican Party":
                 print("Republican")
@@ -49,10 +45,12 @@ class CandidateScreen: UIViewController {
                 print("Libertarian")
                 candidateParty.backgroundColor = UIColor.yellow
                 candidateParty.setTitle("Libertarian", for: .normal)
+                //make better color
             case "Green Party":
                 print("Green")
                 candidateParty.backgroundColor = UIColor.green
                 candidateParty.setTitle("Green Party", for: .normal)
+                //make better color
             case "Nonpartisan":
                 print("Nonpartisan")
                 candidateParty.backgroundColor = UIColor.gray
@@ -64,7 +62,7 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets incumbent
-        var incumbent = "false"
+        var incumbent = "true"
         switch incumbent {
             case "true":
                 print("Incumbent")
@@ -120,6 +118,25 @@ class CandidateScreen: UIViewController {
         self.view.addGestureRecognizer(swipeTwo)
     }
 
+    @IBAction func twitterButtonPressed(_ sender: Any) {
+        //UserDefaults.standard.set("@", forKey: "candidateSocial")
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CandidateTwitterScreen")
+            self.present(vc, animated: true)
+        }
+    }
+    
+    
+    @IBAction func websiteButtonPressed(_ sender: Any) {
+        //UserDefaults.standard.set("https://", forKey: "candidateWebsite")
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CandidateWebsiteScreen")
+            self.present(vc, animated: true)
+        }
+    }
+    
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {

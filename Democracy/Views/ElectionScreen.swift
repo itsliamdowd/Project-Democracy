@@ -70,6 +70,7 @@ class ElectionScreen: UIViewController {
         }
         else {
             print("Error")
+            self.electionName.text = "President"
         }
         candidateTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         candidateTable.dataSource = self

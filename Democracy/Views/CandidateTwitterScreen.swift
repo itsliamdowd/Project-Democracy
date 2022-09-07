@@ -14,7 +14,8 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Made it to candidate twitter screen")
+        print("Made it to candidate social screen")
+        //var candidateWebsite = UserDefaults.standard.string(forKey: "candidateSocial")
         let myURL = URL(string:"https://www.twitter.com")
         let myRequest = URLRequest(url: myURL!)
         twitterWebView.load(myRequest)

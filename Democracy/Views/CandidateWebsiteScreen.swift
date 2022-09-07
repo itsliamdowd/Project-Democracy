@@ -15,6 +15,7 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to candidate website screen")
+        //var candidateWebsite = UserDefaults.standard.string(forKey: "candidateWebsite")
         let myURL = URL(string:"https://www.example.com")
         let myRequest = URLRequest(url: myURL!)
         candidateWebView.load(myRequest)
