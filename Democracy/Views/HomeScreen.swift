@@ -60,8 +60,7 @@ class HomeScreen: UIViewController {
                     print(String(data: data!, encoding: .utf8))
                 }
                 else {
-                    print("Api call error")
-                }
+                    print("Error")
             }
         }
         else {

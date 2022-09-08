@@ -6,23 +6,27 @@
 //
 
 import UIKit
+import MapKit
 import CoreLocation
 
 class LocationScreen: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet var continueButton: UIButton!
-    @IBOutlet var streetInput: UITextField!
-    
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var searchResultsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBAction func continueButtonPressed(_ sender: Any) {
-        if streetInput.text == nil {
+        if UserDefaults.standard.string(forKey: "longitude") == nil {
             print("Error")
         }
-        else if streetInput.text == "" {
+        else if UserDefaults.standard.string(forKey: "latitude") == nil {
             print("Error")
         }
-        else if streetInput.text != "" && streetInput.text != nil {
+        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil {
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
@@ -34,7 +38,7 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    @IBAction func currentLocationButton(_ sender: Any) {
+    @IBAction func currentLocationButtonPressed(_ sender: Any) {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -50,39 +54,70 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
-        UserDefaults.standard.set(locValue.latitude, forKey: "latitude")
-        UserDefaults.standard.set(locValue.longitude, forKey: "longitude")
-        if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil {
-            DispatchQueue.main.async {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
-                self.present(vc, animated: true)
-            }
-        }
-        else {
-            print("Pass")
-        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Made it to location screen")
         continueButton.layer.cornerRadius = 20
-        streetInput.layer.cornerRadius = 10
-        streetInput.layer.borderWidth = 1
-        streetInput.layer.borderColor = UIColor.black.cgColor
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
+        searchCompleter.delegate = self
+        searchResultsTableView.isHidden = true
     }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        streetInput.becomeFirstResponder()
-    }
+}
 
+extension LocationScreen: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchResultsTableView.isHidden = false
+        searchCompleter.queryFragment = searchText
+    }
+}
+
+extension LocationScreen: MKLocalSearchCompleterDelegate {
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        searchResultsTableView.reloadData()
+    }
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        print("Error")
+    }
+}
+
+extension LocationScreen: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let searchResult = searchResults[indexPath.row]
+        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        let cell = searchResultsTableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = searchResult.title
+        cell.detailTextLabel?.text = searchResult.subtitle
+        return cell
+    }
+}
+
+extension LocationScreen: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print(searchResults[indexPath.row])
+        let completion = searchResults[indexPath.row]
+        let searchRequest = MKLocalSearch.Request(completion: completion)
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            let coordinate = response?.mapItems[0].placemark.coordinate
+            print(String(describing: coordinate))
+            if coordinate?.longitude != nil && coordinate?.latitude != nil {
+                UserDefaults.standard.set(coordinate?.longitude, forKey: "longitude")
+                UserDefaults.standard.set(coordinate?.latitude, forKey: "latitude")
+                self.searchResultsTableView.isHidden = true
+                //self.searchBar.text =
+                //Make searchbar have selected address
+            }
+            else {
+                print("Error")
+            }
+        }
+    }
 }
