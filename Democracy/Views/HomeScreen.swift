@@ -39,6 +39,7 @@ class HomeScreen: UIViewController {
     var data = ["Loading", "Loading", "Loading", "Loading", "Loading"]
     
     @IBOutlet var stateElections: UITableView!
+    @IBOutlet var conversationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ class HomeScreen: UIViewController {
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        
+        conversationButton.layer.cornerRadius = 15
 
         if  let latitude = UserDefaults.standard.string(forKey: "latitude"),
             let longitude = UserDefaults.standard.string(forKey: "longitude") {
@@ -55,7 +56,12 @@ class HomeScreen: UIViewController {
                                                   longitude: CLLocationDegrees(Double(longitude)!))
             let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
             fetchData(api: request) {(success, errorDescription, data) in
-                print(String(data: data!, encoding: .utf8))
+                if data != nil {
+                    print(String(data: data!, encoding: .utf8))
+                }
+                else {
+                    print("Api call error")
+                }
             }
         }
         else {

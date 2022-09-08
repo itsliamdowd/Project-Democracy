@@ -30,6 +30,7 @@
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
 		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
 		BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8528C83C6F000E82E1 /* Privacy.swift */; };
+		BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8728C84011000E82E1 /* TalkScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 		BDD90B8528C83C6F000E82E1 /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
+		BDD90B8728C84011000E82E1 /* TalkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				BDD90B8528C83C6F000E82E1 /* Privacy.swift */,
 				BDD90B8328C83C67000E82E1 /* Terms.swift */,
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
+				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */,
 				BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
+				BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
