@@ -54,6 +54,24 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        UserDefaults.standard.set(locValue.longitude, forKey: "longitude")
+        UserDefaults.standard.set(locValue.latitude, forKey: "latitude")
+        if UserDefaults.standard.string(forKey: "longitude") == nil {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "latitude") == nil {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil {
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
+                self.present(vc, animated: true)
+            }
+        }
+        else {
+            print("Error")
+        }
     }
     
     override func viewDidLoad() {
@@ -90,8 +108,7 @@ extension LocationScreen: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchResult = searchResults[indexPath.row]
-        //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        let cell = searchResultsTableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath) as UITableViewCell
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
         return cell
@@ -107,13 +124,17 @@ extension LocationScreen: UITableViewDelegate {
         let search = MKLocalSearch(request: searchRequest)
         search.start { (response, error) in
             let coordinate = response?.mapItems[0].placemark.coordinate
+            var placeMark = response?.mapItems[0].placemark
             print(String(describing: coordinate))
             if coordinate?.longitude != nil && coordinate?.latitude != nil {
+                //Sets longitude and latitude
                 UserDefaults.standard.set(coordinate?.longitude, forKey: "longitude")
                 UserDefaults.standard.set(coordinate?.latitude, forKey: "latitude")
+                //Hides search results table
                 self.searchResultsTableView.isHidden = true
-                //self.searchBar.text =
-                //Make searchbar have selected address
+                //Changes searchbar to have selected address
+                var fullAddress = "\(placeMark!.thoroughfare!)\n\(placeMark!.postalCode!) \(placeMark!.locality!)\n\(placeMark!.country!)"
+                self.searchBar.text = fullAddress
             }
             else {
                 print("Error")

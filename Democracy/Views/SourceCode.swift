@@ -14,7 +14,7 @@ class SourceCode: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Made it to candidate social screen")
+        print("Made it to source code screen")
         let myURL = URL(string:"https://github.com/SkiingIsFun123/Democracy")
         let myRequest = URLRequest(url: myURL!)
         SourceCodeWebView.load(myRequest)

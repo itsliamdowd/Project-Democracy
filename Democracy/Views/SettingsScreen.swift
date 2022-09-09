@@ -13,6 +13,7 @@ class SettingsScreen: UIViewController {
     @IBOutlet var privacy: UIButton!
     @IBOutlet var terms: UIButton!
     @IBOutlet var source: UIButton!
+    @IBOutlet weak var feedback: UIButton!
     @IBOutlet var appVersion: UILabel!
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class SettingsScreen: UIViewController {
         privacy.layer.cornerRadius = 15
         terms.layer.cornerRadius = 15
         source.layer.cornerRadius = 15
+        feedback.layer.cornerRadius = 15
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
            self.appVersion.text = "App version " + version
        }

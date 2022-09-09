@@ -31,6 +31,7 @@
 		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
 		BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8528C83C6F000E82E1 /* Privacy.swift */; };
 		BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8728C84011000E82E1 /* TalkScreen.swift */; };
+		BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8928CAF6BB000E82E1 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 		BDD90B8528C83C6F000E82E1 /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
 		BDD90B8728C84011000E82E1 /* TalkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkScreen.swift; sourceTree = "<group>"; };
+		BDD90B8928CAF6BB000E82E1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				BDD90B8528C83C6F000E82E1 /* Privacy.swift */,
 				BDD90B8328C83C67000E82E1 /* Terms.swift */,
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
+				BDD90B8928CAF6BB000E82E1 /* Contact.swift */,
 				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
 			);
 			path = Views;
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */,
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
 				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
