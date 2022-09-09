@@ -61,6 +61,7 @@ class HomeScreen: UIViewController {
                 }
                 else {
                     print("Error")
+                }
             }
         }
         else {
