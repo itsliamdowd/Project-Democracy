@@ -39,22 +39,25 @@ class HomeScreen: UIViewController {
     
     var data = ["Loading", "Loading", "Loading", "Loading", "Loading"]
     
+    @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
+    @IBOutlet var conversationButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Made it to home screen")
         UserDefaults.standard.set("true", forKey: "loggedIn")
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        
+        conversationButton.layer.cornerRadius = 15
 
         if  let latitude = UserDefaults.standard.string(forKey: "latitude"),
             let longitude = UserDefaults.standard.string(forKey: "longitude") {
             let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Double(latitude)!),
                                                   longitude: CLLocationDegrees(Double(longitude)!))
             let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
-            
+
             URLSession.shared.codableTask(with: request) {model in
                 print(model)
             }
@@ -65,6 +68,9 @@ class HomeScreen: UIViewController {
         }
 
     }
+    
+    //Get api data for next election date
+    //self.electionDate.text = "Election Date: " + electionDate
     
 
     //self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
