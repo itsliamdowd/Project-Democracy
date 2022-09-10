@@ -20,13 +20,6 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
         let myRequest = URLRequest(url: myURL!)
         candidateWebView.load(myRequest)
     }
-    
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        candidateWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        candidateWebView.uiDelegate = self
-       view = candidateWebView
-    }
 
 }
 

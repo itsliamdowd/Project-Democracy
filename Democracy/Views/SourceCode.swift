@@ -20,11 +20,8 @@ class SourceCode: UIViewController, WKUIDelegate {
         SourceCodeWebView.load(myRequest)
     }
     
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        SourceCodeWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        SourceCodeWebView.uiDelegate = self
-       view = SourceCodeWebView
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
 }

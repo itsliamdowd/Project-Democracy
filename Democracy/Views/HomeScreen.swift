@@ -38,6 +38,7 @@ class HomeScreen: UIViewController {
     
     var data = ["Loading", "Loading", "Loading", "Loading", "Loading"]
     
+    @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
     
@@ -84,6 +85,9 @@ class HomeScreen: UIViewController {
             completion(true, nil, data)
         }.resume()
     }
+    
+    //Get api data for next election date
+    //self.electionDate.text = "Election Date: " + electionDate
     
 
     //self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]

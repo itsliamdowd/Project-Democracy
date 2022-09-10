@@ -15,16 +15,13 @@ class Contact: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to contact screen")
-        let myURL = URL(string:"https://example.com")
+        let myURL = URL(string:"https://blue-app-group.github.io/DemocracyContactForm/")
         let myRequest = URLRequest(url: myURL!)
         ContactWebView.load(myRequest)
     }
     
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        ContactWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        ContactWebView.uiDelegate = self
-       view = ContactWebView
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
 }

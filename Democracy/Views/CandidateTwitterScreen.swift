@@ -20,13 +20,6 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
         let myRequest = URLRequest(url: myURL!)
         twitterWebView.load(myRequest)
     }
-    
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        twitterWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        twitterWebView.uiDelegate = self
-       view = twitterWebView
-    }
 
 }
 

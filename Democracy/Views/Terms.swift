@@ -19,13 +19,6 @@ class Terms: UIViewController, WKUIDelegate {
         let myRequest = URLRequest(url: myURL!)
         TermsWebView.load(myRequest)
     }
-    
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        TermsWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        TermsWebView.uiDelegate = self
-       view = TermsWebView
-    }
 
 }
 

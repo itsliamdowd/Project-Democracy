@@ -19,13 +19,10 @@ class Privacy: UIViewController, WKUIDelegate {
         let myRequest = URLRequest(url: myURL!)
         PrivacyWebView.load(myRequest)
     }
-    
-    override func loadView() {
-       let webConfiguration = WKWebViewConfiguration()
-        PrivacyWebView = WKWebView(frame: .zero, configuration: webConfiguration)
-        PrivacyWebView.uiDelegate = self
-       view = PrivacyWebView
-    }
 
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
 }
 
