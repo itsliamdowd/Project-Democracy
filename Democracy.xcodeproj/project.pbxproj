@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
+		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
+		62DF2BC928CD42CB000F9CEF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 62DF2BC828CD42CB000F9CEF /* SwiftyJSON */; };
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
 		BD3BFE3128BFD00C00582962 /* CanidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */; };
 		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
@@ -46,6 +48,7 @@
 /* Begin PBXFileReference section */
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3028BFD00C00582962 /* CanidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanidateScreen.swift; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DF2BC928CD42CB000F9CEF /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +113,7 @@
 			children = (
 				62B1B3F528C42641000EB586 /* Endpoint.swift */,
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
+				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -183,6 +188,9 @@
 			dependencies = (
 			);
 			name = Democracy;
+			packageProductDependencies = (
+				62DF2BC828CD42CB000F9CEF /* SwiftyJSON */,
+			);
 			productName = Democracy;
 			productReference = BD9D07CB28B729C400CC5F0A /* Democracy.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +263,9 @@
 				Base,
 			);
 			mainGroup = BD9D07C228B729C400CC5F0A;
+			packageReferences = (
+				62DF2BC728CD42CB000F9CEF /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = BD9D07CC28B729C400CC5F0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,6 +317,7 @@
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
+				62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
@@ -652,6 +664,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62DF2BC728CD42CB000F9CEF /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON#swiftyjson-model-generator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62DF2BC828CD42CB000F9CEF /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62DF2BC728CD42CB000F9CEF /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD9D07C328B729C400CC5F0A /* Project object */;
 }

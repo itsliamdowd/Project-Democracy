@@ -18,14 +18,16 @@ struct Endpoint {
     fileprivate var requestBody: [String: String] = [:]
     fileprivate var httpMethod: RequestMethod
 
+
     enum RequestMethod: String {
         case POST, GET
     }
 
-    enum APIRoutes {
+    enum APIRoutes{
         typealias Address = String
         case ballotpediaElectionInfo(location: CLLocationCoordinate2D)
         case voterbaseElectionInfo(location: Address)
+
     }
 }
 

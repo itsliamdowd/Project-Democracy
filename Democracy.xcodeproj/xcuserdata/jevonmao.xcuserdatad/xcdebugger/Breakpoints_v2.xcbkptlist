@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6C153478-96B3-44A3-886B-0CF9A1E8529B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B30CD3AC-C440-4EBB-B386-154875E99B1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/BallotpediaModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "codableTask(with:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B30CD3AC-C440-4EBB-B386-154875E99B1D - f889e701f4a90a70"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.NSURLSession.codableTask&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Democracy.Endpoint, model: &#x3c4;_0_0.Type, completionHandler: (Swift.Optional&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; __C.NSURLSessionDataTask"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/BallotpediaModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "518"
+                  endingLineNumber = "518"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "B30CD3AC-C440-4EBB-B386-154875E99B1D - f889e701f4a90a70"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.NSURLSession.codableTask&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(with: Democracy.Endpoint, model: &#x3c4;_0_0.Type, completionHandler: (Swift.Optional&lt;&#x3c4;_0_0&gt;) -&gt; ()) -&gt; __C.NSURLSessionDataTask"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/BallotpediaModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "518"
+                  endingLineNumber = "518"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B03D4FE-2EC0-47FD-BD88-45E3D6535DB4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Views/HomeScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47BA86FC-6F58-4977-BEF8-DC9EB10E6FC6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/BallotpediaModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "codableTask(with:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
