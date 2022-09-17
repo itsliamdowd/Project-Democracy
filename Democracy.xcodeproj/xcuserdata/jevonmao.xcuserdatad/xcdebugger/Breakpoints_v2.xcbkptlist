@@ -14,8 +14,8 @@
             filePath = "Democracy/Utility/BallotpediaModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "codableTask(with:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -78,8 +78,8 @@
             filePath = "Democracy/Utility/BallotpediaModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "codableTask(with:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>

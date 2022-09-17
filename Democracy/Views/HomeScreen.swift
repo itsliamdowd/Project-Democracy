@@ -59,7 +59,7 @@ class HomeScreen: UIViewController {
             let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
 
             URLSession.shared.codableTask(with: request) {model in
-                print(model)
+                
             }
         }
 

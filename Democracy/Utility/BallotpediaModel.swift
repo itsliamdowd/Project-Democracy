@@ -8,6 +8,35 @@
 import Foundation
 import SwiftyJSON
 
+struct BallotpediaElection: Codable {
+    let date: Date
+    let districts: [District]
+
+    struct District: Codable {
+        let name: String
+        let type: String
+        let races: [Race]
+    }
+
+    struct Race: Codable {
+        let name: String
+        let level: ElectionLevel
+        let candidates: [Candidate]
+
+    }
+
+    struct Candidate: Codable {
+        let name: String
+        let party: String
+        let imageUrl: URL
+    }
+
+    enum ElectionLevel: String, Codable {
+        case federal, state, local
+    }
+}
+
+
 extension URLSession {
     func codableTask(with request: Endpoint,
                                  completionHandler: @escaping (JSON?) -> Void) -> Void {
@@ -26,30 +55,5 @@ extension URLSession {
             }
             completionHandler(try? JSON(data: data))
         }.resume()
-    }
-}
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }
