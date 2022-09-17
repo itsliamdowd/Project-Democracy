@@ -24,4 +24,22 @@ struct Constants {
         static let addressLabel = "address"
 
     }
+
+    struct JSON {
+        static let data = "data"
+        static let elections = "elections"
+        static let date = "date"
+        static let districts = "districts"
+        static let name = "name"
+        static let type = "type"
+        static let races = "races"
+        static let office = "office"
+        static let level = "level"
+        static let candidates = "candidates"
+        static let party = "party_affiliation"
+        static let person = "person"
+        static let url = "url"
+        static let image = "image"
+
+    }
 }

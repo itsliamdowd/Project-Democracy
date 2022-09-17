@@ -13,8 +13,8 @@ import Foundation
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
-        print(data[indexPath.row])
-        UserDefaults.standard.set(data[indexPath.row], forKey: "electionName")
+        print(electionInfo[indexPath.row])
+        UserDefaults.standard.set(electionInfo[indexPath.row], forKey: "electionName")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen")
@@ -25,20 +25,20 @@ extension HomeScreen: UITableViewDelegate {
 
 extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return electionInfo.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = stateElections.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = electionInfo[indexPath.row].date.formatted(date: .long,
+                                                                          time: .omitted)
         return cell
     }
 }
 
 class HomeScreen: UIViewController {
-    
-    var data = ["Loading", "Loading", "Loading", "Loading", "Loading"]
-    
+    var electionInfo = [BallotpediaElection]()
+
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
@@ -58,8 +58,50 @@ class HomeScreen: UIViewController {
                                                   longitude: CLLocationDegrees(Double(longitude)!))
             let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
 
-            URLSession.shared.codableTask(with: request) {model in
-                
+            URLSession.shared.codableTask(with: request) {[weak self] model in
+                typealias c = Constants.JSON
+                let electionsJson = model?[c.data][c.elections].array ?? []
+                let elections: [BallotpediaElection] = electionsJson.compactMap {election in
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let date = formatter.date(from: election[c.date].stringValue)
+
+                    let districtsJson = election[c.districts].array ?? []
+                    let districts: [BallotpediaElection.District] = districtsJson.compactMap {
+                        let racesJson = $0[c.races].array ?? []
+                        let races: [BallotpediaElection.Race] = racesJson.compactMap {
+                            let rawLevel = $0[c.office][c.level].stringValue
+                            guard let level = BallotpediaElection.ElectionLevel(rawValue: rawLevel.lowercased())
+                            else {
+                                return nil
+                            }
+
+                            let name = $0[c.office][c.name].stringValue
+                            let candidatesJson = $0[c.candidates].array ?? []
+                            let candidates: [BallotpediaElection.Candidate] = candidatesJson.map {
+                                let name = $0[c.person][c.name].stringValue
+                                let party = $0[c.party].array?.first?[c.name].stringValue
+                                let imageUrl = $0[c.person][c.image][c.url].stringValue
+                                return BallotpediaElection.Candidate(name: name,
+                                                                     party: party,
+                                                                     imageUrl: URL(string: imageUrl))
+                            }
+                            return BallotpediaElection.Race(name: name, level: level, candidates: candidates)
+                        }
+                        return BallotpediaElection.District(name: $0[c.name].stringValue, type: $0[c.type].stringValue, races: races)
+                    }
+                    guard let date = date else {
+                        return nil
+                    }
+                    return BallotpediaElection(date: date, districts: districts)
+
+                }
+
+                DispatchQueue.main.async {[weak self] in
+                    self?.electionInfo = elections
+                    self?.stateElections.reloadData()
+                }
+
             }
         }
 
