@@ -86,9 +86,13 @@ class HomeScreen: UIViewController {
                                 let name = $0[c.person][c.name].stringValue
                                 let party = $0[c.party].array?.first?[c.name].stringValue
                                 let imageUrl = $0[c.person][c.image][c.url].stringValue
+                                //let websiteValue = $0[c.person][c.url].stringValue
                                 return BallotpediaElection.Candidate(name: name,
                                                                      party: party,
-                                                                     imageUrl: URL(string: imageUrl))
+                                                                     imageUrl: URL(string: imageUrl),
+                                                                     isIncumbent: "true",
+                                                                     socialMedia: "https://example.com",
+                                                                     website: "https://example.com")
                             }
                             return BallotpediaElection.Race(name: name, level: level, candidates: candidates)
                         }

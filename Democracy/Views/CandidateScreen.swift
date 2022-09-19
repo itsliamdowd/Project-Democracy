@@ -30,15 +30,13 @@ class CandidateScreen: UIViewController {
         guard let candidate = candidate else {
             return
         }
-        candidateName.text = candidate.name
-        candidateParty.setTitle(candidate.party, for: .normal)
         print("Made it to candidate screen")
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
 
         //Sets party
-        var party = "Democratic Party"
+        var party = candidate.party
         switch party {
             case "Republican Party":
                 print("Republican")
@@ -69,7 +67,7 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets incumbent
-        var incumbent = "true"
+        var incumbent = candidate.isIncumbent
         switch incumbent {
             case "true":
                 print("Incumbent")
@@ -83,9 +81,9 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets name
-        if UserDefaults.standard.string(forKey: "candidateName") != nil {
-            print(UserDefaults.standard.string(forKey: "candidateName"))
-            self.candidateName.text = UserDefaults.standard.string(forKey: "candidateName")
+        if candidate.name != nil {
+            print(candidate.name)
+            self.candidateName.text = candidate.name
         }
         else {
             print("Error")
@@ -107,7 +105,7 @@ class CandidateScreen: UIViewController {
                 guard let data = data, error == nil else { return }
 
                 DispatchQueue.main.async {
-                    self.candidateImage.contentMode = .center
+                    //self.candidateImage.contentMode = .center
                     self.candidateImage.image = UIImage(data: data)
                 }
             }
