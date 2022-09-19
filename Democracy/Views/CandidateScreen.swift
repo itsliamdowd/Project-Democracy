@@ -8,11 +8,6 @@
 import UIKit
 
 class CandidateScreen: UIViewController {
-    
-    //set photo of candidate to one recieved from api call earlier
-    
-    //var swipeindex = 0
-    
     @IBOutlet var candidateName: UILabel!
     @IBOutlet var candidateParty: UIButton!
     @IBOutlet var candidateOccupation: UILabel!
@@ -24,7 +19,7 @@ class CandidateScreen: UIViewController {
     @IBOutlet var incumbent: UIButton!
 
     var candidate: BallotpediaElection.Candidate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let candidate = candidate else {
@@ -112,13 +107,6 @@ class CandidateScreen: UIViewController {
             
             task.resume()
         }
-        
-        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipe.direction = UISwipeGestureRecognizer.Direction.right
-        self.view.addGestureRecognizer(swipe)
-        let swipeTwo = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeTwo.direction = UISwipeGestureRecognizer.Direction.left
-        self.view.addGestureRecognizer(swipeTwo)
     }
 
     @IBAction func twitterButtonPressed(_ sender: Any) {
@@ -140,39 +128,5 @@ class CandidateScreen: UIViewController {
         }
     }
     
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizer.Direction.right:
-                print("Swiped right")
-                //if swipeindex != candidatesData.count {
-                  //  swipeindex = swipeindex + 1
-                    //print("Insert reset to highest number in list if swiped right")
-              //  else if swipeindex == candidatesData.count {
-               //     swipeindex = 0
-               // }
-               // else {
-               //     swipeindex = swipeindex + 1
-               // }
-            case UISwipeGestureRecognizer.Direction.down:
-                print("Swiped down")
-            case UISwipeGestureRecognizer.Direction.left:
-                print("Swiped left")
-                //if swipeindex == 0 {
-                    //swipeindex = candidatesData.count
-                 //   print("Insert reset to highest number in list if swiped right")
-                //else if swipeindex != 0 {
-                //    swipeindex = swipeindex - 1
-               // }
-                //else {
-                //    swipeindex = swipeindex - 1
-               // }
-            case UISwipeGestureRecognizer.Direction.up:
-                print("Swiped up")
-            default:
-                break
-            }
-        }
-    }
 
 }

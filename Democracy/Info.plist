@@ -6,12 +6,6 @@
 	<string></string>
 	<key>Root</key>
 	<dict>
-		<key>mainData</key>
-		<string></string>
-		<key>candidateName</key>
-		<string></string>
-		<key>electionName</key>
-		<string></string>
 		<key>latitude</key>
 		<string></string>
 		<key>longitude</key>
