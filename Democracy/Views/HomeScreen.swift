@@ -55,6 +55,7 @@ class HomeScreen: UIViewController {
         stateElections.dataSource = self
         stateElections.delegate = self
         conversationButton.layer.cornerRadius = 15
+        conversationButton.isHidden = true
 
         if  let latitude = UserDefaults.standard.string(forKey: "latitude"),
             let longitude = UserDefaults.standard.string(forKey: "longitude") {
