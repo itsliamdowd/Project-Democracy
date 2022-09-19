@@ -23,8 +23,15 @@ class CandidateScreen: UIViewController {
     @IBOutlet var screenText: UITextView!
     @IBOutlet var incumbent: UIButton!
 
+    var candidate: BallotpediaElection.Candidate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let candidate = candidate else {
+            return
+        }
+        candidateName.text = candidate.name
+        candidateParty.setTitle(candidate.party, for: .normal)
         print("Made it to candidate screen")
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
@@ -95,7 +102,7 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets image to image from url
-        if let url = URL(string: "") {
+        if let url = candidate.imageUrl {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
 

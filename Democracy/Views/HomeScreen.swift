@@ -17,8 +17,10 @@ extension HomeScreen: UITableViewDelegate {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                #warning("Need to pass in election data")
-                //vc.candidates = electionInfo[indexPath.row].districts.flatMap
+                vc.candidates = self.electionInfo[indexPath.row].districts
+                    .flatMap {$0.races
+                                .flatMap{$0.candidates}
+                    }
                 self.present(vc, animated: true)
             }
         }

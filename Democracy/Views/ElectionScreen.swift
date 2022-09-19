@@ -13,8 +13,10 @@ extension ElectionScreen: UITableViewDelegate {
 
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen")
-            self.present(vc, animated: true)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
+                vc.candidate = self.candidates[indexPath.row]
+                self.present(vc, animated: true)
+            }
         }
     }
 }
