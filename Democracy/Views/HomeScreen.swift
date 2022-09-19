@@ -14,11 +14,13 @@ extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
         print(electionInfo[indexPath.row])
-        UserDefaults.standard.set(electionInfo[indexPath.row], forKey: "electionName")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen")
-            self.present(vc, animated: true)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
+                #warning("Need to pass in election data")
+                //vc.candidates = electionInfo[indexPath.row].districts.flatMap
+                self.present(vc, animated: true)
+            }
         }
     }
 }
@@ -96,6 +98,11 @@ class HomeScreen: UIViewController {
                     return BallotpediaElection(date: date, districts: districts)
 
                 }
+                guard let encodedElectionInfo = try? JSONEncoder().encode(self?.electionInfo)
+                else {
+                    preconditionFailure("Failured to encode election info for UserDefaults.")
+                }
+                UserDefaults.standard.set(encodedElectionInfo, forKey: "electionInfo")
 
                 DispatchQueue.main.async {[weak self] in
                     self?.electionInfo = elections
