@@ -2,21 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleExecutable</key>
-	<string></string>
 	<key>Root</key>
 	<dict>
 		<key>latitude</key>
 		<string></string>
-		<key>longitude</key>
-		<string></string>
 		<key>loggedIn</key>
 		<string></string>
+		<key>longitude</key>
+		<string></string>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Used to determine your election district</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Used to determine your election district</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
