@@ -14,6 +14,7 @@ extension ElectionScreen: UITableViewDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
                 vc.candidate = self.candidates[indexPath.row]
+                vc.candidates = self.candidates
                 self.present(vc, animated: true)
             }
         }
@@ -33,7 +34,6 @@ extension ElectionScreen: UITableViewDataSource {
 }
 
 class ElectionScreen: UIViewController {
-    
     var candidates = [BallotpediaElection.Candidate]()
     
     @IBOutlet var electionName: UILabel!

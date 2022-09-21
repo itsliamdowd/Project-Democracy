@@ -4,6 +4,10 @@
 <dict>
 	<key>Root</key>
 	<dict>
+		<key>candidateKey</key>
+		<string></string>
+		<key>electionInfo</key>
+		<string></string>
 		<key>latitude</key>
 		<string></string>
 		<key>loggedIn</key>

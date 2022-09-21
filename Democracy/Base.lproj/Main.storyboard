@@ -235,7 +235,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ofi-CX-86l">
                                 <rect key="frame" x="20" y="85" width="156" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6SS-8r-dhV">
                                 <rect key="frame" x="355" y="457" width="39" height="37"/>
@@ -264,7 +264,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="jjP-1t-iab" kind="showDetail" id="PTr-ec-9TM"/>
+                                    <action selector="backButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="0nk-Ab-6II"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shL-ic-QJg">
@@ -459,7 +459,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="HomeToElection" id="hfr-uX-kCg"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="NZi-VX-DLB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -802,7 +802,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hfr-uX-kCg"/>
+        <segue reference="NZi-VX-DLB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.compact.down" catalog="system" width="128" height="43"/>

@@ -19,6 +19,18 @@ class CandidateScreen: UIViewController {
     @IBOutlet var incumbent: UIButton!
 
     var candidate: BallotpediaElection.Candidate?
+    var candidates = [BallotpediaElection.Candidate]()
+    var electionInfo = [BallotpediaElection]()
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
+                vc.candidates = self.candidates
+                self.present(vc, animated: true)
+            }
+       }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +41,8 @@ class CandidateScreen: UIViewController {
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
-
+        print("candidates")
+        print(candidate)
         //Sets party
         var party = candidate.party
         switch party {
