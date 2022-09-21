@@ -43,7 +43,6 @@ class ElectionScreen: UIViewController {
         super.viewDidLoad()
         print("Made it to election screen")
         print("ballotpedia")
-        print(candidates)
 //        if UserDefaults.standard.string(forKey: "electionName") != nil {
 //            self.electionName.text = UserDefaults.standard.string(forKey: "electionName")
 //        }

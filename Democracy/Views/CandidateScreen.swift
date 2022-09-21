@@ -20,7 +20,6 @@ class CandidateScreen: UIViewController {
 
     var candidate: BallotpediaElection.Candidate?
     var candidates = [BallotpediaElection.Candidate]()
-    var electionInfo = [BallotpediaElection]()
     
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -41,8 +40,6 @@ class CandidateScreen: UIViewController {
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
-        print("candidates")
-        print(candidate)
         //Sets party
         var party = candidate.party
         switch party {
