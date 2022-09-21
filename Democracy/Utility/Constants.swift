@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Constants {
     struct API {
         //MARK: BallotPedia

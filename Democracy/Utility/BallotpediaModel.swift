@@ -32,6 +32,7 @@ struct BallotpediaElection: Codable {
         let isIncumbent: String
         let socialMedia: String
         let website: String
+        let occupation: String
     }
 
     enum ElectionLevel: String, Codable {

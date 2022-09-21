@@ -95,9 +95,9 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets occupation
-        if UserDefaults.standard.string(forKey: "candidateOccupation") != nil {
-            print(UserDefaults.standard.string(forKey: "candidateOccupation"))
-            self.candidateOccupation.text = UserDefaults.standard.string(forKey: "candidateOccupation")
+        if candidate.occupation != nil {
+            print(candidate.occupation)
+            self.candidateOccupation.text = candidate.occupation
         }
         else {
             print("Error")
