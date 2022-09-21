@@ -22,7 +22,6 @@ struct Constants {
         static let voterbaseHost = "api.voterbase.com"
         static let voterbasePath = "elections"
         static let addressLabel = "address"
-
     }
 
     struct JSON {
