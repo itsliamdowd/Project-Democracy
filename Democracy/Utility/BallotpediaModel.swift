@@ -33,6 +33,7 @@ struct BallotpediaElection: Codable {
         let socialMedia: String
         let website: String
         let occupation: String
+        let about: String
     }
 
     enum ElectionLevel: String, Codable {

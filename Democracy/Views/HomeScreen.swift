@@ -95,7 +95,8 @@ class HomeScreen: UIViewController {
                                                                      isIncumbent: "true",
                                                                      socialMedia: "https://example.com",
                                                                      website: "https://example.com",
-                                                                     occupation: "Mayor")
+                                                                     occupation: "Mayor",
+                                                                     about: "...")
                             }
                             return BallotpediaElection.Race(name: name, level: level, candidates: candidates)
                         }

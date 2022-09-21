@@ -281,6 +281,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="candidateAbout" destination="8jB-Ld-hb9" id="0yE-XK-8BJ"/>
                         <outlet property="candidateImage" destination="Ofi-CX-86l" id="wQa-lG-9SW"/>
                         <outlet property="candidateName" destination="WIR-OQ-tKJ" id="ac5-Nf-OaH"/>
                         <outlet property="candidateOccupation" destination="HmM-BP-gaB" id="PjQ-Wv-a7n"/>

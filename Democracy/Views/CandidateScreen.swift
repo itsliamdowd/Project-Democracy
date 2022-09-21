@@ -12,6 +12,7 @@ class CandidateScreen: UIViewController {
     @IBOutlet var candidateParty: UIButton!
     @IBOutlet var candidateOccupation: UILabel!
     @IBOutlet var candidateImage: UIImageView!
+    @IBOutlet weak var candidateAbout: UITextView!
     @IBOutlet var swipeScreen: UIView!
     @IBOutlet var textScreen: UIView!
     @IBOutlet var screenTitle: UILabel!
@@ -89,6 +90,15 @@ class CandidateScreen: UIViewController {
         if candidate.name != nil {
             print(candidate.name)
             self.candidateName.text = candidate.name
+        }
+        else {
+            print("Error")
+        }
+        
+        //Sets description
+        if candidate.about != nil {
+            print(candidate.about)
+            self.candidateAbout.text = candidate.about
         }
         else {
             print("Error")
