@@ -22,7 +22,6 @@ struct BallotpediaElection: Codable {
         let name: String
         let level: ElectionLevel
         let candidates: [Candidate]
-
     }
 
     struct Candidate: Codable {

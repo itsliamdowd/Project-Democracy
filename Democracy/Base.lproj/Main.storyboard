@@ -268,7 +268,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shL-ic-QJg">
-                                <rect key="frame" x="212" y="397" width="179" height="45"/>
+                                <rect key="frame" x="211" y="397" width="179" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97283338874656078" green="0.81484774110890512" blue="0.28082681060576625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
@@ -281,7 +281,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="candidateAbout" destination="8jB-Ld-hb9" id="0yE-XK-8BJ"/>
+                        <outlet property="candidateDescription" destination="8jB-Ld-hb9" id="Igg-uW-xMF"/>
                         <outlet property="candidateImage" destination="Ofi-CX-86l" id="wQa-lG-9SW"/>
                         <outlet property="candidateName" destination="WIR-OQ-tKJ" id="ac5-Nf-OaH"/>
                         <outlet property="candidateOccupation" destination="HmM-BP-gaB" id="PjQ-Wv-a7n"/>
@@ -397,7 +397,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-Tw-qfD">
-                                <rect key="frame" x="29" y="750" width="357" height="80"/>
+                                <rect key="frame" x="29" y="750" width="356" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
@@ -460,7 +460,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="NZi-VX-DLB"/>
+                                    <action selector="backButtonPressed:" destination="jjP-1t-iab" eventType="touchUpInside" id="zM9-Dq-Zfb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -803,7 +803,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NZi-VX-DLB"/>
+        <segue reference="HGk-dD-WWC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
