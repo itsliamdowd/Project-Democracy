@@ -21,6 +21,9 @@ extension HomeScreen: UITableViewDelegate {
                     .flatMap {$0.races
                                 .flatMap{$0.candidates}
                     }
+                print("type")
+                print(type(of: self.electionInfo))
+                vc.homescreendata = self.electionInfo
                 self.present(vc, animated: true)
             }
         }
@@ -42,7 +45,9 @@ extension HomeScreen: UITableViewDataSource {
 
 class HomeScreen: UIViewController {
     var electionInfo = [BallotpediaElection]()
-
+    var candidates = [BallotpediaElection.Candidate]()
+    var homescreendata = [BallotpediaElection]()
+    
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
@@ -56,11 +61,12 @@ class HomeScreen: UIViewController {
         stateElections.delegate = self
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
-
-        if  let latitude = UserDefaults.standard.string(forKey: "latitude"),
-            let longitude = UserDefaults.standard.string(forKey: "longitude") {
-            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Double(latitude)!),
-                                                  longitude: CLLocationDegrees(Double(longitude)!))
+        print(self.homescreendata)
+        if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil && self.homescreendata.count == 0 {
+            let latitude = UserDefaults.standard.string(forKey: "latitude")
+            let longitude = UserDefaults.standard.string(forKey: "longitude")
+            let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(Double(latitude!)!),
+                                                  longitude: CLLocationDegrees(Double(longitude!)!))
             let request = Endpoint.getAPI(from: .ballotpediaElectionInfo(location: location))
 
             URLSession.shared.codableTask(with: request) {[weak self] model in
@@ -121,7 +127,12 @@ class HomeScreen: UIViewController {
 
             }
         }
-
+        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil && self.homescreendata.count != 0 {
+            DispatchQueue.main.async {[weak self] in
+                self?.electionInfo = self!.homescreendata
+                self?.stateElections.reloadData()
+            }
+        }
         else {
             print("Error")
         }

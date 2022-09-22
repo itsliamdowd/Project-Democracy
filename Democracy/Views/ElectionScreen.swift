@@ -15,6 +15,7 @@ extension ElectionScreen: UITableViewDelegate {
             if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
                 vc.candidate = self.candidates[indexPath.row]
                 vc.candidates = self.candidates
+                vc.homescreendata = self.homescreendata
                 self.present(vc, animated: true)
             }
         }
@@ -35,9 +36,21 @@ extension ElectionScreen: UITableViewDataSource {
 
 class ElectionScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
+    var homescreendata = [BallotpediaElection]()
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as? HomeScreen {
+                vc.candidates = self.candidates
+                vc.homescreendata = self.homescreendata
+                self.present(vc, animated: true)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

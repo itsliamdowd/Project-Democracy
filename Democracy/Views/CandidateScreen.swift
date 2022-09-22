@@ -12,7 +12,7 @@ class CandidateScreen: UIViewController {
     @IBOutlet var candidateParty: UIButton!
     @IBOutlet var candidateOccupation: UILabel!
     @IBOutlet var candidateImage: UIImageView!
-    @IBOutlet weak var candidateAbout: UITextView!
+    @IBOutlet weak var candidateDescription: UITextView!
     @IBOutlet var swipeScreen: UIView!
     @IBOutlet var textScreen: UIView!
     @IBOutlet var screenTitle: UILabel!
@@ -21,12 +21,14 @@ class CandidateScreen: UIViewController {
 
     var candidate: BallotpediaElection.Candidate?
     var candidates = [BallotpediaElection.Candidate]()
+    var homescreendata = [BallotpediaElection]()
     
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.candidates
+                vc.homescreendata = self.homescreendata
                 self.present(vc, animated: true)
             }
        }
@@ -98,7 +100,7 @@ class CandidateScreen: UIViewController {
         //Sets description
         if candidate.about != nil {
             print(candidate.about)
-            self.candidateAbout.text = candidate.about
+            self.candidateDescription.text = candidate.about
         }
         else {
             print("Error")
