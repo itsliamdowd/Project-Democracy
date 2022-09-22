@@ -244,7 +244,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="network" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="websiteButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="CmI-GT-GBZ"/>
+                                    <action selector="candidateWebsiteButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="ONe-H1-qGs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzM-ph-dGl">
@@ -254,7 +254,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="twitterButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="UrS-gW-pP9"/>
+                                    <action selector="candidateSocialMediaButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="UNu-el-YAq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZh-rV-NiZ">

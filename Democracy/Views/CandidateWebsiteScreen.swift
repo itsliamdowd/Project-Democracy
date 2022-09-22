@@ -19,7 +19,6 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
         guard let candidate = candidate else {
             return
         }
-        //var candidateWebsite = UserDefaults.standard.string(forKey: "candidateWebsite")
         let myURL = URL(string: candidate.website)
         let myRequest = URLRequest(url: myURL!)
         candidateWebView.load(myRequest)

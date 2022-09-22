@@ -34,6 +34,24 @@ class CandidateScreen: UIViewController {
        }
     }
     
+    @IBAction func candidateSocialMediaButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateTwitterScreen") as? CandidateTwitterScreen {
+                self.present(vc, animated: true)
+            }
+       }
+    }
+    
+    @IBAction func candidateWebsiteButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateWebsiteScreen") as? CandidateWebsiteScreen {
+                self.present(vc, animated: true)
+            }
+       }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let candidate = candidate else {
