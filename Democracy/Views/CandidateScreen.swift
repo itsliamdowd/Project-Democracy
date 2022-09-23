@@ -18,11 +18,13 @@ class CandidateScreen: UIViewController {
     @IBOutlet var screenTitle: UILabel!
     @IBOutlet var screenText: UITextView!
     @IBOutlet var incumbent: UIButton!
-
+    
+    //Defines variables passed to it from other view controllers
     var candidate: BallotpediaElection.Candidate?
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     
+    //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -36,6 +38,7 @@ class CandidateScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Makes candidate usable
         guard let candidate = candidate else {
             return
         }
@@ -43,7 +46,8 @@ class CandidateScreen: UIViewController {
         candidateParty.layer.cornerRadius = 15
         incumbent.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
-        //Sets party
+        
+        //Sets party label with party color
         var party = candidate.party
         switch party {
             case "Republican Party":
@@ -74,10 +78,10 @@ class CandidateScreen: UIViewController {
                 candidateParty.setTitle(party, for: .normal)
         }
         
-        //Sets incumbent
+        //Sets the incumbent button to be shown or not depending on if the candidate is currently serving
         var incumbent = candidate.isIncumbent
         switch incumbent {
-        case true:
+            case true:
                 print("Incumbent")
                 self.incumbent.isHidden = false
             case false:
@@ -88,7 +92,7 @@ class CandidateScreen: UIViewController {
                 self.incumbent.isHidden = true
         }
         
-        //Sets name
+        //Sets name label
         if candidate.name != nil {
             print(candidate.name)
             self.candidateName.text = candidate.name
@@ -116,7 +120,7 @@ class CandidateScreen: UIViewController {
 //            self.candidateOccupation.text = "Mayor"
 //        }
         
-        //Sets image to image from url
+        //Fetches image from candidate image and displays it in the imageView
         if let url = candidate.imageUrl {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data, error == nil else { return }
@@ -130,9 +134,9 @@ class CandidateScreen: UIViewController {
             task.resume()
         }
     }
-
+    
+    //Displays the candidate's social media page
     @IBAction func twitterButtonPressed(_ sender: Any) {
-        //UserDefaults.standard.set("@", forKey: "candidateSocial")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "CandidateTwitterScreen")
@@ -140,15 +144,12 @@ class CandidateScreen: UIViewController {
         }
     }
     
-    
+    //Displays the candidate's website
     @IBAction func websiteButtonPressed(_ sender: Any) {
-        //UserDefaults.standard.set("https://", forKey: "candidateWebsite")
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "CandidateWebsiteScreen")
             self.present(vc, animated: true)
         }
     }
-    
-
 }
