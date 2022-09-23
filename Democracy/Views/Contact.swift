@@ -26,6 +26,4 @@ class Contact: UIViewController, WKUIDelegate {
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
-
 }
-
