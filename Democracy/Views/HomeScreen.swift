@@ -20,7 +20,7 @@ extension HomeScreen: UITableViewDelegate {
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.electionInfo[indexPath.row].districts
                     .flatMap {$0.races
-                                .flatMap{$0.candidates}
+                            .flatMap{$0.candidates}
                     }
                 print("type")
                 print(type(of: self.electionInfo))
@@ -57,6 +57,13 @@ class HomeScreen: UIViewController {
         super.viewDidLoad()
         print("Made it to home screen")
         UserDefaults.standard.set("true", forKey: "loggedIn")
+        #if DEBUG
+        #else
+        if let cachedData = UserDefaults.standard.data(forKey: "electionInfo"),
+           let electionDecoded = try? JSONDecoder().decode([BallotpediaElection].self, from: cachedData) {
+            homescreendata = electionDecoded
+        }
+        #endif
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
@@ -109,7 +116,7 @@ private extension HomeScreen {
         URLSession.shared.codableTask(with: request) {[weak self] model in
             let elections = self?.parseElections(model)
 
-            guard let encodedElectionInfo = try? JSONEncoder().encode(self?.electionInfo)
+            guard let encodedElectionInfo = try? JSONEncoder().encode(elections)
             else {
                 preconditionFailure("Failured to encode election info for UserDefaults.")
             }
@@ -174,16 +181,18 @@ private extension HomeScreen {
             let name = candidate[c.person][c.name].stringValue
             let party = candidate[c.party].array?.first?[c.name].stringValue
             let imageUrl = candidate[c.person][c.image][c.url].stringValue
-            //let websiteValue = $0[c.person][c.url].stringValue
-            //let occupation = $0[c.person][c.url].stringValue
+            let isIncumbent = candidate[c.isIncumbant].boolValue
+            let facebookUrl = URL(string: candidate[c.facebookUrl].stringValue)
+            let websiteUrl = URL(string: candidate[c.websiteUrl].stringValue)
+            let twitterUrl = URL(string: candidate[c.twitterUrl].stringValue)
+
             return BallotpediaElection.Candidate(name: name,
                                                  party: party,
                                                  imageUrl: URL(string: imageUrl),
-                                                 isIncumbent: "true",
-                                                 socialMedia: "https://example.com",
-                                                 website: "https://example.com",
-                                                 occupation: "Mayor",
-                                                 about: "...")
+                                                 isIncumbent: isIncumbent,
+                                                 facebookUrl: facebookUrl,
+                                                 twitterUrl: twitterUrl,
+                                                 websiteUrl: websiteUrl)
         }
 
         return candidates

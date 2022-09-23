@@ -77,10 +77,10 @@ class CandidateScreen: UIViewController {
         //Sets incumbent
         var incumbent = candidate.isIncumbent
         switch incumbent {
-            case "true":
+        case true:
                 print("Incumbent")
                 self.incumbent.isHidden = false
-            case "false":
+            case false:
                 print("Not incumbent")
                 self.incumbent.isHidden = true
             default:
@@ -98,23 +98,23 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets description
-        if candidate.about != nil {
-            print(candidate.about)
-            self.candidateDescription.text = candidate.about
-        }
-        else {
-            print("Error")
-        }
-        
-        //Sets occupation
-        if candidate.occupation != nil {
-            print(candidate.occupation)
-            self.candidateOccupation.text = candidate.occupation
-        }
-        else {
-            print("Error")
-            self.candidateOccupation.text = "Mayor"
-        }
+//        if candidate.about != nil {
+//            print(candidate.about)
+//            self.candidateDescription.text = candidate.about
+//        }
+//        else {
+//            print("Error")
+//        }
+//        
+//        //Sets occupation
+//        if candidate.occupation != nil {
+//            print(candidate.occupation)
+//            self.candidateOccupation.text = candidate.occupation
+//        }
+//        else {
+//            print("Error")
+//            self.candidateOccupation.text = "Mayor"
+//        }
         
         //Sets image to image from url
         if let url = candidate.imageUrl {

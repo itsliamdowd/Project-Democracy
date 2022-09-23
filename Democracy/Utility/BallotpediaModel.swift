@@ -28,11 +28,10 @@ struct BallotpediaElection: Codable {
         let name: String
         let party: String?
         let imageUrl: URL?
-        let isIncumbent: String
-        let socialMedia: String
-        let website: String
-        let occupation: String
-        let about: String
+        let isIncumbent: Bool
+        let facebookUrl: URL?
+        let twitterUrl: URL?
+        let websiteUrl: URL?
     }
 
     enum ElectionLevel: String, Codable {
