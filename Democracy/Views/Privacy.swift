@@ -12,17 +12,17 @@ class Privacy: UIViewController, WKUIDelegate {
     
     @IBOutlet var PrivacyWebView: WKWebView!
     
+    //Loads the privacy policy in a webView
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to privacy screen")
-        let myURL = URL(string: "https://projectdemocracy.app/legal/")
-        let myRequest = URLRequest(url: myURL!)
-        PrivacyWebView.load(myRequest)
+        let privacyURL = URL(string: "https://projectdemocracy.app/legal/")
+        let privacyRequest = URLRequest(url: privacyURL!)
+        PrivacyWebView.load(privacyRequest)
     }
-
+    
+    //Dismiss viewcontroller
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
 }
-
