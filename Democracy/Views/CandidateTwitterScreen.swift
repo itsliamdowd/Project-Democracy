@@ -19,10 +19,11 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
         guard let candidate = candidate else {
             return
         }
-        //var candidateWebsite = UserDefaults.standard.string(forKey: "candidateSocial")
         if let myURL = candidate.twitterUrl {
-            let myRequest = URLRequest(url: myURL)
-            twitterWebView.load(myRequest)
+            candidateURL = candidate.twitterUrl
+            //candidateURL = candidate.facebookUrl
+            let viewSocialMedia = URLRequest(url: candidateURL)
+            twitterWebView.load(viewSocialMedia)
         }
 
     }
