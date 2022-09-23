@@ -86,8 +86,9 @@ class HomeScreen: UIViewController {
 
 //MARK: - API Networking
 private extension HomeScreen {
-    typealias c = Constants.JSON
+    typealias c = Constants.JSON    // Easier access to JSON key constants
 
+    //Constructs a network request using user location
     private func makeRequest() -> Endpoint? {
         guard UserDefaults.standard.string(forKey: "longitude") != nil &&
                 UserDefaults.standard.string(forKey: "latitude") != nil &&
@@ -106,6 +107,7 @@ private extension HomeScreen {
     private func loadElectionData() {
         guard let request = makeRequest()
         else {
+            //Prevent loading if there is existing cache
             if !homescreendata.isEmpty {
                 electionInfo = homescreendata
                 stateElections.reloadData()
@@ -113,8 +115,9 @@ private extension HomeScreen {
             return
         }
         URLSession.shared.codableTask(with: request) {[weak self] model in
-            let elections = self?.parseElections(model)
+            let elections = self?.parseElections(model) // Extract desired information from JSON into our custom model
 
+            // Saving cache to UserDefaults for future access
             guard let encodedElectionInfo = try? JSONEncoder().encode(elections)
             else {
                 preconditionFailure("Failured to encode election info for UserDefaults.")
@@ -128,6 +131,7 @@ private extension HomeScreen {
         }
     }
 
+    // Top to bottom parsing for a deeply nested JSON API
     private func parseElections(_ model: JSON?) -> [BallotpediaElection] {
         let electionsJson = model?[c.data][c.elections].array ?? []
         let elections: [BallotpediaElection] = electionsJson.compactMap {election in
@@ -139,6 +143,7 @@ private extension HomeScreen {
                 return nil
             }
 
+            // Parse the nested districts
             let districts = parseDistricts(election)
             return BallotpediaElection(date: date, districts: districts)
 
@@ -150,6 +155,7 @@ private extension HomeScreen {
     private func parseDistricts(_ election: JSON) -> [BallotpediaElection.District] {
         let districtsJson = election[c.districts].array ?? []
         let districts: [BallotpediaElection.District] = districtsJson.compactMap {district in
+            // Parse the deeper nested races
             let races = parseRaces(district)
             return BallotpediaElection.District(name: district[c.name].stringValue, type: district[c.type].stringValue, races: races)
         }
@@ -160,8 +166,11 @@ private extension HomeScreen {
     private func parseRaces(_ district: JSON) -> [BallotpediaElection.Race] {
         let racesJson = district[c.races].array ?? []
         let races: [BallotpediaElection.Race] = racesJson.compactMap {race in
+            // Office level, eg federal, state.etc
             let rawLevel = race[c.office][c.level].stringValue
             let name = race[c.office][c.name].stringValue
+
+            // Convert raw string level to enum
             guard let level = BallotpediaElection.ElectionLevel(rawValue: rawLevel.lowercased())
             else {
                 return nil
