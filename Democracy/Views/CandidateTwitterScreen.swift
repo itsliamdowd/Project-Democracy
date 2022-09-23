@@ -28,8 +28,5 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
             let viewSocialMedia = URLRequest(url: candidateURL)
             twitterWebView.load(viewSocialMedia)
         }
-
     }
-
 }
-
