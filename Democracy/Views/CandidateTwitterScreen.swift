@@ -13,12 +13,15 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
     @IBOutlet var twitterWebView: WKWebView!
     var candidate: BallotpediaElection.Candidate?
     
+    //Loads the candidate's social media page in a webView
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to candidate social screen")
+        //Makes candidate usable by the program
         guard let candidate = candidate else {
             return
         }
+        //Loads the website in the webView
         if let myURL = candidate.twitterUrl {
             candidateURL = candidate.twitterUrl
             //candidateURL = candidate.facebookUrl
