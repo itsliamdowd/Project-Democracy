@@ -12,14 +12,17 @@ class Contact: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var ContactWebView: WKWebView!
     
+    //Allows the user to contact the developers using the contact website
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to contact screen")
-        let myURL = URL(string: "https://projectdemocracy.app/contact/")
-        let myRequest = URLRequest(url: myURL!)
-        ContactWebView.load(myRequest)
+        //Loads the contact website in the webView
+        let contactURL = URL(string: "https://projectdemocracy.app/contact/")
+        let contactRequest = URLRequest(url: contactURL!)
+        ContactWebView.load(contactRequest)
     }
     
+    //Dismiss viewcontroller
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
