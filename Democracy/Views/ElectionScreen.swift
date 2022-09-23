@@ -88,5 +88,4 @@ class ElectionScreen: UIViewController {
         candidateTable.dataSource = self
         candidateTable.delegate = self
     }
-
 }
