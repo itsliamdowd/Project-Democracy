@@ -18,10 +18,9 @@ extension HomeScreen: UITableViewDelegate {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                vc.candidates = self.electionInfo[indexPath.row].districts
-                    .flatMap {$0.races
-                            .flatMap{$0.candidates}
-                    }
+                // Assume only 1 major election date in electionInfo
+                vc.districts = self.electionInfo.first?.districts ?? []
+
                 print("type")
                 print(type(of: self.electionInfo))
                 vc.homescreendata = self.electionInfo
