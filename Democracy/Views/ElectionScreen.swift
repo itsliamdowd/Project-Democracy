@@ -52,15 +52,18 @@ class ElectionScreen: UIViewController {
     typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
     private var racesGroups: RaceGroups {
         districts.map {
-            ($0.name, $0.races) // Tuple containing district name, and all its races
+            ($0.name, $0.races) // Tuple containing district name and all its races
         }
     }
+    
+    //Defines variables that have data already passed to them from other viewcontrollers
     var districts = [BallotpediaElection.District]()
     var homescreendata = [BallotpediaElection]()
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
     
+    //Presents HomeScreen and passes homescreendata when presenting it
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -74,7 +77,6 @@ class ElectionScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to election screen")
-        print("ballotpedia")
 //        if UserDefaults.standard.string(forKey: "electionName") != nil {
 //            self.electionName.text = UserDefaults.standard.string(forKey: "electionName")
 //        }
