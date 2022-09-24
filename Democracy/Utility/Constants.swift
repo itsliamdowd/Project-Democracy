@@ -38,6 +38,9 @@ struct Constants {
         static let person = "person"
         static let url = "url"
         static let image = "image"
-
+        static let isIncumbant = "is_incumbent"
+        static let websiteUrl = "campaign_website_" + url
+        static let twitterUrl = "campaign_twitter_" + url
+        static let facebookUrl = "campaign_facebook_url" + url
     }
 }

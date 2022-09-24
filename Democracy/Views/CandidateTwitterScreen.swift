@@ -16,13 +16,16 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to candidate social screen")
+        //Makes candidate usable by the program
         guard let candidate = candidate else {
             return
         }
-        let myURL = URL(string: candidate.socialMedia)
-        let myRequest = URLRequest(url: myURL!)
-        twitterWebView.load(myRequest)
+        //Loads the website in the webView
+        if let myURL = candidate.twitterUrl {
+            candidateURL = candidate.twitterUrl
+            //candidateURL = candidate.facebookUrl
+            let viewSocialMedia = URLRequest(url: candidateURL)
+            twitterWebView.load(viewSocialMedia)
+        }
     }
-
 }
-

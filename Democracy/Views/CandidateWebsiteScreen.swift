@@ -13,16 +13,18 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
     @IBOutlet var candidateWebView: WKWebView!
     var candidate: BallotpediaElection.Candidate?
     
+    //Shows the candidate's website in a webView
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to candidate website screen")
+        //Makes candidate usable by the program
         guard let candidate = candidate else {
             return
         }
-        let myURL = URL(string: candidate.website)
-        let myRequest = URLRequest(url: myURL!)
-        candidateWebView.load(myRequest)
+        //Loads the website in the webView
+        if let myURL = candidate.websiteUrl {
+            let myRequest = URLRequest(url: myURL)
+            candidateWebView.load(myRequest)
+        }
     }
-
 }
-
