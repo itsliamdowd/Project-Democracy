@@ -91,12 +91,6 @@ class HomeScreen: UIViewController {
         conversationButton.isHidden = true
         print(self.homescreendata)
         loadElectionData()
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.center = CGPoint(x: self.view.frame.width / 2, y: 250)
-            label.textAlignment = .center
-            label.text = "Election Races"
-
-        self.view.addSubview(label)
     }
     
     //Get api data for next election date
