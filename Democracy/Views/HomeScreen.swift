@@ -14,38 +14,59 @@ import SwiftyJSON
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
-        print(electionInfo[indexPath.row])
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                // Assume only 1 major election date in electionInfo
-                vc.districts = self.electionInfo.first?.districts ?? []
-
-                print("type")
-                print(type(of: self.electionInfo))
-                vc.homescreendata = self.electionInfo
-                self.present(vc, animated: true)
-            }
-        }
+//        print(electionInfo[indexPath.row])
+//        DispatchQueue.main.async {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
+//                // Assume only 1 major election date in electionInfo
+//                vc.districts = self.electionInfo.first?.districts ?? []
+//
+//                print("type")
+//                print(type(of: self.electionInfo))
+//                vc.homescreendata = self.electionInfo
+//                self.present(vc, animated: true)
+//            }
+//        }
     }
 }
 
 extension HomeScreen: UITableViewDataSource {
+    // Provide total number of sections
+    func numberOfSections(in tableView: UITableView) -> Int {
+        racesGroups.count
+    }
+
+    // Provide number of rows, given a particular section's index
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return electionInfo.count
+        racesGroups[section].races.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = stateElections.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = electionInfo[indexPath.row].date.formatted(date: .long,
-                                                                          time: .omitted)
+        // Get desired race's name by section index, then row index
+        cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
         return cell
+    }
+
+    // Provide title given a particular section's index
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        racesGroups[section].districtName
     }
 }
 
 class HomeScreen: UIViewController {
+    typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
+    private var racesGroups: RaceGroups {
+        districts.map {
+            ($0.name, $0.races) // Tuple containing district name and all its races
+        }
+    }
+
+    var districts: [BallotpediaElection.District] {
+        self.electionInfo.first?.districts ?? []
+    }
+
     var electionInfo = [BallotpediaElection]()
-    var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     
     @IBOutlet weak var electionDate: UILabel!
@@ -70,6 +91,12 @@ class HomeScreen: UIViewController {
         conversationButton.isHidden = true
         print(self.homescreendata)
         loadElectionData()
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+        label.center = CGPoint(x: self.view.frame.width / 2, y: 250)
+            label.textAlignment = .center
+            label.text = "Election Races"
+
+        self.view.addSubview(label)
     }
     
     //Get api data for next election date
