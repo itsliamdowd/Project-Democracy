@@ -11,22 +11,24 @@ import CoreLocation
 import Foundation
 import SwiftyJSON
 
+
+//Needs to show candidates for specific race
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
-//        print(electionInfo[indexPath.row])
-//        DispatchQueue.main.async {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-//                // Assume only 1 major election date in electionInfo
-//                vc.districts = self.electionInfo.first?.districts ?? []
-//
-//                print("type")
-//                print(type(of: self.electionInfo))
-//                vc.homescreendata = self.electionInfo
-//                self.present(vc, animated: true)
-//            }
-//        }
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
+                vc.candidates = self.electionInfo[indexPath.row].districts
+                    .flatMap {$0.races
+                                .flatMap{$0.candidates}
+                    }
+                print("type")
+                print(type(of: self.electionInfo))
+                vc.homescreendata = self.electionInfo
+                self.present(vc, animated: true)
+            }
+        }
     }
 }
 

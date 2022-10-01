@@ -29,7 +29,7 @@ class CandidateScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-               // vc.candidates = self.candidates
+                vc.candidates = self.candidates
                 vc.homescreendata = self.homescreendata
                 self.present(vc, animated: true)
             }
