@@ -144,22 +144,4 @@ class CandidateScreen: UIViewController {
         //Sets image to the candidate's image and caches the image for later use
         candidateImage.sd_setImage(with: candidate.imageUrl)
     }
-    
-    //Displays the candidate's social media page
-    @IBAction func twitterButtonPressed(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CandidateTwitterScreen")
-            self.present(vc, animated: true)
-        }
-    }
-    
-    //Displays the candidate's website
-    @IBAction func websiteButtonPressed(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "CandidateWebsiteScreen")
-            self.present(vc, animated: true)
-        }
-    }
 }

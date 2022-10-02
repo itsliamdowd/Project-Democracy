@@ -27,4 +27,8 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
             candidateWebView.load(myRequest)
         }
     }
+    
+    @IBAction func dismissButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }

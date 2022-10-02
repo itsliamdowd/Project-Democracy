@@ -27,4 +27,8 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
             twitterWebView.load(viewSocialMedia)
         }
     }
+    
+    @IBAction func dismissButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
