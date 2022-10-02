@@ -40,6 +40,7 @@ class CandidateScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateTwitterScreen") as? CandidateTwitterScreen {
+                vc.candidate = self.candidate
                 self.present(vc, animated: true)
             }
        }
@@ -49,6 +50,7 @@ class CandidateScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateWebsiteScreen") as? CandidateWebsiteScreen {
+                vc.candidate = self.candidate
                 self.present(vc, animated: true)
             }
        }

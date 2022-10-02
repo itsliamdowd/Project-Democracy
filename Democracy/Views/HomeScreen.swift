@@ -19,12 +19,7 @@ extension HomeScreen: UITableViewDelegate {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                vc.candidates = self.electionInfo[indexPath.row].districts
-                    .flatMap {$0.races
-                                .flatMap{$0.candidates}
-                    }
-                print("type")
-                print(type(of: self.electionInfo))
+                vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
                 vc.homescreendata = self.electionInfo
                 self.present(vc, animated: true)
             }
@@ -49,7 +44,7 @@ extension HomeScreen: UITableViewDataSource {
         cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
         return cell
     }
-
+    
     // Provide title given a particular section's index
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         racesGroups[section].districtName
@@ -57,13 +52,14 @@ extension HomeScreen: UITableViewDataSource {
 }
 
 class HomeScreen: UIViewController {
+    
     typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
     private var racesGroups: RaceGroups {
         districts.map {
             ($0.name, $0.races) // Tuple containing district name and all its races
         }
     }
-
+    
     var districts: [BallotpediaElection.District] {
         self.electionInfo.first?.districts ?? []
     }
@@ -94,17 +90,6 @@ class HomeScreen: UIViewController {
         print(self.homescreendata)
         loadElectionData()
     }
-    
-    //Get api data for next election date
-    //self.electionDate.text = "Election Date: " + electionDate
-    
-
-    //self.data = ["State Senate", "State Assembly Member", "Governor", "Lieutenant Governor", "Secretary of State", "Controller", "Treasurer", "Attorney General", "Insurance Commissioner", "Member of State Board of Equalization", "State Superintendent of Public Instruction"]
-    //print("refreshed")
-    //DispatchQueue.main.async { self.stateElections.reloadData() }
-    //print("Laguna Niguel")
-    //UserDefaults.standard.set(citycountrydata, forKey: "city")
-
 }
 
 //MARK: - API Networking
