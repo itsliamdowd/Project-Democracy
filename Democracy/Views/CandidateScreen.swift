@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CandidateScreen: UIViewController {
     @IBOutlet var candidateName: UILabel!
@@ -140,19 +141,8 @@ class CandidateScreen: UIViewController {
 //            self.candidateOccupation.text = "Mayor"
 //        }
         
-        //Fetches image from candidate image and displays it in the imageView
-        if let url = candidate.imageUrl {
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-
-                DispatchQueue.main.async {
-                    //self.candidateImage.contentMode = .center
-                    self.candidateImage.image = UIImage(data: data)
-                }
-            }
-            
-            task.resume()
-        }
+        //Sets image to the candidate's image and caches the image for later use
+        candidateImage.sd_setImage(with: candidate.imageUrl)
     }
     
     //Displays the candidate's social media page
