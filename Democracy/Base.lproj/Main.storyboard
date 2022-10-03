@@ -289,8 +289,10 @@
                         <outlet property="incumbent" destination="shL-ic-QJg" id="AzX-NQ-4IY"/>
                         <outlet property="screenText" destination="8jB-Ld-hb9" id="NJE-8k-caR"/>
                         <outlet property="screenTitle" destination="DqW-hy-ZE7" id="92z-zQ-5y8"/>
+                        <outlet property="socialMedia" destination="zzM-ph-dGl" id="vXd-7w-a7s"/>
                         <outlet property="swipeScreen" destination="K2N-7t-HR0" id="P9h-ob-ApO"/>
                         <outlet property="textScreen" destination="bBg-k4-Mkg" id="O1c-dm-OeZ"/>
+                        <outlet property="webSite" destination="6SS-8r-dhV" id="5dY-o9-aMp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AG-lp-OPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -466,15 +468,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Candidates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAo-eZ-SeE">
-                                <rect key="frame" x="117" y="152" width="180" height="39"/>
+                                <rect key="frame" x="117" y="173" width="180" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Election" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-Rw-dKO">
-                                <rect key="frame" x="20" y="85" width="374" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="45"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnJ-7s-z0d">
@@ -487,6 +483,12 @@
                                     <action selector="backButtonPressed:" destination="jjP-1t-iab" eventType="touchUpInside" id="zM9-Dq-Zfb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Election" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-Rw-dKO">
+                                <rect key="frame" x="49" y="37" width="317" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y8a-17-JQe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

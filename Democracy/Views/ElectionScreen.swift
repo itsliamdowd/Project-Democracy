@@ -9,8 +9,7 @@ import SDWebImage
 
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected a button")
-        print(self.candidates[indexPath.row].imageUrl)
+        print("Selected a candidate")
         var imageUrl = self.candidates[indexPath.row].imageUrl
         SDWebImageManager.shared.loadImage(
                 with: imageUrl,
@@ -44,10 +43,10 @@ extension ElectionScreen: UITableViewDataSource {
 class ElectionScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
+    var electionNameData = ""
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
-    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -62,14 +61,13 @@ class ElectionScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to election screen")
-        print("ballotpedia")
-//        if UserDefaults.standard.string(forKey: "electionName") != nil {
-//            self.electionName.text = UserDefaults.standard.string(forKey: "electionName")
-//        }
-//        else {
-//            print("Error")
-//            self.electionName.text = "President"
-//        }
+        if self.electionNameData != nil {
+            self.electionName.text = self.electionNameData
+        }
+        else {
+            print("Error")
+            self.electionName.text = "Election"
+        }
         candidateTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         candidateTable.dataSource = self
         candidateTable.delegate = self

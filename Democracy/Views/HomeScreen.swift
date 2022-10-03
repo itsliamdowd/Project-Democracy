@@ -21,6 +21,7 @@ extension HomeScreen: UITableViewDelegate {
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
                 vc.homescreendata = self.electionInfo
+                vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
                 self.present(vc, animated: true)
             }
         }

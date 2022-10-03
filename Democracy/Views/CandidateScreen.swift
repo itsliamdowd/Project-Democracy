@@ -19,6 +19,8 @@ class CandidateScreen: UIViewController {
     @IBOutlet var screenTitle: UILabel!
     @IBOutlet var screenText: UITextView!
     @IBOutlet var incumbent: UIButton!
+    @IBOutlet weak var socialMedia: UIButton!
+    @IBOutlet weak var webSite: UIButton!
     
     //Defines variables passed to it from other view controllers
     var candidate: BallotpediaElection.Candidate?
@@ -131,15 +133,29 @@ class CandidateScreen: UIViewController {
 //            print("Error")
 //        }
 //        
-//        //Sets occupation
-//        if candidate.occupation != nil {
-//            print(candidate.occupation)
-//            self.candidateOccupation.text = candidate.occupation
-//        }
-//        else {
-//            print("Error")
-//            self.candidateOccupation.text = "Mayor"
-//        }
+        //Sets occupation
+        //if candidate. != nil {
+         //   print(candidate.occupation)
+         //   self.candidateOccupation.text = candidate.occupation
+        //}
+        //else {
+        //    print("Error")
+        //    self.candidateOccupation.text = "Occupation"
+        //}
+        
+        if candidate.websiteUrl == nil {
+            webSite.isHidden = true
+        }
+        else {
+            webSite.isHidden = false
+        }
+        
+        if candidate.twitterUrl == nil {
+            socialMedia.isHidden = true
+        }
+        else {
+            socialMedia.isHidden = false
+        }
         
         //Sets image to the candidate's image and caches the image for later use
         candidateImage.sd_setImage(with: candidate.imageUrl)
