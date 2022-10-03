@@ -42,5 +42,6 @@ struct Constants {
         static let websiteUrl = "campaign_website_" + url
         static let twitterUrl = "campaign_twitter_" + url
         static let facebookUrl = "campaign_facebook_url" + url
+        static let biography = "biography"
     }
 }

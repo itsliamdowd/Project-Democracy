@@ -127,14 +127,16 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets description
-//        if candidate.about != nil {
-//            print(candidate.about)
-//            self.candidateDescription.text = candidate.about
-//        }
-//        else {
-//            print("Error")
-//        }
-//        
+        print(candidate.biography)
+        if candidate.biography != nil {
+            print(candidate.biography)
+            self.candidateDescription.text = candidate.biography
+        }
+        else {
+            print("Error")
+            self.candidateDescription.text = "No biography is available for this candidate."
+        }
+        
         //Sets occupation
         //if candidate. != nil {
          //   print(candidate.occupation)

@@ -198,15 +198,17 @@ private extension HomeScreen {
             let isIncumbent = candidate[c.isIncumbant].boolValue
             let facebookUrl = URL(string: candidate[c.facebookUrl].stringValue)
             let websiteUrl = URL(string: candidate[c.websiteUrl].stringValue)
-            let twitterUrl = URL(string: candidate[c.twitterUrl].stringValue)
-
+            let twitterUrl = candidate[c.twitterUrl].stringValue
+            let biography = candidate[c.biography].stringValue
+            
             return BallotpediaElection.Candidate(name: name,
                                                  party: party,
                                                  imageUrl: URL(string: imageUrl),
                                                  isIncumbent: isIncumbent,
                                                  facebookUrl: facebookUrl,
                                                  twitterUrl: twitterUrl,
-                                                 websiteUrl: websiteUrl)
+                                                 websiteUrl: websiteUrl,
+                                                 biography: biography)
         }
 
         return candidates

@@ -23,7 +23,10 @@ class CandidateWebsiteScreen: UIViewController, WKUIDelegate {
         }
         //Loads the website in the webView
         if let myURL = candidate.websiteUrl {
-            let myRequest = URLRequest(url: myURL)
+            var URLtoHTTPS = URLComponents(url: candidate.websiteUrl!, resolvingAgainstBaseURL: false)!
+            URLtoHTTPS.scheme = "https"
+            let https = URLtoHTTPS.url!
+            let myRequest = URLRequest(url: https)
             candidateWebView.load(myRequest)
         }
     }
