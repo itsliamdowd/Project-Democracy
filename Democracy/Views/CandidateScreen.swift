@@ -128,7 +128,7 @@ class CandidateScreen: UIViewController {
         
         //Sets description
         print(candidate.biography)
-        if candidate.biography != nil {
+        if candidate.biography != nil && candidate.biography != "" {
             print(candidate.biography)
             self.candidateDescription.text = candidate.biography
         }
@@ -154,7 +154,7 @@ class CandidateScreen: UIViewController {
             webSite.isHidden = false
         }
         
-        if candidate.twitterUrl == nil {
+        if candidate.twitterUrl == nil || candidate.twitterUrl == "" && candidate.facebookUrl == nil {
             socialMedia.isHidden = true
         }
         else {

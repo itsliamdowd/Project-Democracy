@@ -21,8 +21,10 @@ class CandidateTwitterScreen: UIViewController, WKUIDelegate {
             return
         }
         //Loads the website in the webView
-        if candidate.twitterUrl != nil {
+        if candidate.twitterUrl != nil && candidate.twitterUrl != "" {
             var URLForRequest = "https://twitter.com/" + candidate.twitterUrl!
+            
+            print(URLForRequest)
             //var candidateURL = candidate.facebookUrl
             if let encodedString = URLForRequest.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let url = URL(string: URLForRequest) {
                 let viewSocialMedia = URLRequest(url: url)
