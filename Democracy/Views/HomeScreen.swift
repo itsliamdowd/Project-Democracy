@@ -76,13 +76,10 @@ class HomeScreen: UIViewController {
         super.viewDidLoad()
         print("Made it to home screen")
         UserDefaults.standard.set("true", forKey: "loggedIn")
-        #if DEBUG
-        #else
         if let cachedData = UserDefaults.standard.data(forKey: "electionInfo"),
            let electionDecoded = try? JSONDecoder().decode([BallotpediaElection].self, from: cachedData) {
             homescreendata = electionDecoded
         }
-        #endif
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self

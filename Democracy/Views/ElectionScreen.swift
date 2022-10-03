@@ -21,6 +21,7 @@ extension ElectionScreen: UITableViewDelegate {
                             vc.candidate = self.candidates[indexPath.row]
                             vc.candidates = self.candidates
                             vc.homescreendata = self.homescreendata
+                            vc.electionNameData = self.electionNameData
                             self.present(vc, animated: true)
                         }
                     }
