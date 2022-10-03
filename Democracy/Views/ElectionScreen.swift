@@ -5,18 +5,26 @@
 //  Created by Liam Dowd on 8/31/22.
 //
 import UIKit
+import SDWebImage
 
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
-                vc.candidate = self.candidates[indexPath.row]
-                vc.candidates = self.candidates
-                vc.homescreendata = self.homescreendata
-                self.present(vc, animated: true)
-            }
+        print(self.candidates[indexPath.row].imageUrl)
+        var imageUrl = self.candidates[indexPath.row].imageUrl
+        SDWebImageManager.shared.loadImage(
+                with: imageUrl,
+                options: .highPriority,
+                progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
+                            vc.candidate = self.candidates[indexPath.row]
+                            vc.candidates = self.candidates
+                            vc.homescreendata = self.homescreendata
+                            self.present(vc, animated: true)
+                        }
+                    }
         }
     }
 }
@@ -39,6 +47,7 @@ class ElectionScreen: UIViewController {
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -65,5 +74,4 @@ class ElectionScreen: UIViewController {
         candidateTable.dataSource = self
         candidateTable.delegate = self
     }
-
 }
