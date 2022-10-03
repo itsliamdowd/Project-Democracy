@@ -134,7 +134,7 @@ class CandidateScreen: UIViewController {
         }
         else {
             print("Error")
-            self.candidateDescription.text = "No biography is available for this candidate."
+            self.candidateDescription.text = "No biography is available for this candidate.\n\nMake sure to check the candidate's website and social media for more information."
         }
         
         //Sets occupation
