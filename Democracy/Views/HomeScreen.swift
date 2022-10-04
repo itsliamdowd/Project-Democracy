@@ -11,7 +11,6 @@ import CoreLocation
 import Foundation
 import SwiftyJSON
 
-
 //Needs to show candidates for specific race
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -85,8 +84,9 @@ class HomeScreen: UIViewController {
         stateElections.delegate = self
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
-        print(self.homescreendata)
         loadElectionData()
+        accessOpenSecrets()
+        //Eventually add concurrent requests
     }
 }
 
@@ -212,5 +212,42 @@ private extension HomeScreen {
         }
 
         return candidates
+    }
+}
+
+private extension HomeScreen {
+    private func accessOpenSecrets() {
+        if UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != nil {
+            let latitude = UserDefaults.standard.string(forKey: "latitude")
+            let longitude = UserDefaults.standard.string(forKey: "longitude")
+            let location = CLLocation(latitude: CLLocationDegrees(Double(latitude!)!), longitude: CLLocationDegrees(Double(longitude!)!))
+            let geoCoder = CLGeocoder()
+            geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
+                placemarks?.forEach { (placemark) in
+                    if let state = placemark.administrativeArea {
+                    var semaphore = DispatchSemaphore (value: 0)
+                    var request = URLRequest(url: URL(string: "https://www.opensecrets.org/api/?method=getLegislators&id=" + state + "&apikey=0e7045e49319b73b7ddc2cc8106e1f88")!,timeoutInterval: Double.infinity)
+                    request.httpMethod = "GET"
+
+                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                      guard let data = data else {
+                        print(String(describing: error))
+                        semaphore.signal()
+                        return
+                      }
+                      print(String(data: data, encoding: .utf8)!)
+                      semaphore.signal()
+                    }
+
+                    task.resume()
+                    semaphore.wait()
+                    }
+                }
+            })
+            
+        }
+        else {
+            print("Error")
+        }
     }
 }
