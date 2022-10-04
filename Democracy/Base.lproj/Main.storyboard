@@ -172,7 +172,7 @@
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Occupation" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmM-BP-gaB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Elected: / Occupation" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmM-BP-gaB">
                                 <rect key="frame" x="20" y="442" width="286" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="20"/>
@@ -211,7 +211,7 @@
                                                 <color key="backgroundColor" systemColor="labelColor"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqW-hy-ZE7">
-                                                <rect key="frame" x="26" y="13" width="323" height="38"/>
+                                                <rect key="frame" x="26" y="13" width="66" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                                 <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -275,6 +275,13 @@
                                 <state key="normal" title="Incumbent">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prh-ux-0NG">
+                                <rect key="frame" x="274" y="458" width="38" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" title=""/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uy1-z3-BB8"/>
@@ -837,6 +844,7 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="network" catalog="system" width="128" height="121"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
