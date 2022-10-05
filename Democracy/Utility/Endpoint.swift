@@ -23,11 +23,16 @@ struct Endpoint {
         case POST, GET
     }
 
-    enum APIRoutes{
+    enum APIRoutes {
         typealias Address = String
         case ballotpediaElectionInfo(location: CLLocationCoordinate2D)
         case voterbaseElectionInfo(location: Address)
+        case openSecrets(route: OpenSecretRoutes)
 
+        enum OpenSecretRoutes {
+            case getLegislator(state: String)
+            case cardSummary(cid: String, cycle: String = "2022")
+        }
     }
 }
 
@@ -55,12 +60,12 @@ extension Endpoint {
         return request
     }
 
-    static func getAPI(from route: APIRoutes) -> Endpoint {
+    static func getAPI(from apiEndpoint: APIRoutes) -> Endpoint {
         var queryItems = [URLQueryItem]()
         var headers = [String: String]()
         headers["Content-Type"] = "application/json"
 
-        switch route {
+        switch apiEndpoint {
         case .ballotpediaElectionInfo(let location):
             queryItems.append(.init(name: api.volunteerLabel, value: String(true)))
             queryItems.append(.init(name: api.latitudeLabel, value: String(location.latitude)))
@@ -82,8 +87,34 @@ extension Endpoint {
             endpoint.requestHeaders.merge(headers, uniquingKeysWith: { (_, last) in last })
             return endpoint
 
+        case .openSecrets(let route):
+            switch route {
+            case .getLegislator(let state):
+                queryItems.append(.init(name: "method", value: "getLegislators"))
+                queryItems.append(.init(name: "id", value: state))
+                queryItems.append(.init(name: "apikey", value: "c5d1d02a93919b2845a095e52c2af67a"))
+                queryItems.append(.init(name: "output", value: "json"))
+                var endpoint = Endpoint(host: api.openSecretHost,
+                                        path: api.openSecretPath,
+                                        httpMethod: .GET)
+                endpoint.queryItems.append(contentsOf: queryItems)
+                return endpoint
+
+            case .cardSummary(let cid, let cycle):
+                queryItems.append(.init(name: "method", value: "candSummary"))
+                queryItems.append(.init(name: "cid", value: cid))
+                queryItems.append(.init(name: "apikey", value: "c5d1d02a93919b2845a095e52c2af67a"))
+                queryItems.append(.init(name: "cycle", value: cycle))
+                var endpoint = Endpoint(host: api.openSecretHost,
+                                        path: api.openSecretPath,
+                                        httpMethod: .GET)
+                endpoint.queryItems.append(contentsOf: queryItems)
+
+                return endpoint
+            }
         }
     }
 
 
 }
+
