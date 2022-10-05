@@ -45,6 +45,7 @@ class ElectionScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     var electionNameData = ""
+    var openSecretsData = [OpenSecretsModel]()
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
