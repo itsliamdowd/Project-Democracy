@@ -21,6 +21,7 @@ class CandidateScreen: UIViewController {
     @IBOutlet var incumbent: UIButton!
     @IBOutlet weak var socialMedia: UIButton!
     @IBOutlet weak var webSite: UIButton!
+    @IBOutlet weak var writeButton: UIButton!
     
     //Defines variables passed to it from other view controllers
     var candidate: BallotpediaElection.Candidate?
@@ -160,6 +161,9 @@ class CandidateScreen: UIViewController {
         else {
             socialMedia.isHidden = false
         }
+        
+        candidateOccupation.isHidden = true
+        writeButton.isHidden = true
         
         //Sets image to the candidate's image and caches the image for later use
         candidateImage.sd_setImage(with: candidate.imageUrl)

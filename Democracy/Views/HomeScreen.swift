@@ -85,7 +85,7 @@ class HomeScreen: UIViewController {
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
         loadElectionData()
-        accessOpenSecrets()
+        //accessOpenSecrets()
         //Eventually add concurrent requests
     }
 }
@@ -217,6 +217,7 @@ private extension HomeScreen {
 
 private extension HomeScreen {
     private func accessOpenSecrets() {
+        var arrayOfPeople = [String].self
         if UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != nil {
             let latitude = UserDefaults.standard.string(forKey: "latitude")
             let longitude = UserDefaults.standard.string(forKey: "longitude")

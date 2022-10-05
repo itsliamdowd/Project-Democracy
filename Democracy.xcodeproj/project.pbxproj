@@ -64,6 +64,7 @@
 		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateTwitterScreen.swift; sourceTree = "<group>"; };
 		BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsModel.swift; sourceTree = "<group>"; };
+		BD4FF72828ED0E49005D84BC /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
 				BDD90B8928CAF6BB000E82E1 /* Contact.swift */,
 				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
+				BD4FF72828ED0E49005D84BC /* data.xml */,
 			);
 			path = Views;
 			sourceTree = "<group>";

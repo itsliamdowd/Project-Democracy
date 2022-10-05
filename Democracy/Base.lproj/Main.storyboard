@@ -300,6 +300,7 @@
                         <outlet property="swipeScreen" destination="K2N-7t-HR0" id="P9h-ob-ApO"/>
                         <outlet property="textScreen" destination="bBg-k4-Mkg" id="O1c-dm-OeZ"/>
                         <outlet property="webSite" destination="6SS-8r-dhV" id="5dY-o9-aMp"/>
+                        <outlet property="writeButton" destination="Prh-ux-0NG" id="26C-fB-7aN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AG-lp-OPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
