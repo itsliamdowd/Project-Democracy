@@ -5,7 +5,6 @@
 //  Created by Liam Dowd on 10/3/22.
 //
 
-
 import Foundation
 
 struct OpenSecretsModel: Codable {

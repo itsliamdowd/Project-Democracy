@@ -15,7 +15,5 @@ class PromotionScreen: UIViewController {
         super.viewDidLoad()
         print("Made it to promotion screen")
         nextButton.layer.cornerRadius = 20
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Flag.png")!)
     }
-
 }
