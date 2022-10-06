@@ -29,6 +29,7 @@ class CandidateScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     var electionNameData = ""
+    var candidateID = ""
     
     //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
     @IBAction func backButtonPressed(_ sender: Any) {

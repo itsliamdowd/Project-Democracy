@@ -25,6 +25,4 @@ struct OpenSecretsModel: Codable {
     let youtubeUrl: String
     let facebookId: String
     let birthdate: String
-
 }
-

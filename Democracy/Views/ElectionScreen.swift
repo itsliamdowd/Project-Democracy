@@ -10,7 +10,15 @@ import SDWebImage
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected a candidate")
+        var candidateID = ""
         var imageUrl = self.candidates[indexPath.row].imageUrl
+        for openSecretsCandidate in openSecretsData {
+            if openSecretsCandidate.firstlast == self.candidates[indexPath.row].name {
+                candidateID = openSecretsCandidate.cid
+                print("Found a match")
+                //Make API call with candidate ID value to get financing info
+            }
+        }
         SDWebImageManager.shared.loadImage(
                 with: imageUrl,
                 options: .highPriority,
@@ -22,6 +30,7 @@ extension ElectionScreen: UITableViewDelegate {
                             vc.candidates = self.candidates
                             vc.homescreendata = self.homescreendata
                             vc.electionNameData = self.electionNameData
+                            vc.candidateID = candidateID
                             self.present(vc, animated: true)
                         }
                     }
