@@ -10,37 +10,21 @@ import SDWebImage
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected a candidate")
-        var candidateID = ""
-        //Concurrent requests
-        let group = DispatchGroup()
-        group.enter()
-        for openSecretsCandidate in openSecretsData {
-            if openSecretsCandidate.firstlast == self.candidates[indexPath.row].name {
-                candidateID = openSecretsCandidate.cid
-                print("Found a match")
-                //Make API call with candidate ID value to get financing info
-            }
-        }
-        var imageUrl = self.candidates[indexPath.row].imageUrl
-        SDWebImageManager.shared.loadImage(
-                with: imageUrl,
-                options: .highPriority,
-                progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
-                    DispatchQueue.main.async {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
-                            vc.candidate = self.candidates[indexPath.row]
-                            vc.candidates = self.candidates
-                            vc.homescreendata = self.homescreendata
-                            vc.electionNameData = self.electionNameData
-                            vc.candidateID = candidateID
-                            self.present(vc, animated: true)
-                        }
-                    }
-        }
-        group.leave()
-        group.notify(queue: .main) {
-            print("Requests finished")
+            var imageUrl = self.candidates[indexPath.row].imageUrl
+            SDWebImageManager.shared.loadImage(
+                    with: imageUrl,
+                    options: .highPriority,
+                    progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
+                                vc.candidate = self.candidates[indexPath.row]
+                                vc.candidates = self.candidates
+                                vc.homescreendata = self.homescreendata
+                                vc.electionNameData = self.electionNameData
+                                self.present(vc, animated: true)
+                            }
+                }
         }
     }
 }

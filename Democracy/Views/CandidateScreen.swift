@@ -29,7 +29,6 @@ class CandidateScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     var electionNameData = ""
-    var candidateID = ""
     
     //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -130,9 +129,7 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets description
-        print(candidate.biography)
         if candidate.biography != nil && candidate.biography != "" {
-            print(candidate.biography)
             self.candidateDescription.text = candidate.biography
         }
         else {

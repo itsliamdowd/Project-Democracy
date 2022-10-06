@@ -130,7 +130,6 @@ private extension HomeScreen {
         }
         URLSession.shared.codableTask(with: request) {[weak self] model in
             let elections = self?.parseElections(model) // Extract desired information from JSON into our custom model
-
             // Saving cache to UserDefaults for future access
             guard let encodedElectionInfo = try? JSONEncoder().encode(elections)
             else {
@@ -141,7 +140,6 @@ private extension HomeScreen {
                 self?.electionInfo = elections ?? []
                 self?.stateElections.reloadData()
             }
-
         }
     }
 
@@ -152,7 +150,6 @@ private extension HomeScreen {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             let date = formatter.date(from: election[c.date].stringValue)
-
             guard let date = date else {
                 return nil
             }
@@ -222,7 +219,7 @@ private extension HomeScreen {
         return candidates
     }
 }
-
+    
 private extension HomeScreen {
     private func loadOpenSecrets() {
         getGeocodeState {state in

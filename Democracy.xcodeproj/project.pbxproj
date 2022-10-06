@@ -30,6 +30,8 @@
 		BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */; };
 		BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */; };
 		BD9D080728BF14B200CC5F0A /* Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9D080628BF14B200CC5F0A /* Flag.png */; };
+		BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */; };
+		BDBDDD1A28EEA8E200290419 /* candidateData.json in Resources */ = {isa = PBXBuildFile; fileRef = BDBDDD1928EEA8E200290419 /* candidateData.json */; };
 		BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B7F28C839B5000E82E1 /* SourceCode.swift */; };
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
 		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
@@ -64,7 +66,6 @@
 		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateTwitterScreen.swift; sourceTree = "<group>"; };
 		BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsModel.swift; sourceTree = "<group>"; };
-		BD4FF72828ED0E49005D84BC /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +83,8 @@
 		BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionScreen.swift; sourceTree = "<group>"; };
 		BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		BD9D080628BF14B200CC5F0A /* Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag.png; sourceTree = "<group>"; };
+		BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsFundingModel.swift; sourceTree = "<group>"; };
+		BDBDDD1928EEA8E200290419 /* candidateData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = candidateData.json; sourceTree = "<group>"; };
 		BDD90B7F28C839B5000E82E1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
@@ -133,7 +136,6 @@
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
 				BDD90B8928CAF6BB000E82E1 /* Contact.swift */,
 				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
-				BD4FF72828ED0E49005D84BC /* data.xml */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +147,7 @@
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */,
+				BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 		BD9D07CD28B729C400CC5F0A /* Democracy */ = {
 			isa = PBXGroup;
 			children = (
+				BDBDDD1B28EF9A8600290419 /* Data */,
 				62B1B3F428C42637000EB586 /* Utility */,
 				62B1B3F328C42629000EB586 /* Views */,
 				BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */,
@@ -201,6 +205,14 @@
 				BD9D07F128B729C700CC5F0A /* DemocracyUITestsLaunchTests.swift */,
 			);
 			path = DemocracyUITests;
+			sourceTree = "<group>";
+		};
+		BDBDDD1B28EF9A8600290419 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BDBDDD1928EEA8E200290419 /* candidateData.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +331,7 @@
 				BD9D080728BF14B200CC5F0A /* Flag.png in Resources */,
 				BD9D07D828B729C600CC5F0A /* Assets.xcassets in Resources */,
 				BD9D07D628B729C400CC5F0A /* Main.storyboard in Resources */,
+				BDBDDD1A28EEA8E200290419 /* candidateData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */,
 				BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */,
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
@@ -538,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = NZTKYG24L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
@@ -569,7 +583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = NZTKYG24L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;

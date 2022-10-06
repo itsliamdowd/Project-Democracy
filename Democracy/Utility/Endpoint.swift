@@ -32,6 +32,7 @@ struct Endpoint {
         enum OpenSecretRoutes {
             case getLegislator(state: String)
             case cardSummary(cid: String, cycle: String = "2022")
+            case candContrib(cid: String, cycle: String = "2022")
         }
     }
 }
@@ -99,9 +100,19 @@ extension Endpoint {
                                         httpMethod: .GET)
                 endpoint.queryItems.append(contentsOf: queryItems)
                 return endpoint
-
             case .cardSummary(let cid, let cycle):
                 queryItems.append(.init(name: "method", value: "candSummary"))
+                queryItems.append(.init(name: "cid", value: cid))
+                queryItems.append(.init(name: "apikey", value: "c5d1d02a93919b2845a095e52c2af67a"))
+                queryItems.append(.init(name: "cycle", value: cycle))
+                var endpoint = Endpoint(host: api.openSecretHost,
+                                        path: api.openSecretPath,
+                                        httpMethod: .GET)
+                endpoint.queryItems.append(contentsOf: queryItems)
+
+                return endpoint
+            case .candContrib(let cid, let cycle):
+                queryItems.append(.init(name: "method", value: "candContrib"))
                 queryItems.append(.init(name: "cid", value: cid))
                 queryItems.append(.init(name: "apikey", value: "c5d1d02a93919b2845a095e52c2af67a"))
                 queryItems.append(.init(name: "cycle", value: cycle))
