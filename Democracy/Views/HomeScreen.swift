@@ -21,6 +21,7 @@ extension HomeScreen: UITableViewDelegate {
                 vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
                 vc.homescreendata = self.electionInfo
                 vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
+                vc.openSecretsData = self.openSecretsData
                 self.present(vc, animated: true)
             }
         }
@@ -66,6 +67,7 @@ class HomeScreen: UIViewController {
 
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
+    var openSecretsData = [OpenSecretsModel]()
     
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
@@ -85,7 +87,7 @@ class HomeScreen: UIViewController {
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
         loadElectionData()
-        //accessOpenSecrets()
+        loadOpenSecrets()
         //Eventually add concurrent requests
     }
 }
@@ -216,39 +218,40 @@ private extension HomeScreen {
 }
 
 private extension HomeScreen {
-    private func accessOpenSecrets() {
-        var arrayOfPeople = [String].self
+    private func loadOpenSecrets() {
+        getGeocodeState {state in
+            guard let state = state else {
+                return
+            }
+            let endpoint = Endpoint.getAPI(from: .openSecrets(route: .getLegislator(state: state)))
+            URLSession.shared.codableTask(with: endpoint) {[weak self] result in
+                let legislators = result?["response"]["legislator"].array ?? []
+                self?.openSecretsData = legislators.compactMap {candidate -> OpenSecretsModel? in
+                    guard let info = try? candidate["@attributes"].rawData()
+                    else {
+                        return nil
+                    }
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let model = try? decoder.decode(OpenSecretsModel.self, from: info)
+                    return model
+                }
+            }
+        }
+
+    }
+
+    private func getGeocodeState(completion: @escaping (String?) -> Void) {
         if UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != nil {
             let latitude = UserDefaults.standard.string(forKey: "latitude")
             let longitude = UserDefaults.standard.string(forKey: "longitude")
             let location = CLLocation(latitude: CLLocationDegrees(Double(latitude!)!), longitude: CLLocationDegrees(Double(longitude!)!))
             let geoCoder = CLGeocoder()
-            geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
-                placemarks?.forEach { (placemark) in
-                    if let state = placemark.administrativeArea {
-                    var semaphore = DispatchSemaphore (value: 0)
-                    var request = URLRequest(url: URL(string: "https://www.opensecrets.org/api/?method=getLegislators&id=" + state + "&apikey=0e7045e49319b73b7ddc2cc8106e1f88")!,timeoutInterval: Double.infinity)
-                    request.httpMethod = "GET"
+            geoCoder.reverseGeocodeLocation(location) {placemarks, _ in
+                let state = placemarks?.first?.administrativeArea
+                completion(state)
+            }
 
-                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                      guard let data = data else {
-                        print(String(describing: error))
-                        semaphore.signal()
-                        return
-                      }
-                      print(String(data: data, encoding: .utf8)!)
-                      semaphore.signal()
-                    }
-
-                    task.resume()
-                    semaphore.wait()
-                    }
-                }
-            })
-            
-        }
-        else {
-            print("Error")
         }
     }
 }

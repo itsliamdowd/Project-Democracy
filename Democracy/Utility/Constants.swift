@@ -19,8 +19,12 @@ struct Constants {
 
         //MARK: VoterBase
         static let voterbaseHost = "api.voterbase.com"
-        static let voterbasePath = "elections"
+        static let voterbasePath = "/elections"
         static let addressLabel = "address"
+
+        //MARK: OpenSecrets
+        static let openSecretHost = "www.opensecrets.org"
+        static let openSecretPath = "/api"
     }
 
     struct JSON {

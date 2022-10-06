@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftyJSON
 
 class CandidateScreen: UIViewController {
     @IBOutlet var candidateName: UILabel!
@@ -167,5 +168,12 @@ class CandidateScreen: UIViewController {
         
         //Sets image to the candidate's image and caches the image for later use
         candidateImage.sd_setImage(with: candidate.imageUrl)
+    }
+}
+
+//MARK: - API and parsing
+extension CandidateScreen {
+    private func loadFundingData() {
+
     }
 }
