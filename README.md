@@ -10,3 +10,8 @@ You can contribute to this project by cloning the repository locally and making 
 
 ### App Store
 Democracy can be downloaded on the App Store for free by using this link.
+
+### Additional Repositories
+Random additional files for running Project Democracy
+https://github.com/SkiingIsFun123/Project-Democracy-Files
+
