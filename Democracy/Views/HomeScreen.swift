@@ -87,14 +87,14 @@ class HomeScreen: UIViewController {
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
         //Concurrent requests
-        let group = DispatchGroup()
-        group.enter()
+        //let group = DispatchGroup()
+        //group.enter()
         loadElectionData()
-        loadOpenSecrets()
-        group.leave()
-        group.notify(queue: .main) {
-            print("requests finished")
-        }
+        //loadOpenSecrets()
+        //group.leave()
+        //group.notify(queue: .main) {
+        //    print("requests finished")
+        //}
     }
 }
 

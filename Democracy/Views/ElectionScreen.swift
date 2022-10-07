@@ -6,10 +6,12 @@
 //
 import UIKit
 import SDWebImage
+import Foundation
 
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected a candidate")
+        readJson()
             var imageUrl = self.candidates[indexPath.row].imageUrl
             SDWebImageManager.shared.loadImage(
                     with: imageUrl,
@@ -26,6 +28,52 @@ extension ElectionScreen: UITableViewDelegate {
                             }
                 }
         }
+    }
+}
+
+enum CandidateDatasetElement: Codable {
+    case integer(Int)
+    case string(String)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(Int.self) {
+            self = .integer(x)
+            return
+        }
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
+        }
+        throw DecodingError.typeMismatch(CandidateDatasetElement.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for CandidateDatasetElement"))
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .integer(let x):
+            try container.encode(x)
+        case .string(let x):
+            try container.encode(x)
+        }
+    }
+}
+
+typealias CandidateDataset = [String: [CandidateDatasetElement]]
+
+private func readJson() {
+    do {
+        if let file = Bundle.main.url(forResource: "candidateData", withExtension: "json") {
+            let data = try Data(contentsOf: file)
+            let json = try JSONSerialization.jsonObject(with: data, options: [])
+            var decoder = JSONDecoder()
+            let candidateDataset = try? decoder.decode(CandidateDataset.self, from: data)
+            print(candidateDataset)
+        } else {
+            print("no file")
+        }
+    } catch {
+        print(error.localizedDescription)
     }
 }
 
