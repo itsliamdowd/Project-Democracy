@@ -1,7 +1,7 @@
 ### Democracy
-https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS14.yml/badge.svg
-https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS15.yml/badge.svg
-https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS16.yml/badge.svg
+(https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS14.yml/badge.svg)
+(https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS15.yml/badge.svg)
+(https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS16.yml/badge.svg)
 
 Democracy helps you be a better citizen by providing fair, unbiased coverage of elections. 🇺🇸
 
