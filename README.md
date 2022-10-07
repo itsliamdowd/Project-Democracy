@@ -9,7 +9,8 @@ You can contribute to this project by cloning the repository locally and making 
    2. Add a talk section where people can talk about issues, candidates, and proposals that matter specifically to their community
 
 ### App Store
-Democracy can be downloaded on the App Store for free by using this link.
+Democracy can be downloaded on the App Store for free by using this link:
+https://apps.apple.com/us/app/project-democracy/id6443437676?uo=4
 
 ### Additional Repositories
 Random additional files for running Project Democracy
