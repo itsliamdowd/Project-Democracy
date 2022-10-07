@@ -15,3 +15,5 @@ Democracy can be downloaded on the App Store for free by using this link.
 Random additional files for running Project Democracy
 https://github.com/SkiingIsFun123/Project-Democracy-Files
 
+Landing page
+https://github.com/SkiingIsFun123/Project-Democracy-Landing-Page
