@@ -1,4 +1,8 @@
 ### Democracy
+![badge](https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS14.yml/badge.svg)
+![badge](https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS15.yml/badge.svg)
+![badge](https://github.com/SkiingIsFun123/Project-Democracy/actions/workflows/iOS16.yml/badge.svg)
+
 Democracy helps you be a better citizen by providing fair, unbiased coverage of elections. 🇺🇸
 
 ### Contributing
@@ -9,9 +13,12 @@ You can contribute to this project by cloning the repository locally and making 
    2. Add a talk section where people can talk about issues, candidates, and proposals that matter specifically to their community
 
 ### App Store
-Democracy can be downloaded on the App Store for free by using this link.
+Democracy can be downloaded on the App Store for free by using this link:
+https://apps.apple.com/us/app/project-democracy/id6443437676?uo=4
 
 ### Additional Repositories
 Random additional files for running Project Democracy
 https://github.com/SkiingIsFun123/Project-Democracy-Files
 
+Landing page
+https://github.com/SkiingIsFun123/Project-Democracy-Landing-Page
