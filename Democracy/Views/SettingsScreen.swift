@@ -11,7 +11,6 @@ import WebKit
 class SettingsScreen: UIViewController {
     
     @IBOutlet var privacy: UIButton!
-    @IBOutlet var terms: UIButton!
     @IBOutlet var source: UIButton!
     @IBOutlet weak var feedback: UIButton!
     @IBOutlet var appVersion: UILabel!
@@ -19,9 +18,7 @@ class SettingsScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to settings screen")
-        terms.isHidden = true
         privacy.layer.cornerRadius = 15
-        terms.layer.cornerRadius = 15
         source.layer.cornerRadius = 15
         feedback.layer.cornerRadius = 15
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
