@@ -76,10 +76,16 @@ class HomeScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to home screen")
+        var existingIndex = UserDefaults.standard.integer(forKey: "index")
+        existingIndex = existingIndex + 1
+        UserDefaults.standard.set(existingIndex, forKey: "index")
         UserDefaults.standard.set("true", forKey: "loggedIn")
         if let cachedData = UserDefaults.standard.data(forKey: "electionInfo"),
            let electionDecoded = try? JSONDecoder().decode([BallotpediaElection].self, from: cachedData) {
             homescreendata = electionDecoded
+            if existingIndex == 1 || existingIndex == 3 {
+                homescreendata.removeAll()
+            }
         }
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self

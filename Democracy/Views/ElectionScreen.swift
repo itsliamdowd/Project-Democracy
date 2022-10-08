@@ -11,7 +11,7 @@ import Foundation
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected a candidate")
-        readJson()
+        //readJson()
             var imageUrl = self.candidates[indexPath.row].imageUrl
             SDWebImageManager.shared.loadImage(
                     with: imageUrl,
@@ -111,6 +111,9 @@ class ElectionScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to election screen")
+        var existingIndex = UserDefaults.standard.integer(forKey: "index")
+        existingIndex = existingIndex + 1
+        UserDefaults.standard.set(existingIndex, forKey: "index")
         if self.electionNameData != nil {
             self.electionName.text = self.electionNameData
         }

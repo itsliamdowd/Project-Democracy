@@ -81,6 +81,9 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     //Hides search completer
     override func viewDidLoad() {
         super.viewDidLoad()
+        var existingIndex = UserDefaults.standard.integer(forKey: "index")
+        existingIndex = existingIndex + 1
+        UserDefaults.standard.set(existingIndex, forKey: "index")
         continueButton.layer.cornerRadius = 20
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
@@ -144,6 +147,8 @@ extension LocationScreen: UITableViewDelegate {
                 //Changes searchbar to display selected address
                 var fullAddress = "\(placeMark!.thoroughfare!)\n\(placeMark!.postalCode!) \(placeMark!.locality!)\n\(placeMark!.country!)"
                 self.searchBar.text = fullAddress
+                print(UserDefaults.standard.string(forKey: "longitude"))
+                print(UserDefaults.standard.string(forKey: "latitude"))
             }
             else {
                 print("Error")

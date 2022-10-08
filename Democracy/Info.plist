@@ -4,6 +4,8 @@
 <dict>
 	<key>Root</key>
 	<dict>
+		<key>index</key>
+		<string></string>
 		<key>candidateKey</key>
 		<string></string>
 		<key>electionInfo</key>
