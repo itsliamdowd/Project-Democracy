@@ -18,6 +18,7 @@ extension HomeScreen: UITableViewDelegate {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
         DispatchQueue.main.async {
+            UserDefaults.standard.set(5, forKey: "index")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
@@ -80,6 +81,7 @@ class HomeScreen: UIViewController {
         print("Made it to home screen")
         var existingIndex = UserDefaults.standard.integer(forKey: "index")
         existingIndex = existingIndex + 1
+        print(existingIndex)
         UserDefaults.standard.set(existingIndex, forKey: "index")
         UserDefaults.standard.set("true", forKey: "loggedIn")
         if let cachedData = UserDefaults.standard.data(forKey: "electionInfo"),
