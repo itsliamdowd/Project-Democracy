@@ -17,5 +17,5 @@ jobs:
 
     - name: Xcode iOS build
       run: |
-        cd Swift/
+        cd /
         xcodebuild clean build -scheme Democracy -destination 'platform=iOS Simulator,name=iPhone 12,OS=16.0'
