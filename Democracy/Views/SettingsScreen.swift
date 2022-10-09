@@ -28,6 +28,7 @@ class SettingsScreen: UIViewController {
 
     @IBAction func logOutButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
+            UserDefaults.standard.set(0, forKey: "index")
             UserDefaults.standard.set("false", forKey: "loggedIn")
             UserDefaults.standard.set("", forKey: "longitude")
             UserDefaults.standard.set("", forKey: "latitude")
