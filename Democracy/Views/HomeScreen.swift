@@ -18,6 +18,7 @@ extension HomeScreen: UITableViewDelegate {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
         DispatchQueue.main.async {
+            //Sets index to large value so that it dosen't reload data
             UserDefaults.standard.set(5, forKey: "index")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
