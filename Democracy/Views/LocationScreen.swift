@@ -66,7 +66,13 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
         else if UserDefaults.standard.string(forKey: "latitude") == nil {
             print("Error")
         }
-        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil {
+        else if UserDefaults.standard.string(forKey: "longitude") == "" {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "latitude") == "" {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != "" && UserDefaults.standard.string(forKey: "latitude") != "" {
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")

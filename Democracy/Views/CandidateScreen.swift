@@ -87,12 +87,12 @@ class CandidateScreen: UIViewController {
                 candidateParty.setTitle("Democrat", for: .normal)
             case "Libertarian Party":
                 print("Libertarian")
-                candidateParty.backgroundColor = UIColor.yellow
+                candidateParty.backgroundColor = UIColor(red: 0.9176, green: 0.8431, blue: 0.2824, alpha: 1.0)
                 candidateParty.setTitle("Libertarian", for: .normal)
                 //make better color
             case "Green Party":
                 print("Green")
-                candidateParty.backgroundColor = UIColor.green
+                candidateParty.backgroundColor = UIColor(hue: 0.3861, saturation: 0.79, brightness: 0.83, alpha: 1.0)
                 candidateParty.setTitle("Green Party", for: .normal)
                 //make better color
             case "Nonpartisan":
