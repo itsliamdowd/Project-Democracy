@@ -22,14 +22,22 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     
     //Moves onto HomeScreen only if the longitude and latitude UserDefaults are not empty
     @IBAction func continueButtonPressed(_ sender: Any) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         if UserDefaults.standard.string(forKey: "longitude") == nil {
             print("Error")
         }
         else if UserDefaults.standard.string(forKey: "latitude") == nil {
             print("Error")
         }
-        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil {
-            DispatchQueue.main.async {
+        else if UserDefaults.standard.string(forKey: "longitude") == "" {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "latitude") == "" {
+            print("Error")
+        }
+        else if UserDefaults.standard.string(forKey: "longitude") != nil && UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != "" && UserDefaults.standard.string(forKey: "latitude") != "" {
+                DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen")
                 self.present(vc, animated: true)
@@ -151,10 +159,15 @@ extension LocationScreen: UITableViewDelegate {
                 //Hides search results table
                 self.searchResultsTableView.isHidden = true
                 //Changes searchbar to display selected address
-                var fullAddress = "\(placeMark!.thoroughfare!)\n\(placeMark!.postalCode!) \(placeMark!.locality!)\n\(placeMark!.country!)"
-                self.searchBar.text = fullAddress
-                print(UserDefaults.standard.string(forKey: "longitude"))
-                print(UserDefaults.standard.string(forKey: "latitude"))
+                if placeMark != nil && placeMark?.thoroughfare != nil && placeMark?.locality != nil && placeMark?.country != nil {
+                    var fullAddress = "\(placeMark!.thoroughfare!)\n\(placeMark!.postalCode!) \(placeMark!.locality!)\n\(placeMark!.country!)"
+                    self.searchBar.text = fullAddress
+                    print(UserDefaults.standard.string(forKey: "longitude"))
+                    print(UserDefaults.standard.string(forKey: "latitude"))
+                }
+                else{
+                    print("Error")
+                }
             }
             else {
                 print("Error")

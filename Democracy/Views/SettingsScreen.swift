@@ -27,10 +27,10 @@ class SettingsScreen: UIViewController {
     }
 
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        UserDefaults.standard.set("false", forKey: "loggedIn")
-        UserDefaults.standard.set("", forKey: "longitude")
-        UserDefaults.standard.set("", forKey: "latitude")
         DispatchQueue.main.async {
+            UserDefaults.standard.set("false", forKey: "loggedIn")
+            UserDefaults.standard.set("", forKey: "longitude")
+            UserDefaults.standard.set("", forKey: "latitude")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PromotionScreen") as? PromotionScreen
             self.present(vc!, animated: true)

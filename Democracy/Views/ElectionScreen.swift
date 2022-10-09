@@ -11,6 +11,8 @@ import Foundation
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected a candidate")
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         //readJson()
             var imageUrl = self.candidates[indexPath.row].imageUrl
             SDWebImageManager.shared.loadImage(
