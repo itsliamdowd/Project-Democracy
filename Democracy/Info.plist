@@ -4,11 +4,11 @@
 <dict>
 	<key>Root</key>
 	<dict>
-		<key>index</key>
-		<string></string>
 		<key>candidateKey</key>
 		<string></string>
 		<key>electionInfo</key>
+		<string></string>
+		<key>index</key>
 		<string></string>
 		<key>latitude</key>
 		<string></string>
