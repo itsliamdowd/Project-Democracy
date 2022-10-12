@@ -14,6 +14,9 @@ Democracy can be downloaded on the App Store for free by using this link:
 https://apps.apple.com/us/app/project-democracy/id6443437676?uo=4
 
 ### Additional Repositories
+Backend/Server
+https://github.com/SkiingIsFun123/Project-Democracy-Backend
+
 Random additional files for running Project Democracy
 https://github.com/SkiingIsFun123/Project-Democracy-Files
 
