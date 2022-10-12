@@ -23,6 +23,8 @@ extension HomeScreen: UITableViewDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
+                print(self.racesGroups[indexPath.section].races[indexPath.row].level)
+                vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                 vc.homescreendata = self.electionInfo
                 vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
                 vc.openSecretsData = self.openSecretsData
@@ -199,7 +201,7 @@ private extension HomeScreen {
             }
 
             let candidates = parseCandidates(race)
-            return BallotpediaElection.Race(name: name, level: level, candidates: candidates)
+            return BallotpediaElection.Race(name: name, level: level.rawValue, candidates: candidates)
         }
 
         return races
@@ -216,6 +218,10 @@ private extension HomeScreen {
             let websiteUrl = URL(string: candidate[c.websiteUrl].stringValue)
             let twitterUrl = candidate[c.twitterUrl].stringValue
             let biography = candidate[c.biography].stringValue
+            let phone = ""
+            let address = ""
+            let sectors = ["": ""]
+            let organizations = ["": ""]
             
             return BallotpediaElection.Candidate(name: name,
                                                  party: party,
@@ -224,7 +230,11 @@ private extension HomeScreen {
                                                  facebookUrl: facebookUrl,
                                                  twitterUrl: twitterUrl,
                                                  websiteUrl: websiteUrl,
-                                                 biography: biography)
+                                                 biography: biography,
+                                                 phone: phone,
+                                                 address: address,
+                                                 sectors: sectors,
+                                                 organizations: organizations)
         }
 
         return candidates

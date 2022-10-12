@@ -20,7 +20,7 @@ struct BallotpediaElection: Codable {
 
     struct Race: Codable {
         let name: String
-        let level: ElectionLevel
+        let level: String
         let candidates: [Candidate]
     }
 
@@ -33,6 +33,10 @@ struct BallotpediaElection: Codable {
         let twitterUrl: String?
         let websiteUrl: URL?
         let biography: String
+        var phone: String
+        var address: String
+        var sectors: [String: String]
+        var organizations: [String: String]
     }
 
     enum ElectionLevel: String, Codable {

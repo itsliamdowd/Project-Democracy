@@ -174,7 +174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Elected: / Occupation" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HmM-BP-gaB">
-                                <rect key="frame" x="20" y="442" width="286" height="58"/>
+                                <rect key="frame" x="20" y="442" width="144" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +201,6 @@
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" causesPageTurn="YES"/>
                                                 </accessibility>
-                                                <string key="text">Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph </string>
                                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -245,7 +244,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="network" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="candidateWebsiteButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="ONe-H1-qGs"/>
+                                    <action selector="candidateWebsiteButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="1xy-tO-XvP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzM-ph-dGl">
@@ -256,6 +255,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title=""/>
                                 <connections>
                                     <action selector="candidateSocialMediaButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="UNu-el-YAq"/>
+                                    <action selector="candidateWebsiteButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="NLn-gJ-nSm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZh-rV-NiZ">
@@ -278,30 +278,48 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prh-ux-0NG">
-                                <rect key="frame" x="274" y="458" width="38" height="34"/>
+                                <rect key="frame" x="275" y="460" width="38" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="phone" catalog="system" title="">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="candidatePhoneButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="jnt-oj-ncS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6Q-Ea-Ubw">
+                                <rect key="frame" x="235" y="460" width="38" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="map" catalog="system" title="">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="mapsButtonPressed:" destination="P4h-Li-TM2" eventType="touchUpInside" id="W49-X7-Ckx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uy1-z3-BB8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="callButton" destination="Prh-ux-0NG" id="hqc-xk-hYR"/>
                         <outlet property="candidateDescription" destination="8jB-Ld-hb9" id="Igg-uW-xMF"/>
                         <outlet property="candidateImage" destination="Ofi-CX-86l" id="wQa-lG-9SW"/>
                         <outlet property="candidateName" destination="WIR-OQ-tKJ" id="ac5-Nf-OaH"/>
                         <outlet property="candidateOccupation" destination="HmM-BP-gaB" id="PjQ-Wv-a7n"/>
                         <outlet property="candidateParty" destination="EbO-LD-2D2" id="gT0-vK-Y3c"/>
                         <outlet property="incumbent" destination="shL-ic-QJg" id="AzX-NQ-4IY"/>
+                        <outlet property="mapsButton" destination="B6Q-Ea-Ubw" id="g2k-p7-yA6"/>
                         <outlet property="screenText" destination="8jB-Ld-hb9" id="NJE-8k-caR"/>
                         <outlet property="screenTitle" destination="DqW-hy-ZE7" id="92z-zQ-5y8"/>
                         <outlet property="socialMedia" destination="zzM-ph-dGl" id="vXd-7w-a7s"/>
                         <outlet property="swipeScreen" destination="K2N-7t-HR0" id="P9h-ob-ApO"/>
                         <outlet property="textScreen" destination="bBg-k4-Mkg" id="O1c-dm-OeZ"/>
-                        <outlet property="webSite" destination="6SS-8r-dhV" id="5dY-o9-aMp"/>
-                        <outlet property="writeButton" destination="Prh-ux-0NG" id="26C-fB-7aN"/>
+                        <outlet property="webSite" destination="6SS-8r-dhV" id="Tv8-Py-Biv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AG-lp-OPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -844,9 +862,10 @@
         <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="network" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="phone" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
