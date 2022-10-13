@@ -74,51 +74,61 @@ class CandidateScreen: UIViewController {
     }
     
     @IBAction func candidatePhoneButtonPressed(_ sender: Any) {
-        guard let number = URL(string: "telprompt://" + candidate!.phone) else { return }
-        UIApplication.shared.open(number)
+        if candidate!.phone != "None" {
+            guard let number = URL(string: "telprompt://" + candidate!.phone) else { return }
+            UIApplication.shared.open(number)
+        }
+        else {
+            print("No phone number")
+        }
     }
     
     @IBAction func mapsButtonPressed(_ sender: Any) {
-        let myAddress = candidate!.address
-        print(candidate!.address)
-        var semaphore = DispatchSemaphore (value: 0)
-        var urlForData = "https://api.geoapify.com/v1/geocode/search?text=" + candidate!.address + "/&apiKey=c0b339b5bd9d47f8ae7c9461392c70cb"
-        var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
-        request.httpMethod = "GET"
+        if candidate!.address != "None" {
+            let myAddress = candidate!.address
+            print(candidate!.address)
+            var semaphore = DispatchSemaphore (value: 0)
+            var urlForData = "https://api.geoapify.com/v1/geocode/search?text=" + candidate!.address + "/&apiKey=c0b339b5bd9d47f8ae7c9461392c70cb"
+            var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
+            request.httpMethod = "GET"
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let data = data else {
-            print(String(describing: error))
-            semaphore.signal()
-            return
-          }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let features = json["features"] as! [[String: Any]]
-                let properties = features[0]["properties"] as! [String: Any]
-                let lat = properties["lat"] as! Double
-                let lon = properties["lon"] as! Double
-                let regionDistance:CLLocationDistance = 100
-                let coordinates = CLLocationCoordinate2DMake(lat, lon)
-                let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-                let options = [
-                    MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                    MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-                ]
-                let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-                let mapItem = MKMapItem(placemark: placemark)
-                mapItem.name = self.candidate!.address
-                mapItem.openInMaps(launchOptions: options)
-            } catch {
-              print("Error")
-              print(error.localizedDescription)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+              guard let data = data else {
+                print(String(describing: error))
+                semaphore.signal()
+                return
+              }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    let features = json["features"] as! [[String: Any]]
+                    let properties = features[0]["properties"] as! [String: Any]
+                    let lat = properties["lat"] as! Double
+                    let lon = properties["lon"] as! Double
+                    let regionDistance:CLLocationDistance = 100
+                    let coordinates = CLLocationCoordinate2DMake(lat, lon)
+                    let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+                    let options = [
+                        MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                        MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+                    ]
+                    let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+                    let mapItem = MKMapItem(placemark: placemark)
+                    mapItem.name = self.candidate!.address
+                    mapItem.openInMaps(launchOptions: options)
+                } catch {
+                  print("Error")
+                  print(error.localizedDescription)
+                }
+              semaphore.signal()
             }
-          semaphore.signal()
-        }
 
-        task.resume()
-        semaphore.wait()
+            task.resume()
+            semaphore.wait()
+        }
+        else {
+            print("No address")
+        }
     }
     
     override func viewDidLoad() {
@@ -154,6 +164,10 @@ class CandidateScreen: UIViewController {
                 candidateParty.setTitle("Green Party", for: .normal)
                 //make better color
             case "Nonpartisan":
+                print("Nonpartisan")
+                candidateParty.backgroundColor = UIColor.gray
+                candidateParty.setTitle("Nonpartisan", for: .normal)
+            case "No Party Affiliation":
                 print("Nonpartisan")
                 candidateParty.backgroundColor = UIColor.gray
                 candidateParty.setTitle("Nonpartisan", for: .normal)
@@ -272,14 +286,14 @@ class CandidateScreen: UIViewController {
             socialMedia.isHidden = false
         }
         
-        if candidate.phone == nil || candidate.phone == "" {
+        if candidate.phone == nil || candidate.phone == "" || candidate.phone == "None" {
             callButton.isHidden = true
         }
         else {
             callButton.isHidden = false
         }
         
-        if candidate.address == nil || candidate.address == "" {
+        if candidate.address == nil || candidate.address == "" || candidate.address == "None" {
             mapsButton.isHidden = true
         }
         else {

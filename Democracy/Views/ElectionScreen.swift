@@ -129,22 +129,6 @@ enum CandidateDatasetElement: Codable {
 
 typealias CandidateDataset = [String: [CandidateDatasetElement]]
 
-private func readJson() {
-    do {
-        if let file = Bundle.main.url(forResource: "candidateData", withExtension: "json") {
-            let data = try Data(contentsOf: file)
-            let json = try JSONSerialization.jsonObject(with: data, options: [])
-            var decoder = JSONDecoder()
-            let candidateDataset = try? decoder.decode(CandidateDataset.self, from: data)
-            print(candidateDataset)
-        } else {
-            print("no file")
-        }
-    } catch {
-        print(error.localizedDescription)
-    }
-}
-
 extension ElectionScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return candidates.count
