@@ -79,6 +79,18 @@ class HomeScreen: UIViewController {
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
     
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            UserDefaults.standard.set(1, forKey: "index")
+            UserDefaults.standard.set("false", forKey: "loggedIn")
+            UserDefaults.standard.set("", forKey: "longitude")
+            UserDefaults.standard.set("", forKey: "latitude")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LocationScreen") as? LocationScreen
+            self.present(vc!, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to home screen")
