@@ -16,7 +16,7 @@ class Privacy: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to privacy screen")
-        let privacyURL = URL(string: "https://projectdemocracy.app/legal/")
+        let privacyURL = URL(string: "https://projectdemocracy.app/privacypolicy/")
         let privacyRequest = URLRequest(url: privacyURL!)
         PrivacyWebView.load(privacyRequest)
     }
