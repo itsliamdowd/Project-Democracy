@@ -106,6 +106,9 @@ class HomeScreen: UIViewController {
                 homescreendata.removeAll()
             }
         }
+        if UserDefaults.standard.string(forKey: "electionDate") != nil && self.electionDate.text == "Election Date:" {
+            self.electionDate.text = UserDefaults.standard.string(forKey: "electionDate")
+        }
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
@@ -191,9 +194,11 @@ private extension HomeScreen {
                 dateForDisplay.remove(at: dateForDisplay.startIndex)
             }
             print(dateForDisplay)
+            var dateForElection = "Election Date: " + dateForDisplay
             DispatchQueue.main.async {
-                self.electionDate.text = "Election Date: " + dateForDisplay
+                self.electionDate.text = dateForElection
             }
+            UserDefaults.standard.set(dateForElection, forKey: "electionDate")
             return BallotpediaElection(date: date, districts: districts)
 
         }
