@@ -92,6 +92,9 @@ extension ElectionScreen: UITableViewDelegate {
                                 vc.candidates = self.candidates
                                 vc.homescreendata = self.homescreendata
                                 vc.electionNameData = self.electionNameData
+                                for indexPath in tableView.indexPathsForSelectedRows ?? [] {
+                                    self.candidateTable.deselectRow(at: indexPath, animated: true)
+                                }
                                 self.present(vc, animated: true)
                             }
                 }
