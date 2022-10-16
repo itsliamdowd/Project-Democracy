@@ -181,6 +181,19 @@ private extension HomeScreen {
 
             // Parse the nested districts
             let districts = parseDistricts(election)
+            print(date)
+            let dateString = formatter.string(from: date)
+            var dateComponents = dateString.split(separator: " ")
+            var dateComponentsTwo = dateComponents[0].components(separatedBy: "-")
+            var dateForDisplay = dateComponentsTwo[1] + "/" + dateComponentsTwo[2] + "/" + dateComponentsTwo[0]
+            dateForDisplay = dateForDisplay.replacingOccurrences(of: "/0", with: "/")
+            if dateForDisplay.first == "0" {
+                dateForDisplay.remove(at: dateForDisplay.startIndex)
+            }
+            print(dateForDisplay)
+            DispatchQueue.main.async {
+                self.electionDate.text = "Election Date: " + dateForDisplay
+            }
             return BallotpediaElection(date: date, districts: districts)
 
         }
