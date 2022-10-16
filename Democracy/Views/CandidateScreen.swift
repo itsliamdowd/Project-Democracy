@@ -41,17 +41,6 @@ class CandidateScreen: UIViewController {
     var electionNameData = ""
     
     //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
-    @IBAction func backButtonPressed(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                vc.candidates = self.candidates
-                vc.homescreendata = self.homescreendata
-                vc.electionNameData = self.electionNameData
-                self.present(vc, animated: true)
-            }
-       }
-    }
     
     @IBAction func candidateSocialMediaButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -144,6 +133,7 @@ class CandidateScreen: UIViewController {
         
         //Sets party label with party color
         var party = candidate.party
+        print(party)
         switch party {
             case "Republican Party":
                 print("Republican")
