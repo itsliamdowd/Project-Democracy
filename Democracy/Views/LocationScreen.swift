@@ -101,6 +101,7 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
         continueButton.layer.cornerRadius = 20
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
+        searchBar.becomeFirstResponder()
     }
 }
 
