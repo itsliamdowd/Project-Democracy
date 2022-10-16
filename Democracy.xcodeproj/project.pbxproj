@@ -11,6 +11,9 @@
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
 		BD0785DB28FB83430002F4A8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DA28FB83430002F4A8 /* Register.swift */; };
+		BD0785DD28FB861D0002F4A8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DC28FB861D0002F4A8 /* Tools.swift */; };
+		BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DE28FB87CE0002F4A8 /* Check.swift */; };
+		BD0785E128FB8A240002F4A8 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785E028FB8A240002F4A8 /* Reminder.swift */; };
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
 		BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */; };
 		BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */; };
@@ -62,6 +65,9 @@
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
 		BD0785DA28FB83430002F4A8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		BD0785DC28FB861D0002F4A8 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		BD0785DE28FB87CE0002F4A8 /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
+		BD0785E028FB8A240002F4A8 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
@@ -131,12 +137,15 @@
 				BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */,
 				BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */,
 				BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */,
+				BD0785DC28FB861D0002F4A8 /* Tools.swift */,
 				BDD90B8528C83C6F000E82E1 /* Privacy.swift */,
 				BDD90B8328C83C67000E82E1 /* Terms.swift */,
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
 				BDD90B8928CAF6BB000E82E1 /* Contact.swift */,
 				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
 				BD0785DA28FB83430002F4A8 /* Register.swift */,
+				BD0785DE28FB87CE0002F4A8 /* Check.swift */,
+				BD0785E028FB8A240002F4A8 /* Reminder.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,8 +360,10 @@
 				BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */,
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
+				BD0785E128FB8A240002F4A8 /* Reminder.swift in Sources */,
 				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
+				BD0785DD28FB861D0002F4A8 /* Tools.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
 				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
 				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
@@ -366,6 +377,7 @@
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */,
 				BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */,
+				BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
