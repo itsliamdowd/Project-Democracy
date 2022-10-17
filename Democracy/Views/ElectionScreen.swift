@@ -22,7 +22,6 @@ extension ElectionScreen: UITableViewDelegate {
             else if self.level == "state" {
                 urlForData = "https://project-democracy.herokuapp.com/api/getInfo/" + self.candidates[indexPath.row].name + "/state/"
             }
-            print(urlForData)
             var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
             request.httpMethod = "GET"

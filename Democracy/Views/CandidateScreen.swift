@@ -165,6 +165,13 @@ class CandidateScreen: UIViewController {
                 print("Other")
                 candidateParty.backgroundColor = UIColor.gray
                 candidateParty.setTitle(party, for: .normal)
+                if candidate.isIncumbent == true {
+                    print("Skipping")
+                }
+                else {
+                    candidateParty.sizeToFit()
+                    candidateParty.frame.size.width += 20
+                }
         }
         
         //Sets the incumbent button to be shown or not depending on if the candidate is currently serving
@@ -224,7 +231,6 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets sectors
-        
         if candidate.sectors != nil && candidate.sectors != ["": ""] {
             var additionalDataToAdd = "\nTop Sectors Supporting " + candidate.name + ":\n\n"
             var candidateSectors = candidate.sectors
@@ -251,16 +257,6 @@ class CandidateScreen: UIViewController {
         if self.candidateDescription.text == "" || self.candidateDescription.text == "\n\n" {
             self.candidateDescription.text = "No biography is available for this candidate.\n\nMake sure to check the candidate's website and social media for more information."
         }
-        
-        //Sets occupation
-        //if candidate. != nil {
-         //   print(candidate.occupation)
-         //   self.candidateOccupation.text = candidate.occupation
-        //}
-        //else {
-        //    print("Error")
-        //    self.candidateOccupation.text = "Occupation"
-        //}
         
         if candidate.websiteUrl == nil {
             webSite.isHidden = true
