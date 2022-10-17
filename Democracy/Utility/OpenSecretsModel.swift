@@ -5,7 +5,6 @@
 //  Created by Liam Dowd on 10/3/22.
 //
 
-
 import Foundation
 
 struct OpenSecretsModel: Codable {
@@ -25,6 +24,4 @@ struct OpenSecretsModel: Codable {
     let youtubeUrl: String
     let facebookId: String
     let birthdate: String
-
 }
-

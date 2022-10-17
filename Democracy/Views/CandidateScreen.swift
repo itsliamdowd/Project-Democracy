@@ -8,6 +8,15 @@
 import UIKit
 import SDWebImage
 import SwiftyJSON
+import MapKit
+
+extension Int {
+    func withCommas() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value:self))!
+    }
+}
 
 class CandidateScreen: UIViewController {
     @IBOutlet var candidateName: UILabel!
@@ -22,7 +31,8 @@ class CandidateScreen: UIViewController {
     @IBOutlet var incumbent: UIButton!
     @IBOutlet weak var socialMedia: UIButton!
     @IBOutlet weak var webSite: UIButton!
-    @IBOutlet weak var writeButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var mapsButton: UIButton!
     
     //Defines variables passed to it from other view controllers
     var candidate: BallotpediaElection.Candidate?
@@ -31,17 +41,6 @@ class CandidateScreen: UIViewController {
     var electionNameData = ""
     
     //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
-    @IBAction func backButtonPressed(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                vc.candidates = self.candidates
-                vc.homescreendata = self.homescreendata
-                vc.electionNameData = self.electionNameData
-                self.present(vc, animated: true)
-            }
-       }
-    }
     
     @IBAction func candidateSocialMediaButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -63,6 +62,64 @@ class CandidateScreen: UIViewController {
        }
     }
     
+    @IBAction func candidatePhoneButtonPressed(_ sender: Any) {
+        if candidate!.phone != "None" {
+            guard let number = URL(string: "telprompt://" + candidate!.phone) else { return }
+            UIApplication.shared.open(number)
+        }
+        else {
+            print("No phone number")
+        }
+    }
+    
+    @IBAction func mapsButtonPressed(_ sender: Any) {
+        if candidate!.address != "None" {
+            let myAddress = candidate!.address
+            print(candidate!.address)
+            var semaphore = DispatchSemaphore (value: 0)
+            var urlForData = "https://api.geoapify.com/v1/geocode/search?text=" + candidate!.address + "/&apiKey=c0b339b5bd9d47f8ae7c9461392c70cb"
+            var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
+            request.httpMethod = "GET"
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+              guard let data = data else {
+                print(String(describing: error))
+                semaphore.signal()
+                return
+              }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    let features = json["features"] as! [[String: Any]]
+                    let properties = features[0]["properties"] as! [String: Any]
+                    let lat = properties["lat"] as! Double
+                    let lon = properties["lon"] as! Double
+                    let regionDistance:CLLocationDistance = 100
+                    let coordinates = CLLocationCoordinate2DMake(lat, lon)
+                    let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+                    let options = [
+                        MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                        MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+                    ]
+                    let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+                    let mapItem = MKMapItem(placemark: placemark)
+                    mapItem.name = self.candidate!.address
+                    mapItem.openInMaps(launchOptions: options)
+                } catch {
+                  print("Error")
+                  print(error.localizedDescription)
+                }
+              semaphore.signal()
+            }
+
+            task.resume()
+            semaphore.wait()
+        }
+        else {
+            print("No address")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Makes candidate usable
@@ -76,6 +133,7 @@ class CandidateScreen: UIViewController {
         
         //Sets party label with party color
         var party = candidate.party
+        print(party)
         switch party {
             case "Republican Party":
                 print("Republican")
@@ -87,15 +145,19 @@ class CandidateScreen: UIViewController {
                 candidateParty.setTitle("Democrat", for: .normal)
             case "Libertarian Party":
                 print("Libertarian")
-                candidateParty.backgroundColor = UIColor.yellow
+                candidateParty.backgroundColor = UIColor(red: 0.9176, green: 0.8431, blue: 0.2824, alpha: 1.0)
                 candidateParty.setTitle("Libertarian", for: .normal)
                 //make better color
             case "Green Party":
                 print("Green")
-                candidateParty.backgroundColor = UIColor.green
+                candidateParty.backgroundColor = UIColor(hue: 0.3861, saturation: 0.79, brightness: 0.83, alpha: 1.0)
                 candidateParty.setTitle("Green Party", for: .normal)
                 //make better color
             case "Nonpartisan":
+                print("Nonpartisan")
+                candidateParty.backgroundColor = UIColor.gray
+                candidateParty.setTitle("Nonpartisan", for: .normal)
+            case "No Party Affiliation":
                 print("Nonpartisan")
                 candidateParty.backgroundColor = UIColor.gray
                 candidateParty.setTitle("Nonpartisan", for: .normal)
@@ -129,13 +191,64 @@ class CandidateScreen: UIViewController {
         }
         
         //Sets description
-        print(candidate.biography)
         if candidate.biography != nil && candidate.biography != "" {
-            print(candidate.biography)
-            self.candidateDescription.text = candidate.biography
+            self.candidateDescription.text = candidate.biography + "\n\n"
         }
         else {
             print("Error")
+        }
+        
+        //Sets organizations
+        
+        if candidate.organizations != nil && candidate.organizations != ["": ""] {
+            var dataToAdd = "Top Organizations Supporting " + candidate.name + ":\n\n"
+            var candidateOrganizations = candidate.organizations
+            func topValuesFirst(){
+                var highestValue = 0
+                var highestValueKey = ""
+                for (key, value) in candidateOrganizations {
+                    if Int(value)! > highestValue {
+                        highestValue = Int(value)!
+                        highestValueKey = key
+                    }
+                }
+                dataToAdd += highestValueKey + ": $" + Int(highestValue).withCommas() + "\n"
+                candidateOrganizations.removeValue(forKey: highestValueKey)
+                if candidateOrganizations.count > 0 {
+                    topValuesFirst()
+                }
+
+            }
+            topValuesFirst()
+            self.candidateDescription.text = self.candidateDescription.text + dataToAdd
+        }
+        
+        //Sets sectors
+        
+        if candidate.sectors != nil && candidate.sectors != ["": ""] {
+            var additionalDataToAdd = "\nTop Sectors Supporting " + candidate.name + ":\n\n"
+            var candidateSectors = candidate.sectors
+            func topValuesFirst(){
+                var highestValue = 0
+                var highestValueKey = ""
+                for (key, value) in candidateSectors {
+                    if Int(value)! > highestValue {
+                        highestValue = Int(value)!
+                        highestValueKey = key
+                    }
+                }
+                additionalDataToAdd += highestValueKey + ": $" + Int(highestValue).withCommas() + "\n"
+                candidateSectors.removeValue(forKey: highestValueKey)
+                if candidateSectors.count > 0 {
+                    topValuesFirst()
+                }
+
+            }
+            topValuesFirst()
+            self.candidateDescription.text = self.candidateDescription.text + additionalDataToAdd
+        }
+            
+        if self.candidateDescription.text == "" || self.candidateDescription.text == "\n\n" {
             self.candidateDescription.text = "No biography is available for this candidate.\n\nMake sure to check the candidate's website and social media for more information."
         }
         
@@ -163,8 +276,21 @@ class CandidateScreen: UIViewController {
             socialMedia.isHidden = false
         }
         
+        if candidate.phone == nil || candidate.phone == "" || candidate.phone == "None" {
+            callButton.isHidden = true
+        }
+        else {
+            callButton.isHidden = false
+        }
+        
+        if candidate.address == nil || candidate.address == "" || candidate.address == "None" {
+            mapsButton.isHidden = true
+        }
+        else {
+            mapsButton.isHidden = false
+        }
+        
         candidateOccupation.isHidden = true
-        writeButton.isHidden = true
         
         //Sets image to the candidate's image and caches the image for later use
         candidateImage.sd_setImage(with: candidate.imageUrl)

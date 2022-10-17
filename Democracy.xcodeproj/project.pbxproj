@@ -10,6 +10,11 @@
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
+		BD0785DB28FB83430002F4A8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DA28FB83430002F4A8 /* Register.swift */; };
+		BD0785DD28FB861D0002F4A8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DC28FB861D0002F4A8 /* Tools.swift */; };
+		BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785DE28FB87CE0002F4A8 /* Check.swift */; };
+		BD0785E128FB8A240002F4A8 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785E028FB8A240002F4A8 /* Reminder.swift */; };
+		BD0785E328FB90D90002F4A8 /* Polling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0785E228FB90D90002F4A8 /* Polling.swift */; };
 		BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */; };
 		BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */; };
 		BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */; };
@@ -30,6 +35,7 @@
 		BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */; };
 		BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */; };
 		BD9D080728BF14B200CC5F0A /* Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9D080628BF14B200CC5F0A /* Flag.png */; };
+		BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */; };
 		BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B7F28C839B5000E82E1 /* SourceCode.swift */; };
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
 		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
@@ -59,12 +65,16 @@
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
+		BD0785DA28FB83430002F4A8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		BD0785DC28FB861D0002F4A8 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		BD0785DE28FB87CE0002F4A8 /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
+		BD0785E028FB8A240002F4A8 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		BD0785E228FB90D90002F4A8 /* Polling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polling.swift; sourceTree = "<group>"; };
 		BD3BFE2E28BFC7A100582962 /* ElectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateTwitterScreen.swift; sourceTree = "<group>"; };
 		BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsModel.swift; sourceTree = "<group>"; };
-		BD4FF72828ED0E49005D84BC /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +92,7 @@
 		BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionScreen.swift; sourceTree = "<group>"; };
 		BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		BD9D080628BF14B200CC5F0A /* Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag.png; sourceTree = "<group>"; };
+		BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsFundingModel.swift; sourceTree = "<group>"; };
 		BDD90B7F28C839B5000E82E1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
@@ -128,12 +139,16 @@
 				BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */,
 				BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */,
 				BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */,
+				BD0785DC28FB861D0002F4A8 /* Tools.swift */,
 				BDD90B8528C83C6F000E82E1 /* Privacy.swift */,
 				BDD90B8328C83C67000E82E1 /* Terms.swift */,
 				BDD90B7F28C839B5000E82E1 /* SourceCode.swift */,
 				BDD90B8928CAF6BB000E82E1 /* Contact.swift */,
 				BDD90B8728C84011000E82E1 /* TalkScreen.swift */,
-				BD4FF72828ED0E49005D84BC /* data.xml */,
+				BD0785DA28FB83430002F4A8 /* Register.swift */,
+				BD0785DE28FB87CE0002F4A8 /* Check.swift */,
+				BD0785E028FB8A240002F4A8 /* Reminder.swift */,
+				BD0785E228FB90D90002F4A8 /* Polling.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +160,7 @@
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */,
+				BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -343,23 +359,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */,
 				BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */,
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
+				BD0785E128FB8A240002F4A8 /* Reminder.swift in Sources */,
 				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
+				BD0785DD28FB861D0002F4A8 /* Tools.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
 				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
 				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BD4FF72728EBD51E005D84BC /* OpenSecretsModel.swift in Sources */,
+				BD0785E328FB90D90002F4A8 /* Polling.swift in Sources */,
 				BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */,
+				BD0785DB28FB83430002F4A8 /* Register.swift in Sources */,
 				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,
 				BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */,
 				BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */,
 				BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */,
+				BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
@@ -538,7 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = NZTKYG24L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
@@ -549,17 +571,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,7 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = NZTKYG24L3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
@@ -580,17 +602,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

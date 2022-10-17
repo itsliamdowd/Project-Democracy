@@ -15,10 +15,16 @@ import SwiftyJSON
 extension HomeScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("selected a button")
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         DispatchQueue.main.async {
+            //Sets index to large value so that it dosen't reload data
+            UserDefaults.standard.set(5, forKey: "index")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                 vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
+                print(self.racesGroups[indexPath.section].races[indexPath.row].level)
+                vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                 vc.homescreendata = self.electionInfo
                 vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
                 vc.openSecretsData = self.openSecretsData
@@ -73,22 +79,50 @@ class HomeScreen: UIViewController {
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
     
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            UserDefaults.standard.set(1, forKey: "index")
+            UserDefaults.standard.set("false", forKey: "loggedIn")
+            UserDefaults.standard.set("", forKey: "longitude")
+            UserDefaults.standard.set("", forKey: "latitude")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "LocationScreen") as? LocationScreen
+            self.present(vc!, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to home screen")
+        var existingIndex = UserDefaults.standard.integer(forKey: "index")
+        existingIndex = existingIndex + 1
+        print(existingIndex)
+        UserDefaults.standard.set(existingIndex, forKey: "index")
         UserDefaults.standard.set("true", forKey: "loggedIn")
         if let cachedData = UserDefaults.standard.data(forKey: "electionInfo"),
            let electionDecoded = try? JSONDecoder().decode([BallotpediaElection].self, from: cachedData) {
             homescreendata = electionDecoded
+            if existingIndex == 1 || existingIndex == 3 {
+                homescreendata.removeAll()
+            }
+        }
+        if UserDefaults.standard.string(forKey: "electionDate") != nil && self.electionDate.text == "Election Date:" {
+            self.electionDate.text = UserDefaults.standard.string(forKey: "electionDate")
         }
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
+        //Concurrent requests
+        //let group = DispatchGroup()
+        //group.enter()
         loadElectionData()
-        loadOpenSecrets()
-        //Eventually add concurrent requests
+        //loadOpenSecrets()
+        //group.leave()
+        //group.notify(queue: .main) {
+        //    print("requests finished")
+        //}
     }
 }
 
@@ -124,7 +158,6 @@ private extension HomeScreen {
         }
         URLSession.shared.codableTask(with: request) {[weak self] model in
             let elections = self?.parseElections(model) // Extract desired information from JSON into our custom model
-
             // Saving cache to UserDefaults for future access
             guard let encodedElectionInfo = try? JSONEncoder().encode(elections)
             else {
@@ -135,7 +168,6 @@ private extension HomeScreen {
                 self?.electionInfo = elections ?? []
                 self?.stateElections.reloadData()
             }
-
         }
     }
 
@@ -146,13 +178,27 @@ private extension HomeScreen {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             let date = formatter.date(from: election[c.date].stringValue)
-
             guard let date = date else {
                 return nil
             }
 
             // Parse the nested districts
             let districts = parseDistricts(election)
+            print(date)
+            let dateString = formatter.string(from: date)
+            var dateComponents = dateString.split(separator: " ")
+            var dateComponentsTwo = dateComponents[0].components(separatedBy: "-")
+            var dateForDisplay = dateComponentsTwo[1] + "/" + dateComponentsTwo[2] + "/" + dateComponentsTwo[0]
+            dateForDisplay = dateForDisplay.replacingOccurrences(of: "/0", with: "/")
+            if dateForDisplay.first == "0" {
+                dateForDisplay.remove(at: dateForDisplay.startIndex)
+            }
+            print(dateForDisplay)
+            var dateForElection = "Election Date: " + dateForDisplay
+            DispatchQueue.main.async {
+                self.electionDate.text = dateForElection
+            }
+            UserDefaults.standard.set(dateForElection, forKey: "electionDate")
             return BallotpediaElection(date: date, districts: districts)
 
         }
@@ -185,7 +231,7 @@ private extension HomeScreen {
             }
 
             let candidates = parseCandidates(race)
-            return BallotpediaElection.Race(name: name, level: level, candidates: candidates)
+            return BallotpediaElection.Race(name: name, level: level.rawValue, candidates: candidates)
         }
 
         return races
@@ -202,6 +248,10 @@ private extension HomeScreen {
             let websiteUrl = URL(string: candidate[c.websiteUrl].stringValue)
             let twitterUrl = candidate[c.twitterUrl].stringValue
             let biography = candidate[c.biography].stringValue
+            let phone = ""
+            let address = ""
+            let sectors = ["": ""]
+            let organizations = ["": ""]
             
             return BallotpediaElection.Candidate(name: name,
                                                  party: party,
@@ -210,13 +260,17 @@ private extension HomeScreen {
                                                  facebookUrl: facebookUrl,
                                                  twitterUrl: twitterUrl,
                                                  websiteUrl: websiteUrl,
-                                                 biography: biography)
+                                                 biography: biography,
+                                                 phone: phone,
+                                                 address: address,
+                                                 sectors: sectors,
+                                                 organizations: organizations)
         }
 
         return candidates
     }
 }
-
+    
 private extension HomeScreen {
     private func loadOpenSecrets() {
         getGeocodeState {state in
