@@ -57,7 +57,7 @@ extension HomeScreen: UITableViewDataSource {
             return racesGroups.count
         }
         else {
-            return 1
+            return candidateGroups.count
         }
     }
 
@@ -67,7 +67,7 @@ extension HomeScreen: UITableViewDataSource {
             return racesGroups[section].races.count
         }
         else {
-            return allCandidates.count
+            return candidateGroups[section].candidates.count
         }
     }
 
@@ -79,23 +79,47 @@ extension HomeScreen: UITableViewDataSource {
             cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
         }
         else {
-            cell.textLabel?.text = allCandidates[indexPath.row].name
+            cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
         }
         return cell
     }
-    
+
+    //Provide alphabet sorting for candidate view
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if electionDisplayStyle.selectedSegmentIndex == 1 {
+            return candidateGroups.map{$0.letter}
+        }
+        else {
+            return nil
+        }
+    }
+
     // Provide title given a particular section's index
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             return racesGroups[section].districtName
         }
-        return nil
+        else {
+            return candidateGroups[section].letter
+        }
     }
 }
 
 class HomeScreen: UIViewController {
     
     typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
+    typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
+
+    // Convert candidate array to dictionary, sorted by alphabetical order
+    private var candidateGroups: CandidateGroups {
+        let candidateDictionary = Dictionary(grouping: allCandidates,
+                                           by: {$0.name.first!})
+        let groups = candidateDictionary.keys.sorted().map {letter in
+            (String(letter), candidateDictionary[letter]!)
+        }
+        return groups
+    }
+
     private var racesGroups: RaceGroups {
         districts.map {
             ($0.name, $0.races) // Tuple containing district name and all its races
