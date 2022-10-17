@@ -24,7 +24,7 @@ struct BallotpediaElection: Codable {
         let candidates: [Candidate]
     }
 
-    struct Candidate: Codable {
+    struct Candidate: Codable, Hashable {
         let name: String
         let party: String?
         let imageUrl: URL?
