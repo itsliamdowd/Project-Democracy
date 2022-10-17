@@ -21,14 +21,29 @@ extension HomeScreen: UITableViewDelegate {
             //Sets index to large value so that it dosen't reload data
             UserDefaults.standard.set(5, forKey: "index")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
-                vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
-                print(self.racesGroups[indexPath.section].races[indexPath.row].level)
-                vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
-                vc.homescreendata = self.electionInfo
-                vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
-                vc.openSecretsData = self.openSecretsData
-                self.present(vc, animated: true)
+            if self.electionDisplayStyle.selectedSegmentIndex == 0 {
+                if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
+                    vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
+                    print(self.racesGroups[indexPath.section].races[indexPath.row].level)
+                    vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
+                    vc.homescreendata = self.electionInfo
+                    vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
+                    vc.openSecretsData = self.openSecretsData
+                    self.present(vc, animated: true)
+                }
+            }
+            else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
+                    vc.candidate = self.allCandidates[indexPath.row]
+                    vc.candidates = self.allCandidates
+                    vc.homescreendata = self.homescreendata
+                    vc.electionNameData = ""
+                    for indexPath in tableView.indexPathsForSelectedRows ?? [] {
+                        self.stateElections.deselectRow(at: indexPath, animated: true)
+                    }
+                    self.present(vc, animated: true)
+                }
             }
         }
     }
@@ -37,24 +52,44 @@ extension HomeScreen: UITableViewDelegate {
 extension HomeScreen: UITableViewDataSource {
     // Provide total number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        racesGroups.count
+        // Segmented toggle between races and candidates
+        if electionDisplayStyle.selectedSegmentIndex == 0 {
+            return racesGroups.count
+        }
+        else {
+            return 1
+        }
     }
 
     // Provide number of rows, given a particular section's index
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        racesGroups[section].races.count
+        if electionDisplayStyle.selectedSegmentIndex == 0 {
+            return racesGroups[section].races.count
+        }
+        else {
+            return allCandidates.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = stateElections.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        // Get desired race's name by section index, then row index
-        cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
+
+        if electionDisplayStyle.selectedSegmentIndex == 0 {
+            // Get desired race's name by section index, then row index
+            cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
+        }
+        else {
+            cell.textLabel?.text = allCandidates[indexPath.row].name
+        }
         return cell
     }
     
     // Provide title given a particular section's index
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        racesGroups[section].districtName
+        if electionDisplayStyle.selectedSegmentIndex == 0 {
+            return racesGroups[section].districtName
+        }
+        return nil
     }
 }
 
@@ -74,10 +109,16 @@ class HomeScreen: UIViewController {
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
     var openSecretsData = [OpenSecretsModel]()
-    
+    var allCandidates: [BallotpediaElection.Candidate] {
+        electionInfo.flatMap {
+            $0.districts.flatMap {$0.races.flatMap{$0.candidates}}
+        }
+    }
+
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
+    @IBOutlet var electionDisplayStyle: UISegmentedControl!
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -123,6 +164,10 @@ class HomeScreen: UIViewController {
         //group.notify(queue: .main) {
         //    print("requests finished")
         //}
+    }
+
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        stateElections.reloadData()
     }
 }
 
