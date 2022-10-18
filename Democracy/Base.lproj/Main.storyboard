@@ -591,7 +591,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgE-jq-13v">
-                                <rect key="frame" x="30" y="206" width="368" height="85"/>
+                                <rect key="frame" x="30" y="205" width="368" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
@@ -603,7 +603,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9C-cJ-BA9">
-                                <rect key="frame" x="30" y="315" width="368" height="83"/>
+                                <rect key="frame" x="30" y="315" width="368" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="28"/>
@@ -615,13 +615,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Democracy 🇺🇸" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1g-LX-d56">
-                                <rect key="frame" x="30" y="574" width="377" height="43"/>
+                                <rect key="frame" x="30" y="573" width="377" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All rights reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hv7-Sw-xnM">
-                                <rect key="frame" x="30" y="771" width="368" height="28"/>
+                                <rect key="frame" x="30" y="770" width="368" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -633,7 +633,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebn-dQ-WSE">
-                                <rect key="frame" x="30" y="639" width="377" height="40"/>
+                                <rect key="frame" x="30" y="638" width="377" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -686,7 +686,7 @@
                                 </connections>
                             </button>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sip-HB-ilU">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -727,7 +727,7 @@
                                 </connections>
                             </button>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMz-Yo-tBY">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -756,7 +756,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2Y-YA-0f3">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -897,13 +897,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Election Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkw-b5-1MZ">
-                                <rect key="frame" x="20" y="34" width="387" height="133"/>
+                                <rect key="frame" x="20" y="34" width="387" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="45"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoo-U7-IcA">
-                                <rect key="frame" x="30" y="204" width="368" height="78"/>
+                                <rect key="frame" x="30" y="203" width="368" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
@@ -939,7 +939,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROD-UP-VvF">
-                                <rect key="frame" x="30" y="414" width="369" height="79"/>
+                                <rect key="frame" x="30" y="413" width="369" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="28"/>
@@ -981,7 +981,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kql-I9-9Qw">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -1022,7 +1022,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7a-5F-9f9">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -1063,7 +1063,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rkh-uG-0Pk">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -1104,7 +1104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ak0-LA-kgt">
-                                <rect key="frame" x="0.0" y="43" width="428" height="829"/>
+                                <rect key="frame" x="0.0" y="42" width="428" height="830"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">

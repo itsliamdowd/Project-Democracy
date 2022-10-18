@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 import SwiftyJSON
 import MapKit
+import SwiftUI
 
 extension Int {
     func withCommas() -> String {
@@ -287,9 +288,29 @@ class CandidateScreen: UIViewController {
         }
         
         candidateOccupation.isHidden = true
-        
+
+        // Make sure a valid URL exists
+        guard let url = candidate.imageUrl
+        else {
+            // Show image unavailable SwiftUI view
+            let unavailableView = UIHostingController(rootView: ImageUnavailableView()).view! // We are sure that the view exists
+            let parentView = candidateImage.superview! // We are sure there's always a parent view
+            parentView.insertSubview(unavailableView, belowSubview: candidateImage)
+            candidateImage.removeFromSuperview()
+
+            // Set constraints for the new unavailable view
+            unavailableView.translatesAutoresizingMaskIntoConstraints = false
+            let safeArea = parentView.safeAreaLayoutGuide
+            NSLayoutConstraint.activate([
+                unavailableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
+                                                         constant: 19),
+                unavailableView.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                     constant: 30),
+            ])
+            return
+        }
         //Sets image to the candidate's image and caches the image for later use
-        candidateImage.sd_setImage(with: candidate.imageUrl)
+        candidateImage.sd_setImage(with: url)
         candidateImage.contentMode = .scaleAspectFill
         candidateImage.layer.cornerRadius = 10
         candidateImage.layer.cornerCurve = .continuous
