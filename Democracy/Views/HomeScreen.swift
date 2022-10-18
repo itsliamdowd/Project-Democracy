@@ -133,31 +133,7 @@ class HomeScreen: UIViewController {
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
     var openSecretsData = [OpenSecretsModel]()
-    var allCandidates: [BallotpediaElection.Candidate] {
-        let candidates = electionInfo.flatMap {
-            $0.districts.flatMap {$0.races.flatMap{$0.candidates}}
-        }
-        var candidatesDict = Dictionary(grouping: candidates, by: {$0.name})
-        // Get duplicated candidate names in dictionary
-        let removingDuplicates = candidatesDict
-            .filter { $1.count > 1 }
-
-        for key in removingDuplicates.keys {
-            // Remove all duplicates from original dictionary
-            candidatesDict[key] = nil
-            // Use length of debug description to determine which
-            // duplicate contains more information
-            let candidates = Dictionary(grouping: removingDuplicates[key]!, by: {($0 as? BallotpediaElection.Candidate).debugDescription})
-            // Sort by debug description length
-            let sorted = candidates.sorted { $0.key > $1.key }
-            // Get candidate object with most information
-            let candidate = Array(sorted.map({ $0.value })).first
-            // Put that candidate back into original dictionary
-            candidatesDict[key] = candidate
-
-        }
-        return candidatesDict.map{$0.value.first!}
-    }
+    var allCandidates = [BallotpediaElection.Candidate]()
 
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
@@ -246,7 +222,7 @@ private extension HomeScreen {
             return
         }
         URLSession.shared.codableTask(with: request) {[weak self] model in
-            let elections = self?.parseElections(model) // Extract desired information from JSON into our custom model
+            let elections = self?.parseElections(model) ?? [] // Extract desired information from JSON into our custom model
             // Saving cache to UserDefaults for future access
             guard let encodedElectionInfo = try? JSONEncoder().encode(elections)
             else {
@@ -254,10 +230,37 @@ private extension HomeScreen {
             }
             UserDefaults.standard.set(encodedElectionInfo, forKey: "electionInfo")
             DispatchQueue.main.async {[weak self] in
-                self?.electionInfo = elections ?? []
+                self?.electionInfo = elections
                 self?.stateElections.reloadData()
+                self?.allCandidates = self?.parseCandidates(for: elections) ?? [] 
             }
         }
+    }
+
+    private func parseCandidates(for electionInfo: [BallotpediaElection]) -> [BallotpediaElection.Candidate] {
+        let candidates = electionInfo.flatMap {
+            $0.districts.flatMap {$0.races.flatMap{$0.candidates}}
+        }
+        var candidatesDict = Dictionary(grouping: candidates, by: {$0.name})
+        // Get duplicated candidate names in dictionary
+        let removingDuplicates = candidatesDict
+            .filter { $1.count > 1 }
+
+        for key in removingDuplicates.keys {
+            // Remove all duplicates from original dictionary
+            candidatesDict[key] = nil
+            // Use length of debug description to determine which
+            // duplicate contains more information
+            let candidates = Dictionary(grouping: removingDuplicates[key]!, by: {($0 as? BallotpediaElection.Candidate).debugDescription})
+            // Sort by debug description length
+            let sorted = candidates.sorted { $0.key > $1.key }
+            // Get candidate object with most information
+            let candidate = Array(sorted.map({ $0.value })).first
+            // Put that candidate back into original dictionary
+            candidatesDict[key] = candidate
+
+        }
+        return candidatesDict.map{$0.value.first!}
     }
 
     // Top to bottom parsing for a deeply nested JSON API
