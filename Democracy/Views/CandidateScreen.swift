@@ -310,7 +310,7 @@ class CandidateScreen: UIViewController {
             return
         }
         //Sets image to the candidate's image and caches the image for later use
-        candidateImage.sd_setImage(with: url)
+        candidateImage.sd_setImage(with: candidate.imageUrl)
         candidateImage.contentMode = .scaleAspectFill
         candidateImage.layer.cornerRadius = 10
         candidateImage.layer.cornerCurve = .continuous
