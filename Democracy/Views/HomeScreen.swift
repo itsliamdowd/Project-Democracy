@@ -175,15 +175,7 @@ class HomeScreen: UIViewController {
         stateElections.delegate = self
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
-        //Concurrent requests
-        //let group = DispatchGroup()
-        //group.enter()
         loadElectionData()
-        //loadOpenSecrets()
-        //group.leave()
-        //group.notify(queue: .main) {
-        //    print("requests finished")
-        //}
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
