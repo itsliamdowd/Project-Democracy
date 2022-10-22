@@ -7,6 +7,7 @@
 import UIKit
 import SDWebImage
 import Foundation
+import CoreLocation
 
 extension ElectionScreen: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -185,5 +186,41 @@ class ElectionScreen: UIViewController {
         candidateTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         candidateTable.dataSource = self
         candidateTable.delegate = self
+        Task {
+            let result = await fetchVoterBaseAPI()
+        }
+    }
+
+    func fetchVoterBaseAPI() async {
+        guard let location = await getAddressFromLocation()
+        else {
+            debugPrint("Error while fetching voterbase - getAddress is invalid")
+            return
+        }
+        let endpoint = Endpoint.getAPI(from: .voterbaseElectionInfo(location: location))
+        URLSession.shared.codableTask(with: endpoint) {elections in
+            print(elections!["elections"].arrayValue.first!["ballot"]["positions"].arrayValue.first!["description"])
+        }
+    }
+
+    // Reverse geocode to get user's address
+     func getAddressFromLocation() async -> String? {
+        if UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != nil {
+            let latitude = UserDefaults.standard.string(forKey: "latitude")
+            let longitude = UserDefaults.standard.string(forKey: "longitude")
+            let location = CLLocation(latitude: CLLocationDegrees(Double(latitude!)!), longitude: CLLocationDegrees(Double(longitude!)!))
+            let geoCoder = CLGeocoder()
+            guard let placemark = try? await geoCoder.reverseGeocodeLocation(location).first,
+                  let streetAddy = placemark.name,
+                  let city = placemark.locality,
+                  let state = placemark.administrativeArea
+            else {
+                return nil
+            }
+
+            return "\(streetAddy) \(city) \(state)"
+
+        }
+         return nil
     }
 }
