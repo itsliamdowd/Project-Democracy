@@ -29,6 +29,7 @@ extension HomeScreen: UITableViewDelegate {
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
                     vc.openSecretsData = self.openSecretsData
+                    vc.allCandidates = self.allCandidates
                     self.present(vc, animated: true)
                 }
             }
@@ -87,7 +88,23 @@ extension HomeScreen: UITableViewDataSource {
     //Provide alphabet sorting for candidate view
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
-            return candidateGroups.map{$0.letter}
+            if candidateGroups.isEmpty == false {
+                return candidateGroups.map{$0.letter}
+            }
+            else {
+                typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
+                // Convert candidate array to dictionary, sorted by alphabetical order
+                var candidateGroups: CandidateGroups {
+                    let candidateDictionary = Dictionary(grouping: allCandidates,
+                                                       by: {$0.name.first!})
+                    let groups = candidateDictionary.keys.sorted().map {letter in
+                        (String(letter), candidateDictionary[letter]!)
+                    }
+                    return groups
+                }
+                print(candidateGroups)
+                return self.candidateGroups.map{$0.letter}
+            }
         }
         else {
             return nil

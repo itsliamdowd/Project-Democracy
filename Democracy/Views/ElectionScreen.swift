@@ -156,15 +156,18 @@ class ElectionScreen: UIViewController {
     var electionNameData = ""
     var openSecretsData = [OpenSecretsModel]()
     var level = ""
+    var allCandidates = [BallotpediaElection.Candidate]()
     
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
+    @IBOutlet weak var electionDescription: UILabel!
     
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "HomeScreen") as? HomeScreen {
                 vc.homescreendata = self.homescreendata
+                vc.allCandidates = self.allCandidates
                 self.present(vc, animated: true)
             }
         }
@@ -186,21 +189,6 @@ class ElectionScreen: UIViewController {
         candidateTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         candidateTable.dataSource = self
         candidateTable.delegate = self
-        Task {
-            let result = await fetchVoterBaseAPI()
-        }
-    }
-
-    func fetchVoterBaseAPI() async {
-        guard let location = await getAddressFromLocation()
-        else {
-            debugPrint("Error while fetching voterbase - getAddress is invalid")
-            return
-        }
-        let endpoint = Endpoint.getAPI(from: .voterbaseElectionInfo(location: location))
-        URLSession.shared.codableTask(with: endpoint) {elections in
-            print(elections!["elections"].arrayValue.first!["ballot"]["positions"].arrayValue.first!["description"])
-        }
     }
 
     // Reverse geocode to get user's address
