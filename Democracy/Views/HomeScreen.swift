@@ -28,7 +28,6 @@ extension HomeScreen: UITableViewDelegate {
                     vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
-                    vc.openSecretsData = self.openSecretsData
                     vc.allCandidates = self.allCandidates
                     self.present(vc, animated: true)
                 }
@@ -149,7 +148,6 @@ class HomeScreen: UIViewController {
 
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
-    var openSecretsData = [OpenSecretsModel]()
     var allCandidates = [BallotpediaElection.Candidate]()
 
     @IBOutlet weak var electionDate: UILabel!
@@ -369,44 +367,5 @@ private extension HomeScreen {
         }
 
         return candidates
-    }
-}
-    
-private extension HomeScreen {
-    private func loadOpenSecrets() {
-        getGeocodeState {state in
-            guard let state = state else {
-                return
-            }
-            let endpoint = Endpoint.getAPI(from: .openSecrets(route: .getLegislator(state: state)))
-            URLSession.shared.codableTask(with: endpoint) {[weak self] result in
-                let legislators = result?["response"]["legislator"].array ?? []
-                self?.openSecretsData = legislators.compactMap {candidate -> OpenSecretsModel? in
-                    guard let info = try? candidate["@attributes"].rawData()
-                    else {
-                        return nil
-                    }
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let model = try? decoder.decode(OpenSecretsModel.self, from: info)
-                    return model
-                }
-            }
-        }
-
-    }
-
-    private func getGeocodeState(completion: @escaping (String?) -> Void) {
-        if UserDefaults.standard.string(forKey: "latitude") != nil && UserDefaults.standard.string(forKey: "longitude") != nil {
-            let latitude = UserDefaults.standard.string(forKey: "latitude")
-            let longitude = UserDefaults.standard.string(forKey: "longitude")
-            let location = CLLocation(latitude: CLLocationDegrees(Double(latitude!)!), longitude: CLLocationDegrees(Double(longitude!)!))
-            let geoCoder = CLGeocoder()
-            geoCoder.reverseGeocodeLocation(location) {placemarks, _ in
-                let state = placemarks?.first?.administrativeArea
-                completion(state)
-            }
-
-        }
     }
 }

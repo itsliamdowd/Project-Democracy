@@ -154,7 +154,6 @@ class ElectionScreen: UIViewController {
     var candidates = [BallotpediaElection.Candidate]()
     var homescreendata = [BallotpediaElection]()
     var electionNameData = ""
-    var openSecretsData = [OpenSecretsModel]()
     var level = ""
     var allCandidates = [BallotpediaElection.Candidate]()
     

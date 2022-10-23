@@ -22,7 +22,6 @@
 		BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */; };
 		BD40DF3328DA96B9002F55F0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BD40DF3228DA96B9002F55F0 /* SwiftyJSON */; };
 		BD4FF72528E95A75005D84BC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = BD4FF72428E95A75005D84BC /* SDWebImage */; };
-		BD4FF72728EBD51E005D84BC /* OpenSecretsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */; };
 		BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */; };
 		BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */; };
 		BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D07D228B729C400CC5F0A /* HomeScreen.swift */; };
@@ -36,7 +35,6 @@
 		BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */; };
 		BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */; };
 		BD9D080728BF14B200CC5F0A /* Flag.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9D080628BF14B200CC5F0A /* Flag.png */; };
-		BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */; };
 		BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B7F28C839B5000E82E1 /* SourceCode.swift */; };
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
 		BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8328C83C67000E82E1 /* Terms.swift */; };
@@ -76,7 +74,6 @@
 		BD3BFE3028BFD00C00582962 /* CandidateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3228C5A98B00582962 /* CandidateWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateWebsiteScreen.swift; sourceTree = "<group>"; };
 		BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateTwitterScreen.swift; sourceTree = "<group>"; };
-		BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsModel.swift; sourceTree = "<group>"; };
 		BD9D07CB28B729C400CC5F0A /* Democracy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Democracy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		BD9D080028BEDFE600CC5F0A /* PromotionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionScreen.swift; sourceTree = "<group>"; };
 		BD9D080228BEDFF500CC5F0A /* LocationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationScreen.swift; sourceTree = "<group>"; };
 		BD9D080628BF14B200CC5F0A /* Flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag.png; sourceTree = "<group>"; };
-		BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSecretsFundingModel.swift; sourceTree = "<group>"; };
 		BDD90B7F28C839B5000E82E1 /* SourceCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCode.swift; sourceTree = "<group>"; };
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BDD90B8328C83C67000E82E1 /* Terms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
@@ -162,8 +158,6 @@
 				62B1B3F528C42641000EB586 /* Endpoint.swift */,
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
-				BD4FF72628EBD51E005D84BC /* OpenSecretsModel.swift */,
-				BDBDDD1728EEA50200290419 /* OpenSecretsFundingModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -362,7 +356,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDBDDD1828EEA50200290419 /* OpenSecretsFundingModel.swift in Sources */,
 				62F3D11228FF712F00E3340F /* ImageUnavailableView.swift in Sources */,
 				BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */,
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
@@ -375,7 +368,6 @@
 				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
 				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
-				BD4FF72728EBD51E005D84BC /* OpenSecretsModel.swift in Sources */,
 				BD0785E328FB90D90002F4A8 /* Polling.swift in Sources */,
 				BDD90B8028C839B5000E82E1 /* SourceCode.swift in Sources */,
 				BD0785DB28FB83430002F4A8 /* Register.swift in Sources */,
