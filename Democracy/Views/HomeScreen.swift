@@ -10,6 +10,7 @@ import MapKit
 import CoreLocation
 import Foundation
 import SwiftyJSON
+import SDWebImage
 
 //Needs to show candidates for specific race
 extension HomeScreen: UITableViewDelegate {
@@ -33,17 +34,23 @@ extension HomeScreen: UITableViewDelegate {
                 }
             }
             else {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
-                    vc.candidate = self.candidateGroups[indexPath.section].candidates[indexPath.row]
-                    vc.candidates = self.allCandidates
-                    vc.homescreendata = self.homescreendata
-                    vc.electionNameData = ""
-                    for indexPath in tableView.indexPathsForSelectedRows ?? [] {
-                        self.stateElections.deselectRow(at: indexPath, animated: true)
+                SDWebImageManager.shared.loadImage(
+                    with: imageUrl,
+                    options: .highPriority,
+                    progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
+                                vc.candidate = self.candidateGroups[indexPath.section].candidates[indexPath.row]
+                                vc.candidates = self.allCandidates
+                                vc.homescreendata = self.homescreendata
+                                vc.electionNameData = ""
+                                for indexPath in tableView.indexPathsForSelectedRows ?? [] {
+                                    self.stateElections.deselectRow(at: indexPath, animated: true)
+                                }
+                                self.present(vc, animated: true)
+                            }
                     }
-                    self.present(vc, animated: true)
-                }
             }
         }
     }
