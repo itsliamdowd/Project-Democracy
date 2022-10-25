@@ -96,6 +96,16 @@ extension HomeScreen: UITableViewDataSource {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
             if candidateGroups.isEmpty == false {
+                func cacheImages() {
+                    for candidate in allCandidates {
+                        SDWebImageManager.shared.loadImage(
+                            with: candidate.imageUrl,
+                            options: .highPriority,
+                            progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                        }
+                    }
+                }
+                cacheImages()
                 return candidateGroups.map{$0.letter}
             }
             else {
@@ -133,7 +143,7 @@ class HomeScreen: UIViewController {
     
     typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
     typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
-
+    
     // Convert candidate array to dictionary, sorted by alphabetical order
     private var candidateGroups: CandidateGroups {
         let candidateDictionary = Dictionary(grouping: allCandidates,
