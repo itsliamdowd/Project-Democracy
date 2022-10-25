@@ -35,7 +35,7 @@ extension HomeScreen: UITableViewDelegate {
             }
             else {
                 SDWebImageManager.shared.loadImage(
-                    with: imageUrl,
+                    with: self.candidateGroups[indexPath.section].candidates[indexPath.row].imageUrl,
                     options: .highPriority,
                     progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
                         DispatchQueue.main.async {
@@ -51,6 +51,7 @@ extension HomeScreen: UITableViewDelegate {
                                 self.present(vc, animated: true)
                             }
                     }
+                }
             }
         }
     }
