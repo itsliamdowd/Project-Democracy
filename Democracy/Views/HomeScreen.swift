@@ -133,9 +133,11 @@ extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             partySwitcher.isHidden = true
+            stateElections.frame = CGRect(x: 23, y: 206, width: self.view.frame.width, height: 652)
             return racesGroups[section].districtName
         }
         else {
+            stateElections.frame = CGRect(x: 23, y: 244, width: self.view.frame.width, height: 614)
             return candidateGroups[section].letter
         }
     }
@@ -233,21 +235,7 @@ class HomeScreen: UIViewController {
                     return filteredCandidates
                 }
                 let republicanArray = filterCandidatesRepublican(candidateGroups: candidateGroups)
-                //candidateGroups.didSet = candidateGroups
-
-                // Convert candidate array to dictionary, sorted by alphabetical order
-                var republicanGroups: CandidateGroups {
-                    return republicanArray
-                }
-                
-                print(republicanGroups)
-                
-                //self.electionInfo = republicanArray
-                //stateElections.removeAll()
-                
-                //right here it should change to reflect the new republicanArray data for the stateElections tableview
-                
-                stateElections.reloadData()
+                print(republicanArray)
             }
             else if partySwitcher.selectedSegmentIndex == 2 {
                 print("Democrat")
