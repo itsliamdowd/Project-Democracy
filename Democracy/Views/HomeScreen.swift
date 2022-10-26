@@ -25,7 +25,7 @@ extension HomeScreen: UITableViewDelegate {
             if self.electionDisplayStyle.selectedSegmentIndex == 0 {
                 if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                     vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
-                    print(self.racesGroups[indexPath.section].races[indexPath.row].level)
+                    //print(self.racesGroups[indexPath.section].races[indexPath.row].level)
                     vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
@@ -95,6 +95,7 @@ extension HomeScreen: UITableViewDataSource {
     //Provide alphabet sorting for candidate view
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
+            partySwitcher.isHidden = false
             if candidateGroups.isEmpty == false {
                 func cacheImages() {
                     for candidate in allCandidates {
@@ -112,14 +113,14 @@ extension HomeScreen: UITableViewDataSource {
                 typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
                 // Convert candidate array to dictionary, sorted by alphabetical order
                 var candidateGroups: CandidateGroups {
-                    let candidateDictionary = Dictionary(grouping: allCandidates,
-                                                       by: {$0.name.first!})
-                    let groups = candidateDictionary.keys.sorted().map {letter in
-                        (String(letter), candidateDictionary[letter]!)
-                    }
-                    return groups
+                        let candidateDictionary = Dictionary(grouping: allCandidates,
+                                                           by: {$0.name.first!})
+                        let groups = candidateDictionary.keys.sorted().map {letter in
+                            (String(letter), candidateDictionary[letter]!)
+                        }
+                        return groups
                 }
-                print(candidateGroups)
+                //print(candidateGroups)
                 return self.candidateGroups.map{$0.letter}
             }
         }
@@ -131,6 +132,7 @@ extension HomeScreen: UITableViewDataSource {
     // Provide title given a particular section's index
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
+            partySwitcher.isHidden = true
             return racesGroups[section].districtName
         }
         else {
@@ -172,6 +174,7 @@ class HomeScreen: UIViewController {
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
     @IBOutlet var electionDisplayStyle: UISegmentedControl!
+    @IBOutlet weak var partySwitcher: UISegmentedControl!
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -209,10 +212,68 @@ class HomeScreen: UIViewController {
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
         loadElectionData()
+        partySwitcher.removeAllSegments()
+        partySwitcher.insertSegment(withTitle: "All", at: 0, animated: false)
+        partySwitcher.insertSegment(withTitle: "Republican", at: 1, animated: false)
+        partySwitcher.insertSegment(withTitle: "Democrat", at: 2, animated: false)
+        partySwitcher.insertSegment(withTitle: "Other", at: 3, animated: false)
+        partySwitcher.selectedSegmentIndex = 0
+        partySwitcher.isHidden = true
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
-        stateElections.reloadData()
+        if sender == partySwitcher {
+            if partySwitcher.selectedSegmentIndex == 0 {
+                print("All")
+            }
+            else if partySwitcher.selectedSegmentIndex == 1 {
+                print("Republican")
+                func filterCandidatesRepublican(candidateGroups: CandidateGroups) -> CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party == "Republican Party"}
+                    return filteredCandidates
+                }
+                let republicanArray = filterCandidatesRepublican(candidateGroups: candidateGroups)
+                //candidateGroups.didSet = candidateGroups
+
+                // Convert candidate array to dictionary, sorted by alphabetical order
+                var republicanGroups: CandidateGroups {
+                    return republicanArray
+                }
+                
+                print(republicanGroups)
+                
+                //self.electionInfo = republicanArray
+                //stateElections.removeAll()
+                
+                //right here it should change to reflect the new republicanArray data for the stateElections tableview
+                
+                stateElections.reloadData()
+            }
+            else if partySwitcher.selectedSegmentIndex == 2 {
+                print("Democrat")
+                func filterCandidatesDemocrat(candidateGroups: CandidateGroups) -> CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party == "Democratic Party"}
+                    return filteredCandidates
+                }
+                let democratArray = filterCandidatesDemocrat(candidateGroups: candidateGroups)
+                print(democratArray)
+            }
+            else if partySwitcher.selectedSegmentIndex == 3 {
+                print("Other")
+                func filterCandidatesOther(candidateGroups: CandidateGroups) -> CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party != "Democratic Party" && $0.candidates[0].party != "Republican Party"}
+                    return filteredCandidates
+                }
+                let otherArray = filterCandidatesOther(candidateGroups: candidateGroups)
+                print(otherArray)
+            }
+            else {
+                print("Error")
+            }
+        }
+        else {
+            stateElections.reloadData()
+        }
     }
 }
 

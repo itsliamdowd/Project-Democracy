@@ -416,7 +416,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-mJ-1tg">
-                                <rect key="frame" x="23" y="198.66666666666669" width="382" height="659.33333333333326"/>
+                                <rect key="frame" x="23" y="244" width="382" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-Tw-qfD">
@@ -486,6 +486,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="BL0-L7-Tvn">
+                                <rect key="frame" x="23" y="206" width="382" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Republican"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bum-XE-XUz"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -494,7 +505,7 @@
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="trailing" secondItem="9dn-lh-Bm0" secondAttribute="trailing" id="FAV-r7-Pbj"/>
                             <constraint firstItem="Yks-e5-oJ8" firstAttribute="top" secondItem="gTQ-XZ-IqR" secondAttribute="bottom" id="FIH-5V-9BC"/>
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-19" id="He4-Jz-fAv"/>
-                            <constraint firstItem="Wdh-mJ-1tg" firstAttribute="top" secondItem="9dn-lh-Bm0" secondAttribute="bottom" id="KsN-ox-SRi"/>
+                            <constraint firstItem="Wdh-mJ-1tg" firstAttribute="top" secondItem="9dn-lh-Bm0" secondAttribute="bottom" constant="45.333333333333343" id="KsN-ox-SRi"/>
                             <constraint firstItem="zCZ-Mc-uqQ" firstAttribute="top" secondItem="Yks-e5-oJ8" secondAttribute="bottom" constant="8.0000000000000142" id="Lg9-UO-Tg0"/>
                             <constraint firstItem="prH-0J-ci5" firstAttribute="top" secondItem="Yks-e5-oJ8" secondAttribute="bottom" constant="4" id="Llo-ql-pDu"/>
                             <constraint firstItem="zCZ-Mc-uqQ" firstAttribute="leading" secondItem="9dn-lh-Bm0" secondAttribute="leading" id="R4h-GH-C1M"/>
@@ -521,6 +532,7 @@
                         <outlet property="conversationButton" destination="Rrd-Tw-qfD" id="A94-cb-brh"/>
                         <outlet property="electionDate" destination="zCZ-Mc-uqQ" id="UsC-JW-iTF"/>
                         <outlet property="electionDisplayStyle" destination="9dn-lh-Bm0" id="6Mg-dQ-R4o"/>
+                        <outlet property="partySwitcher" destination="BL0-L7-Tvn" id="eMK-ce-lGD"/>
                         <outlet property="stateElections" destination="Wdh-mJ-1tg" id="Qv6-qi-au0"/>
                     </connections>
                 </viewController>
