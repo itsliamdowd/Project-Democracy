@@ -235,11 +235,11 @@ extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             partySwitcher.isHidden = true
-            stateElections.frame = CGRect(x: 23, y: 206, width: self.view.frame.width, height: 652)
+            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 652)
             return racesGroups[section].districtName
         }
         else if electionDisplayStyle.selectedSegmentIndex == 1 {
-            stateElections.frame = CGRect(x: 23, y: 244, width: self.view.frame.width, height: 614)
+            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 614)
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
                     return candidateGroups[section].letter

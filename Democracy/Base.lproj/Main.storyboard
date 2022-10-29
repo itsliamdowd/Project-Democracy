@@ -416,12 +416,13 @@
                                     <action selector="segmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="KmX-6j-Vw1"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-mJ-1tg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wdh-mJ-1tg">
                                 <rect key="frame" x="23" y="248" width="382" height="610"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-Tw-qfD">
-                                <rect key="frame" x="30" y="775" width="368" height="83"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrd-Tw-qfD">
+                                <rect key="frame" x="30" y="775" width="341" height="83"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="wxp-PK-47Y"/>
@@ -506,11 +507,9 @@
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="trailing" secondItem="9dn-lh-Bm0" secondAttribute="trailing" id="FAV-r7-Pbj"/>
                             <constraint firstItem="Yks-e5-oJ8" firstAttribute="top" secondItem="gTQ-XZ-IqR" secondAttribute="bottom" id="FIH-5V-9BC"/>
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-19" id="He4-Jz-fAv"/>
-                            <constraint firstItem="Wdh-mJ-1tg" firstAttribute="top" secondItem="9dn-lh-Bm0" secondAttribute="bottom" constant="46.333333333333343" id="KsN-ox-SRi"/>
                             <constraint firstItem="zCZ-Mc-uqQ" firstAttribute="top" secondItem="Yks-e5-oJ8" secondAttribute="bottom" constant="8.0000000000000142" id="Lg9-UO-Tg0"/>
                             <constraint firstItem="prH-0J-ci5" firstAttribute="top" secondItem="Yks-e5-oJ8" secondAttribute="bottom" constant="4" id="Llo-ql-pDu"/>
                             <constraint firstItem="zCZ-Mc-uqQ" firstAttribute="leading" secondItem="9dn-lh-Bm0" secondAttribute="leading" id="R4h-GH-C1M"/>
-                            <constraint firstItem="9dn-lh-Bm0" firstAttribute="trailing" secondItem="Wdh-mJ-1tg" secondAttribute="trailing" id="Rvp-ps-Mku"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gTQ-XZ-IqR" secondAttribute="trailing" constant="42.666666666666686" id="ToE-94-pF2"/>
                             <constraint firstItem="Yks-e5-oJ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VDp-6t-iLf"/>
                             <constraint firstItem="Rrd-Tw-qfD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="YfQ-r5-lAe"/>
@@ -519,13 +518,10 @@
                             <constraint firstItem="gTQ-XZ-IqR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="71" id="j0j-Vz-IJv"/>
                             <constraint firstItem="9dn-lh-Bm0" firstAttribute="top" secondItem="zCZ-Mc-uqQ" secondAttribute="bottom" constant="19.333333333333314" id="jHE-bt-mFW"/>
                             <constraint firstItem="zCZ-Mc-uqQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23" id="kcT-lg-E1f"/>
-                            <constraint firstItem="9dn-lh-Bm0" firstAttribute="leading" secondItem="Wdh-mJ-1tg" secondAttribute="leading" id="l8W-wA-pnE"/>
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="bottom" secondItem="Yks-e5-oJ8" secondAttribute="bottom" id="la8-mo-FaN"/>
                             <constraint firstItem="gTQ-XZ-IqR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-8" id="o4t-YH-nwH"/>
                             <constraint firstItem="1Du-sU-aJJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="3" id="pJf-fN-t4P"/>
-                            <constraint firstItem="Wdh-mJ-1tg" firstAttribute="centerX" secondItem="Rrd-Tw-qfD" secondAttribute="centerX" id="qD1-ww-6gC"/>
                             <constraint firstItem="Yks-e5-oJ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="wxQ-Lx-zBb"/>
-                            <constraint firstItem="Wdh-mJ-1tg" firstAttribute="bottom" secondItem="Rrd-Tw-qfD" secondAttribute="bottom" id="y0a-LB-w1w"/>
                             <constraint firstItem="Yks-e5-oJ8" firstAttribute="centerX" secondItem="9dn-lh-Bm0" secondAttribute="centerX" id="zMw-DA-8PH"/>
                         </constraints>
                     </view>
