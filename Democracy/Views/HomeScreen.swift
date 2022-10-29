@@ -18,14 +18,14 @@ extension HomeScreen: UITableViewDelegate {
         print("selected a button")
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             //Sets index to large value so that it dosen't reload data
             UserDefaults.standard.set(5, forKey: "index")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if self.electionDisplayStyle.selectedSegmentIndex == 0 {
                 if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                     vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
-                    print(self.racesGroups[indexPath.section].races[indexPath.row].level)
+                    //print(self.racesGroups[indexPath.section].races[indexPath.row].level)
                     vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
@@ -34,14 +34,16 @@ extension HomeScreen: UITableViewDelegate {
                 }
             }
             else {
+               // self.stateElections.insertRows(at: [indexPath], with: .automatic)
+                var displayList = self.getActiveList()
                 SDWebImageManager.shared.loadImage(
-                    with: self.candidateGroups[indexPath.section].candidates[indexPath.row].imageUrl,
+                    with: displayList[indexPath.section].candidates[indexPath.row].imageUrl,
                     options: .highPriority,
                     progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
                         DispatchQueue.main.async {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             if let vc = storyboard.instantiateViewController(withIdentifier: "CandidateScreen") as? CandidateScreen {
-                                vc.candidate = self.candidateGroups[indexPath.section].candidates[indexPath.row]
+                                vc.candidate = displayList[indexPath.section].candidates[indexPath.row]
                                 vc.candidates = self.allCandidates
                                 vc.homescreendata = self.homescreendata
                                 vc.electionNameData = ""
@@ -64,8 +66,34 @@ extension HomeScreen: UITableViewDataSource {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             return racesGroups.count
         }
+        if electionDisplayStyle.selectedSegmentIndex == 1 {
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups.count
+                case 1:
+                    return republicanArray.count
+                case 2:
+                    return democratArray.count
+                case 3:
+                    return otherArray.count
+                default:
+                    return candidateGroups.count
+                }
+            //return candidateGroups.count
+        }
         else {
-            return candidateGroups.count
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups.count
+                case 1:
+                    return republicanArray.count
+                case 2:
+                    return democratArray.count
+                case 3:
+                    return otherArray.count
+                default:
+                    return candidateGroups.count
+                }
         }
     }
 
@@ -74,8 +102,35 @@ extension HomeScreen: UITableViewDataSource {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             return racesGroups[section].races.count
         }
+        if electionDisplayStyle.selectedSegmentIndex == 1 {
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups[section].candidates.count
+                case 1:
+                    return republicanArray[section].candidates.count
+                case 2:
+                    return democratArray[section].candidates.count
+                case 3:
+                    return otherArray[section].candidates.count
+                default:
+                    return candidateGroups[section].candidates.count
+                }
+            //return candidateGroups[section].candidates.count
+        }
         else {
-            return candidateGroups[section].candidates.count
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups[section].candidates.count
+                case 1:
+                    return republicanArray[section].candidates.count
+                case 2:
+                    return democratArray[section].candidates.count
+                case 3:
+                    return otherArray[section].candidates.count
+                default:
+                    return candidateGroups[section].candidates.count
+                }
+            //return candidateGroups[section].candidates.count
         }
     }
 
@@ -87,7 +142,19 @@ extension HomeScreen: UITableViewDataSource {
             cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
         }
         else {
-            cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
+                case 1:
+                    cell.textLabel?.text = republicanArray[indexPath.section].candidates[indexPath.row].name
+                case 2:
+                    cell.textLabel?.text = democratArray[indexPath.section].candidates[indexPath.row].name
+                case 3:
+                    cell.textLabel?.text = otherArray[indexPath.section].candidates[indexPath.row].name
+                default:
+                    cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
+                }
+            //cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
         }
         return cell
     }
@@ -95,36 +162,112 @@ extension HomeScreen: UITableViewDataSource {
     //Provide alphabet sorting for candidate view
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
+            partySwitcher.isHidden = false
+            //partySwitcher.isHidden = true
             if candidateGroups.isEmpty == false {
-                return candidateGroups.map{$0.letter}
+                func cacheImages() {
+                    for candidate in allCandidates {
+                        SDWebImageManager.shared.loadImage(
+                            with: candidate.imageUrl,
+                            options: .highPriority,
+                            progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                        }
+                    }
+                }
+                cacheImages()
+                switch(partySwitcher.selectedSegmentIndex) {
+                    case 0:
+                        return candidateGroups.map{$0.letter}
+                    case 1:
+                        return republicanArray.map{$0.letter}
+                    case 2:
+                        return democratArray.map{$0.letter}
+                    case 3:
+                        return otherArray.map{$0.letter}
+                     default:
+                        return candidateGroups.map{$0.letter}
+                     }
             }
             else {
                 typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
                 // Convert candidate array to dictionary, sorted by alphabetical order
                 var candidateGroups: CandidateGroups {
-                    let candidateDictionary = Dictionary(grouping: allCandidates,
-                                                       by: {$0.name.first!})
-                    let groups = candidateDictionary.keys.sorted().map {letter in
-                        (String(letter), candidateDictionary[letter]!)
-                    }
-                    return groups
+                        let candidateDictionary = Dictionary(grouping: allCandidates,
+                                                           by: {$0.name.first!})
+                        let groups = candidateDictionary.keys.sorted().map {letter in
+                            (String(letter), candidateDictionary[letter]!)
+                        }
+                        return groups
                 }
-                print(candidateGroups)
-                return self.candidateGroups.map{$0.letter}
+                var republicanArray: CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party == "Republican Party"}
+                    return filteredCandidates
+                }
+                var democratArray: CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party == "Democratic Party"}
+                    return filteredCandidates
+                }
+                var otherArray: CandidateGroups {
+                    let filteredCandidates = candidateGroups.filter{$0.candidates[0].party != "Democratic Party" && $0.candidates[0].party != "Republican Party"}
+                    return filteredCandidates
+                }
+                switch(partySwitcher.selectedSegmentIndex) {
+                    case 0:
+                        return candidateGroups.map{$0.letter}
+                    case 1:
+                        return republicanArray.map{$0.letter}
+                    case 2:
+                        return democratArray.map{$0.letter}
+                    case 3:
+                        return otherArray.map{$0.letter}
+                    default:
+                        return candidateGroups.map{$0.letter}
+                    }
+                //return self.candidateGroups.map{$0.letter}
             }
         }
         else {
             return nil
         }
     }
-
+    
     // Provide title given a particular section's index
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
+            partySwitcher.isHidden = true
+            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 652)
             return racesGroups[section].districtName
         }
+        else if electionDisplayStyle.selectedSegmentIndex == 1 {
+            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 614)
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups[section].letter
+                case 1:
+                    return republicanArray[section].letter
+                case 2:
+                    return democratArray[section].letter
+                case 3:
+                    return otherArray[section].letter
+                default:
+                    return candidateGroups[section].letter
+                }
+            //return candidateGroups[section].letter
+        }
         else {
-            return candidateGroups[section].letter
+            stateElections.frame = CGRect(x: 23, y: 244, width: self.view.frame.width, height: 614)
+            switch(partySwitcher.selectedSegmentIndex) {
+                case 0:
+                    return candidateGroups[section].letter
+                case 1:
+                    return republicanArray[section].letter
+                case 2:
+                    return democratArray[section].letter
+                case 3:
+                    return otherArray[section].letter
+                default:
+                    return candidateGroups[section].letter
+                }
         }
     }
 }
@@ -133,7 +276,7 @@ class HomeScreen: UIViewController {
     
     typealias RaceGroups = [(districtName: String, races: [BallotpediaElection.Race])]
     typealias CandidateGroups = [(letter: String, candidates: [BallotpediaElection.Candidate])]
-
+    
     // Convert candidate array to dictionary, sorted by alphabetical order
     private var candidateGroups: CandidateGroups {
         let candidateDictionary = Dictionary(grouping: allCandidates,
@@ -144,6 +287,55 @@ class HomeScreen: UIViewController {
         return groups
     }
 
+    private var republicanArray: CandidateGroups {
+        var republicans = [BallotpediaElection.Candidate]()
+        for candidateGroup in candidateGroups {
+            for candidate in candidateGroup.candidates {
+                if candidate.party == "Republican Party" {
+                    republicans.append(candidate)
+                }
+            }
+        }
+        let republicanDictionary = Dictionary(grouping: republicans,
+                                           by: {$0.name.first!})
+        let republicanGroups = republicanDictionary.keys.sorted().map {letter in
+            (String(letter), republicanDictionary[letter]!)
+        }
+        return republicanGroups
+    }
+    private var democratArray: CandidateGroups {
+        var democrats = [BallotpediaElection.Candidate]()
+        for candidateGroup in candidateGroups {
+            for candidate in candidateGroup.candidates {
+                if candidate.party == "Democratic Party" {
+                    democrats.append(candidate)
+                }
+            }
+        }
+        let democratDictionary = Dictionary(grouping: democrats,
+                                           by: {$0.name.first!})
+        let democratGroups = democratDictionary.keys.sorted().map {letter in
+            (String(letter), democratDictionary[letter]!)
+        }
+        return democratGroups
+    }
+    private var otherArray: CandidateGroups {
+        var other = [BallotpediaElection.Candidate]()
+        for candidateGroup in candidateGroups {
+            for candidate in candidateGroup.candidates {
+                if candidate.party != "Republican Party" && candidate.party != "Democratic Party" {
+                    other.append(candidate)
+                }
+            }
+        }
+        let otherDictionary = Dictionary(grouping: other,
+                                           by: {$0.name.first!})
+        let otherGroups = otherDictionary.keys.sorted().map {letter in
+            (String(letter), otherDictionary[letter]!)
+        }
+        return otherGroups
+    }
+    
     private var racesGroups: RaceGroups {
         districts.map {
             ($0.name, $0.races) // Tuple containing district name and all its races
@@ -162,6 +354,7 @@ class HomeScreen: UIViewController {
     @IBOutlet var stateElections: UITableView!
     @IBOutlet var conversationButton: UIButton!
     @IBOutlet var electionDisplayStyle: UISegmentedControl!
+    @IBOutlet weak var partySwitcher: UISegmentedControl!
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -173,6 +366,22 @@ class HomeScreen: UIViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "LocationScreen") as? LocationScreen
             self.present(vc!, animated: true)
         }
+    }
+    
+    func getActiveList() -> CandidateGroups {
+        switch(self.partySwitcher.selectedSegmentIndex) {
+            case 0:
+                return candidateGroups
+            case 1:
+                return republicanArray
+            case 2:
+                return democratArray
+            case 3:
+                return otherArray
+            default:
+                return candidateGroups
+            }
+    //return candidateGroups.count
     }
     
     override func viewDidLoad() {
@@ -199,6 +408,13 @@ class HomeScreen: UIViewController {
         conversationButton.layer.cornerRadius = 15
         conversationButton.isHidden = true
         loadElectionData()
+        partySwitcher.removeAllSegments()
+        partySwitcher.insertSegment(withTitle: "All", at: 0, animated: false)
+        partySwitcher.insertSegment(withTitle: "Republican", at: 1, animated: false)
+        partySwitcher.insertSegment(withTitle: "Democrat", at: 2, animated: false)
+        partySwitcher.insertSegment(withTitle: "Other", at: 3, animated: false)
+        partySwitcher.selectedSegmentIndex = 0
+        partySwitcher.isHidden = true
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
