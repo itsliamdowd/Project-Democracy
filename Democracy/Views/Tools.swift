@@ -24,4 +24,3 @@ class Tools: UIViewController {
         polling.layer.cornerRadius = 15
     }
 }
-

@@ -163,7 +163,6 @@ extension HomeScreen: UITableViewDataSource {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
             partySwitcher.isHidden = false
-            //partySwitcher.isHidden = true
             if candidateGroups.isEmpty == false {
                 func cacheImages() {
                     for candidate in allCandidates {
