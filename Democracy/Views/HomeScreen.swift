@@ -34,7 +34,6 @@ extension HomeScreen: UITableViewDelegate {
                 }
             }
             else {
-               // self.stateElections.insertRows(at: [indexPath], with: .automatic)
                 var displayList = self.getActiveList()
                 SDWebImageManager.shared.loadImage(
                     with: displayList[indexPath.section].candidates[indexPath.row].imageUrl,
@@ -234,11 +233,13 @@ extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             partySwitcher.isHidden = true
-            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 652)
+            incumbentButton.isHidden = false
+            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 532)
             return racesGroups[section].districtName
         }
         else if electionDisplayStyle.selectedSegmentIndex == 1 {
-            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 614)
+            incumbentButton.isHidden = true
+            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 600)
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
                     return candidateGroups[section].letter
@@ -348,12 +349,57 @@ class HomeScreen: UIViewController {
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
     var allCandidates = [BallotpediaElection.Candidate]()
+    var arrayOfRepresentatives = [Current.Representative]()
 
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
-    @IBOutlet var conversationButton: UIButton!
     @IBOutlet var electionDisplayStyle: UISegmentedControl!
     @IBOutlet weak var partySwitcher: UISegmentedControl!
+    @IBOutlet weak var incumbentButton: UIButton!
+    
+    @IBAction func incumbentButtonPressed(_ sender: Any) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        var semaphore = DispatchSemaphore (value: 0)
+        var urlForData = ""
+        var lat = UserDefaults.standard.string(forKey: "latitude")
+        var lon = UserDefaults.standard.string(forKey: "longitude")
+        urlForData = "https://project-democracy.herokuapp.com/api/getRepresentatives/" + lat! + "/" + lon! + "/"
+        var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                semaphore.signal()
+                return
+            }
+            let representatives = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: [String: String]]
+            for representative in representatives {
+                let name = representative.key
+                let address = representative.value["address"]
+                let phone = representative.value["phone"]
+                let url = representative.value["url"]
+                let party = representative.value["party"]
+                let type = representative.value["type"]
+                var representativeData = Current.Representative(name: name, party: party!, phone: phone!, address: address!, url: URL(string: url!), sectors: ["": ""], organizations: ["": ""] )
+                self.arrayOfRepresentatives.append(representativeData)
+            }
+        semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MyRepresentativesScreen") as? MyRepresentativesScreen {
+            vc.homescreendata = self.electionInfo
+            vc.allCandidates = self.allCandidates
+            vc.arrayOfRepresentatives = self.arrayOfRepresentatives
+            self.present(vc, animated: true)
+        }
+    }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -404,8 +450,7 @@ class HomeScreen: UIViewController {
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        conversationButton.layer.cornerRadius = 15
-        conversationButton.isHidden = true
+        incumbentButton.layer.cornerRadius = 15
         loadElectionData()
         partySwitcher.removeAllSegments()
         partySwitcher.insertSegment(withTitle: "All", at: 0, animated: false)
