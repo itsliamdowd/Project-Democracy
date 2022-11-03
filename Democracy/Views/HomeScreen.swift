@@ -25,7 +25,6 @@ extension HomeScreen: UITableViewDelegate {
             if self.electionDisplayStyle.selectedSegmentIndex == 0 {
                 if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                     vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
-                    //print(self.racesGroups[indexPath.section].races[indexPath.row].level)
                     vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
@@ -34,7 +33,6 @@ extension HomeScreen: UITableViewDelegate {
                 }
             }
             else {
-               // self.stateElections.insertRows(at: [indexPath], with: .automatic)
                 var displayList = self.getActiveList()
                 SDWebImageManager.shared.loadImage(
                     with: displayList[indexPath.section].candidates[indexPath.row].imageUrl,
@@ -79,7 +77,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups.count
                 }
-            //return candidateGroups.count
         }
         else {
             switch(partySwitcher.selectedSegmentIndex) {
@@ -115,7 +112,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].candidates.count
                 }
-            //return candidateGroups[section].candidates.count
         }
         else {
             switch(partySwitcher.selectedSegmentIndex) {
@@ -130,7 +126,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].candidates.count
                 }
-            //return candidateGroups[section].candidates.count
         }
     }
 
@@ -154,7 +149,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
                 }
-            //cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
         }
         return cell
     }
@@ -163,7 +157,6 @@ extension HomeScreen: UITableViewDataSource {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if electionDisplayStyle.selectedSegmentIndex == 1 {
             partySwitcher.isHidden = false
-            //partySwitcher.isHidden = true
             if candidateGroups.isEmpty == false {
                 func cacheImages() {
                     for candidate in allCandidates {
@@ -223,7 +216,6 @@ extension HomeScreen: UITableViewDataSource {
                     default:
                         return candidateGroups.map{$0.letter}
                     }
-                //return self.candidateGroups.map{$0.letter}
             }
         }
         else {
@@ -235,11 +227,13 @@ extension HomeScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             partySwitcher.isHidden = true
-            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 652)
+            incumbentButton.isHidden = false
+            stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 532)
             return racesGroups[section].districtName
         }
         else if electionDisplayStyle.selectedSegmentIndex == 1 {
-            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 614)
+            incumbentButton.isHidden = true
+            stateElections.frame = CGRect(x: 23, y: 244, width: 382, height: 600)
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
                     return candidateGroups[section].letter
@@ -252,7 +246,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].letter
                 }
-            //return candidateGroups[section].letter
         }
         else {
             stateElections.frame = CGRect(x: 23, y: 244, width: self.view.frame.width, height: 614)
@@ -349,12 +342,78 @@ class HomeScreen: UIViewController {
     var electionInfo = [BallotpediaElection]()
     var homescreendata = [BallotpediaElection]()
     var allCandidates = [BallotpediaElection.Candidate]()
+    var arrayOfRepresentatives = [Current.Representative]()
 
     @IBOutlet weak var electionDate: UILabel!
     @IBOutlet var stateElections: UITableView!
-    @IBOutlet var conversationButton: UIButton!
     @IBOutlet var electionDisplayStyle: UISegmentedControl!
     @IBOutlet weak var partySwitcher: UISegmentedControl!
+    @IBOutlet weak var incumbentButton: UIButton!
+    
+    @IBAction func incumbentButtonPressed(_ sender: Any) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        if arrayOfRepresentatives == [] {
+            var semaphore = DispatchSemaphore (value: 0)
+            var urlForData = ""
+            var lat = UserDefaults.standard.string(forKey: "latitude")
+            var lon = UserDefaults.standard.string(forKey: "longitude")
+            urlForData = "https://project-democracy.herokuapp.com/api/getRepresentatives/" + lat! + "/" + lon! + "/"
+            var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data else {
+                    print(String(describing: error))
+                    semaphore.signal()
+                    return
+                }
+                let representatives = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: [String: String]]
+                for representative in representatives {
+                    let name = representative.key
+                    let address = representative.value["address"]
+                    let phone = representative.value["phone"]
+                    let url = representative.value["url"]
+                    let party = representative.value["party"]
+                    let level = representative.value["type"]
+                    var image = ""
+                    if representative.value["image"] != nil {
+                        image = representative.value["image"]!
+                    }
+                    var twitter = ""
+                    if representative.value["twitter"] != nil {
+                        twitter = representative.value["twitter"]!
+                    }
+                    var facebook = ""
+                    if representative.value["facebook"] != nil {
+                        facebook = representative.value["facebook"]!
+                    }
+                    var youtube = ""
+                    if representative.value["youtube"] != nil {
+                        youtube = representative.value["youtube"]!
+                    }
+                    var representativeData = Current.Representative(name: name, level: level, party: party!, phone: phone!, address: address!, url: URL(string: url!), imageUrl: URL(string: image), sectors: ["": ""], organizations: ["": ""], twitterUrl: twitter, facebookUrl: facebook, youtubeUrl: youtube)
+                    self.arrayOfRepresentatives.append(representativeData)
+                }
+                semaphore.signal()
+            }
+            
+            task.resume()
+            semaphore.wait()
+        }
+        else {
+            print("Information already saved")
+        }
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "MyRepresentativesScreen") as? MyRepresentativesScreen {
+            vc.homescreendata = self.electionInfo
+            vc.allCandidates = self.allCandidates
+            vc.arrayOfRepresentatives = self.arrayOfRepresentatives
+            self.present(vc, animated: true)
+        }
+    }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
@@ -381,7 +440,6 @@ class HomeScreen: UIViewController {
             default:
                 return candidateGroups
             }
-    //return candidateGroups.count
     }
     
     override func viewDidLoad() {
@@ -405,8 +463,7 @@ class HomeScreen: UIViewController {
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        conversationButton.layer.cornerRadius = 15
-        conversationButton.isHidden = true
+        incumbentButton.layer.cornerRadius = 20
         loadElectionData()
         partySwitcher.removeAllSegments()
         partySwitcher.insertSegment(withTitle: "All", at: 0, animated: false)
@@ -418,6 +475,8 @@ class HomeScreen: UIViewController {
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         stateElections.reloadData()
     }
 }
