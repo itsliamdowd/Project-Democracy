@@ -4,9 +4,9 @@
 <dict>
 	<key>Root</key>
 	<dict>
-		<key>electionDate</key>
-		<string></string>
 		<key>candidateKey</key>
+		<string></string>
+		<key>electionDate</key>
 		<string></string>
 		<key>electionInfo</key>
 		<string></string>
