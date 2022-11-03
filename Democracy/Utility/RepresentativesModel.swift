@@ -15,6 +15,7 @@ struct Current: Codable, Hashable {
     
     struct Representative: Codable, Hashable {
         var name: String
+        var level: String?
         var party: String?
         var phone: String?
         var address: String?
@@ -23,7 +24,7 @@ struct Current: Codable, Hashable {
         var sectors: [String: String]
         var organizations: [String: String]
         var twitterUrl: String?
-        var facebookUrl: URL?
+        var facebookUrl: String?
         var biography: String?
     }
 }

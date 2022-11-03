@@ -360,37 +360,54 @@ class HomeScreen: UIViewController {
     @IBAction func incumbentButtonPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
-        var semaphore = DispatchSemaphore (value: 0)
-        var urlForData = ""
-        var lat = UserDefaults.standard.string(forKey: "latitude")
-        var lon = UserDefaults.standard.string(forKey: "longitude")
-        urlForData = "https://project-democracy.herokuapp.com/api/getRepresentatives/" + lat! + "/" + lon! + "/"
-        var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                print(String(describing: error))
+        if arrayOfRepresentatives == [] {
+            var semaphore = DispatchSemaphore (value: 0)
+            var urlForData = ""
+            var lat = UserDefaults.standard.string(forKey: "latitude")
+            var lon = UserDefaults.standard.string(forKey: "longitude")
+            urlForData = "https://project-democracy.herokuapp.com/api/getRepresentatives/" + lat! + "/" + lon! + "/"
+            var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data else {
+                    print(String(describing: error))
+                    semaphore.signal()
+                    return
+                }
+                let representatives = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: [String: String]]
+                for representative in representatives {
+                    let name = representative.key
+                    let address = representative.value["address"]
+                    let phone = representative.value["phone"]
+                    let url = representative.value["url"]
+                    let party = representative.value["party"]
+                    let level = representative.value["type"]
+                    var image = ""
+                    if representative.value["image"] != nil {
+                        image = representative.value["image"]!
+                    }
+                    var twitter = ""
+                    if representative.value["twitter"] != nil {
+                        twitter = representative.value["twitter"]!
+                    }
+                    var facebook = ""
+                    if representative.value["facebook"] != nil {
+                        facebook = representative.value["facebook"]!
+                    }
+                    var representativeData = Current.Representative(name: name, level: level, party: party!, phone: phone!, address: address!, url: URL(string: url!), imageUrl: URL(string: image), sectors: ["": ""], organizations: ["": ""], twitterUrl: twitter, facebookUrl: facebook)
+                    self.arrayOfRepresentatives.append(representativeData)
+                }
                 semaphore.signal()
-                return
             }
-            let representatives = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: [String: String]]
-            for representative in representatives {
-                let name = representative.key
-                let address = representative.value["address"]
-                let phone = representative.value["phone"]
-                let url = representative.value["url"]
-                let party = representative.value["party"]
-                let type = representative.value["type"]
-                var representativeData = Current.Representative(name: name, party: party!, phone: phone!, address: address!, url: URL(string: url!), sectors: ["": ""], organizations: ["": ""] )
-                self.arrayOfRepresentatives.append(representativeData)
-            }
-        semaphore.signal()
+            
+            task.resume()
+            semaphore.wait()
         }
-
-        task.resume()
-        semaphore.wait()
+        else {
+            print("Information already saved")
+        }
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "MyRepresentativesScreen") as? MyRepresentativesScreen {

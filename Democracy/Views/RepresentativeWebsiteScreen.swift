@@ -11,12 +11,15 @@ import WebKit
 class RepresentativeWebsiteScreen: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var representativeWebView: WKWebView!
-    var representative: Current.Representative
+    var representative: Current.Representative?
     
     //Shows the candidate's website in a webView
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to representative website screen")
+        guard let representative = representative else {
+            return
+        }
         //Makes candidate usable by the program
         //Loads the website in the webView
         if let myURL = representative.url {

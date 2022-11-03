@@ -17,6 +17,7 @@ class RepresentativeScreen: UIViewController {
     @IBOutlet weak var representativeParty: UIButton!
     @IBOutlet weak var representativeOffice: UILabel!
     @IBOutlet weak var representativeImage: UIImageView!
+    @IBOutlet weak var billsButton: UIButton!
     @IBOutlet weak var representativeDescription: UITextView!
     @IBOutlet weak var screenTitle: UILabel!
     @IBOutlet weak var screenText: UITextView!
@@ -27,7 +28,7 @@ class RepresentativeScreen: UIViewController {
     @IBOutlet weak var swipeScreen: UIView!
     
     //Defines variables passed to it from other view controllers
-    var representative: Current.Representative
+    var representative: Current.Representative?
     var homescreendata = [BallotpediaElection]()
     var allCandidates = [BallotpediaElection.Candidate]()
     var arrayOfRepresentatives = [Current.Representative]()
@@ -39,7 +40,7 @@ class RepresentativeScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "RepresentativeTwitterScreen") as? RepresentativeTwitterScreen {
-                vc.representative = self.representative
+                vc.representative = self.representative!
                 self.present(vc, animated: true)
             }
        }
@@ -49,15 +50,15 @@ class RepresentativeScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "RepresentativeWebsiteScreen") as? RepresentativeWebsiteScreen {
-                vc.representative = self.representative
+                vc.representative = self.representative!
                 self.present(vc, animated: true)
             }
        }
     }
     
     @IBAction func representativePhoneButtonPressed(_ sender: Any) {
-        if representative.phone != "None" {
-            guard let number = URL(string: "telprompt://" + representative.phone!) else { return }
+        if representative?.phone != "None" {
+            guard let number = URL(string: "telprompt://" + (representative?.phone!)!) else { return }
             UIApplication.shared.open(number)
         }
         else {
@@ -66,11 +67,11 @@ class RepresentativeScreen: UIViewController {
     }
     
     @IBAction func mapsButtonPressed(_ sender: Any) {
-        if representative.address != "None" {
-            let myAddress = representative.address
-            print(representative.address)
+        if representative?.address != "None" {
+            let myAddress = representative?.address
+            print(representative?.address)
             var semaphore = DispatchSemaphore (value: 0)
-            var urlForData = "https://api.geoapify.com/v1/geocode/search?text=" + representative.address! + "/&apiKey=c0b339b5bd9d47f8ae7c9461392c70cb"
+            var urlForData = "https://api.geoapify.com/v1/geocode/search?text=" + (representative?.address!)! + "/&apiKey=c0b339b5bd9d47f8ae7c9461392c70cb"
             var urlString = urlForData.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             var request = URLRequest(url: URL(string: urlString!)!,timeoutInterval: Double.infinity)
             request.httpMethod = "GET"
@@ -96,7 +97,7 @@ class RepresentativeScreen: UIViewController {
                     ]
                     let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
                     let mapItem = MKMapItem(placemark: placemark)
-                    mapItem.name = self.representative.address
+                    mapItem.name = self.representative?.address
                     mapItem.openInMaps(launchOptions: options)
                 } catch {
                   print("Error")
@@ -113,6 +114,10 @@ class RepresentativeScreen: UIViewController {
         }
     }
     
+    @IBAction func billsButtonPressed(_ sender: Any) {
+        print("HERE2323")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Makes representative usable
@@ -120,8 +125,12 @@ class RepresentativeScreen: UIViewController {
         //    return
         //}
         print("Made it to representative screen")
+        guard let representative = representative else {
+            return
+        }
         representativeParty.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
+        billsButton.layer.cornerRadius = 15
         
         //Sets party label with party color
         var party = representative.party
@@ -226,7 +235,7 @@ class RepresentativeScreen: UIViewController {
             topValuesFirst()
             self.representativeDescription.text = self.representativeDescription.text + additionalDataToAdd
         }
-            
+        
         if self.representativeDescription.text == "" || self.representativeDescription.text == "\n\n" {
             self.representativeDescription.text = "No biography is available for this representative.\n\nMake sure to check the representative's website and social media for more information."
         }
@@ -259,8 +268,15 @@ class RepresentativeScreen: UIViewController {
             mapsButton.isHidden = false
         }
         
-        representativeOffice.isHidden = true
-
+        if representative.level != nil {
+            DispatchQueue.main.async {
+                self.representativeOffice.text = representative.level
+            }
+        }
+        else {
+            representativeOffice.isHidden = true
+        }
+        
         // Make sure a valid URL exists
         guard let url = representative.imageUrl
         else {
