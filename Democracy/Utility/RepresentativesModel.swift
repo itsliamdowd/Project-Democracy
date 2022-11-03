@@ -25,6 +25,7 @@ struct Current: Codable, Hashable {
         var organizations: [String: String]
         var twitterUrl: String?
         var facebookUrl: String?
+        var youtubeUrl: String?
         var biography: String?
     }
 }

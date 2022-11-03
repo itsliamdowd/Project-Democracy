@@ -23,6 +23,7 @@ class RepresentativeScreen: UIViewController {
     @IBOutlet weak var screenText: UITextView!
     @IBOutlet weak var webSite: UIButton!
     @IBOutlet weak var socialMedia: UIButton!
+    @IBOutlet weak var video: UIButton!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var mapsButton: UIButton!
     @IBOutlet weak var swipeScreen: UIView!
@@ -50,6 +51,16 @@ class RepresentativeScreen: UIViewController {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let vc = storyboard.instantiateViewController(withIdentifier: "RepresentativeWebsiteScreen") as? RepresentativeWebsiteScreen {
+                vc.representative = self.representative!
+                self.present(vc, animated: true)
+            }
+       }
+    }
+    
+    @IBAction func representativeVideoButtonPressed(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(withIdentifier: "RepresentativeVideoScreen") as? RepresentativeVideoScreen {
                 vc.representative = self.representative!
                 self.present(vc, animated: true)
             }

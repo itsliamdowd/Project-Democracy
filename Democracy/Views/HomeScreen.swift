@@ -25,7 +25,6 @@ extension HomeScreen: UITableViewDelegate {
             if self.electionDisplayStyle.selectedSegmentIndex == 0 {
                 if let vc = storyboard.instantiateViewController(withIdentifier: "ElectionScreen") as? ElectionScreen {
                     vc.candidates = self.racesGroups[indexPath.section].races[indexPath.row].candidates
-                    //print(self.racesGroups[indexPath.section].races[indexPath.row].level)
                     vc.level = self.racesGroups[indexPath.section].races[indexPath.row].level
                     vc.homescreendata = self.electionInfo
                     vc.electionNameData = self.racesGroups[indexPath.section].races[indexPath.row].name
@@ -78,7 +77,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups.count
                 }
-            //return candidateGroups.count
         }
         else {
             switch(partySwitcher.selectedSegmentIndex) {
@@ -114,7 +112,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].candidates.count
                 }
-            //return candidateGroups[section].candidates.count
         }
         else {
             switch(partySwitcher.selectedSegmentIndex) {
@@ -129,7 +126,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].candidates.count
                 }
-            //return candidateGroups[section].candidates.count
         }
     }
 
@@ -153,7 +149,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
                 }
-            //cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
         }
         return cell
     }
@@ -221,7 +216,6 @@ extension HomeScreen: UITableViewDataSource {
                     default:
                         return candidateGroups.map{$0.letter}
                     }
-                //return self.candidateGroups.map{$0.letter}
             }
         }
         else {
@@ -252,7 +246,6 @@ extension HomeScreen: UITableViewDataSource {
                 default:
                     return candidateGroups[section].letter
                 }
-            //return candidateGroups[section].letter
         }
         else {
             stateElections.frame = CGRect(x: 23, y: 244, width: self.view.frame.width, height: 614)
@@ -396,7 +389,11 @@ class HomeScreen: UIViewController {
                     if representative.value["facebook"] != nil {
                         facebook = representative.value["facebook"]!
                     }
-                    var representativeData = Current.Representative(name: name, level: level, party: party!, phone: phone!, address: address!, url: URL(string: url!), imageUrl: URL(string: image), sectors: ["": ""], organizations: ["": ""], twitterUrl: twitter, facebookUrl: facebook)
+                    var youtube = ""
+                    if representative.value["youtube"] != nil {
+                        youtube = representative.value["youtube"]!
+                    }
+                    var representativeData = Current.Representative(name: name, level: level, party: party!, phone: phone!, address: address!, url: URL(string: url!), imageUrl: URL(string: image), sectors: ["": ""], organizations: ["": ""], twitterUrl: twitter, facebookUrl: facebook, youtubeUrl: youtube)
                     self.arrayOfRepresentatives.append(representativeData)
                 }
                 semaphore.signal()
@@ -443,7 +440,6 @@ class HomeScreen: UIViewController {
             default:
                 return candidateGroups
             }
-    //return candidateGroups.count
     }
     
     override func viewDidLoad() {

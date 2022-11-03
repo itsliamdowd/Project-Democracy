@@ -46,6 +46,7 @@
 		BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8728C84011000E82E1 /* TalkScreen.swift */; };
 		BDD90B8A28CAF6BB000E82E1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8928CAF6BB000E82E1 /* Contact.swift */; };
 		BDEB65A9290F5A3D0060553A /* MyRepresentativesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB65A8290F5A3D0060553A /* MyRepresentativesScreen.swift */; };
+		BDF5B2F329134FC000F5AB94 /* RepresentativeVideoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5B2F229134FC000F5AB94 /* RepresentativeVideoScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		BDD90B8728C84011000E82E1 /* TalkScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkScreen.swift; sourceTree = "<group>"; };
 		BDD90B8928CAF6BB000E82E1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		BDEB65A8290F5A3D0060553A /* MyRepresentativesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepresentativesScreen.swift; sourceTree = "<group>"; };
+		BDF5B2F229134FC000F5AB94 /* RepresentativeVideoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentativeVideoScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				BD3BFE3428C5A99C00582962 /* CandidateTwitterScreen.swift */,
 				BDBB58C8291161D10057DD80 /* RepresentativeScreen.swift */,
 				BDBB58CA291221F10057DD80 /* RepresentativeTwitterScreen.swift */,
+				BDF5B2F229134FC000F5AB94 /* RepresentativeVideoScreen.swift */,
 				BDBB58CC291222000057DD80 /* RepresentativeWebsiteScreen.swift */,
 				BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */,
 				BDEB65A8290F5A3D0060553A /* MyRepresentativesScreen.swift */,
@@ -395,6 +398,7 @@
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */,
 				BDBB58C9291161D10057DD80 /* RepresentativeScreen.swift in Sources */,
+				BDF5B2F329134FC000F5AB94 /* RepresentativeVideoScreen.swift in Sources */,
 				BDD90B8828C84011000E82E1 /* TalkScreen.swift in Sources */,
 				BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */,
 				BDEB65A9290F5A3D0060553A /* MyRepresentativesScreen.swift in Sources */,
