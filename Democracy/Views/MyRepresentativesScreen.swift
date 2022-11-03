@@ -28,6 +28,8 @@ class MyRepresentativesScreen: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(list[indexPath.row])
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         SDWebImageManager.shared.loadImage(
             with: self.arrayOfRepresentatives[indexPath.row].imageUrl,
             options: .highPriority,

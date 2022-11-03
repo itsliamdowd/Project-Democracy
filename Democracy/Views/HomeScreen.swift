@@ -463,7 +463,7 @@ class HomeScreen: UIViewController {
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         stateElections.dataSource = self
         stateElections.delegate = self
-        incumbentButton.layer.cornerRadius = 15
+        incumbentButton.layer.cornerRadius = 20
         loadElectionData()
         partySwitcher.removeAllSegments()
         partySwitcher.insertSegment(withTitle: "All", at: 0, animated: false)
@@ -475,6 +475,8 @@ class HomeScreen: UIViewController {
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
         stateElections.reloadData()
     }
 }

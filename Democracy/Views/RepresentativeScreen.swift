@@ -265,6 +265,13 @@ class RepresentativeScreen: UIViewController {
             socialMedia.isHidden = false
         }
         
+        if representative.youtubeUrl == "" || representative.youtubeUrl == nil || representative.youtubeUrl == "null" {
+            video.isHidden = true
+        }
+        else {
+            video.isHidden = false
+        }
+        
         if representative.phone == nil || representative.phone == "" || representative.phone == "None" {
             callButton.isHidden = true
         }
