@@ -126,15 +126,11 @@ class RepresentativeScreen: UIViewController {
     }
     
     @IBAction func billsButtonPressed(_ sender: Any) {
-        print("HERE2323")
+        print("Here")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Makes representative usable
-        //guard let representative = representative else {
-        //    return
-        //}
         print("Made it to representative screen")
         guard let representative = representative else {
             return
@@ -142,7 +138,7 @@ class RepresentativeScreen: UIViewController {
         representativeParty.layer.cornerRadius = 15
         swipeScreen.layer.cornerRadius = 15
         billsButton.layer.cornerRadius = 15
-        
+        billsButton.isHidden = true
         //Sets party label with party color
         var party = representative.party
         print(party)
