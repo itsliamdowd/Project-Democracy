@@ -349,6 +349,7 @@ class HomeScreen: UIViewController {
     @IBOutlet var electionDisplayStyle: UISegmentedControl!
     @IBOutlet weak var partySwitcher: UISegmentedControl!
     @IBOutlet weak var incumbentButton: UIButton!
+    @IBOutlet weak var electionOccuring: UILabel!
     
     @IBAction func incumbentButtonPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -478,6 +479,13 @@ class HomeScreen: UIViewController {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
         stateElections.reloadData()
+        if stateElections.visibleCells.isEmpty {
+            electionOccuring.isHidden = false
+            stateElections.isHidden = true
+        } else {
+            electionOccuring.isHidden = true
+            stateElections.isHidden = false
+        }
     }
 }
 
