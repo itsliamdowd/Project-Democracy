@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6223E47F2A38E8A4005AECB7 /* SwiftGoogleTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */; };
+		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
@@ -67,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			files = (
 				BD4FF72528E95A75005D84BC /* SDWebImage in Frameworks */,
 				BD40DF3328DA96B9002F55F0 /* SwiftyJSON in Frameworks */,
+				6223E47F2A38E8A4005AECB7 /* SwiftGoogleTranslate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +211,7 @@
 				62B1B3F328C42629000EB586 /* Views */,
 				BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */,
 				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
+				6223E4802A38E939005AECB7 /* Secret.plist */,
 				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
 				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
 				BD9D07D728B729C600CC5F0A /* Assets.xcassets */,
@@ -253,6 +258,7 @@
 			packageProductDependencies = (
 				BD40DF3228DA96B9002F55F0 /* SwiftyJSON */,
 				BD4FF72428E95A75005D84BC /* SDWebImage */,
+				6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */,
 			);
 			productName = Democracy;
 			productReference = BD9D07CB28B729C400CC5F0A /* Democracy.app */;
@@ -329,6 +335,7 @@
 			packageReferences = (
 				BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				BD4FF72328E95A75005D84BC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */,
 			);
 			productRefGroup = BD9D07CC28B729C400CC5F0A /* Products */;
 			projectDirPath = "";
@@ -348,6 +355,7 @@
 			files = (
 				BD9D07DB28B729C600CC5F0A /* LaunchScreen.storyboard in Resources */,
 				BD9D080728BF14B200CC5F0A /* Flag.png in Resources */,
+				6223E4812A38E939005AECB7 /* Secret.plist in Resources */,
 				BD9D07D828B729C600CC5F0A /* Assets.xcassets in Resources */,
 				BD9D07D628B729C400CC5F0A /* Main.storyboard in Resources */,
 			);
@@ -754,6 +762,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maximbilan/SwiftGoogleTranslate.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -773,6 +789,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */;
+			productName = SwiftGoogleTranslate;
+		};
 		BD40DF3228DA96B9002F55F0 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

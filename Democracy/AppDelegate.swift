@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import SwiftGoogleTranslate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard let filePath = Bundle.main.path(forResource: "Secret", ofType: "plist") else {
+            fatalError("Couldn't find file 'Secret.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        guard let key = plist?.object(forKey: "translate_API_key") as? String else {
+            fatalError("Couldn't find key 'API_KEY' in 'TMDB-Info.plist'.")
+        }
+        SwiftGoogleTranslate.shared.start(with: key)
         return true
     }
 
