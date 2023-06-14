@@ -16,9 +16,6 @@ Project Democracy integrates social media platforms seamlessly, allowing you to 
 ### Detailed Candidate Biographies
 Understanding the background and experiences of candidates is crucial to informed decision-making. Project Democracy provides detailed biographies that delve into candidates' educational qualifications, professional accomplishments, and public service records. Gain valuable insights into their track records and make well-rounded assessments of their suitability for office.
 
-### Accessible Committee Information
-In our commitment to transparency, Project Democracy provides insights into the committees in which incumbent candidates are involved. Explore the committees they serve on, their roles, and the issues they prioritize. Understanding their committee engagements allows you to evaluate their impact and effectiveness as elected officials.
-
 ### Fair and Unbiased Information
 Information provided through Project Democracy is sourced from reputable and unbiased sources, including Ballotpedia, OpenSecrets, and other reliable platforms. We prioritize the integrity and accuracy of the data we present to users, ensuring that the information is obtained from trusted sources that adhere to high journalistic standards and ethical practices.
 
