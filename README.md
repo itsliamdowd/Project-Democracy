@@ -24,9 +24,9 @@ We believe in the power of collaboration and welcome contributions from passiona
 
 ## To contribute, visit our GitHub repositories:
 
-- Backend/Server: Project Democracy Backend
-- Additional Files for Running Project Democracy: Project Democracy Files
-- Landing Page: Project Democracy Landing Page
+- Backend/Server: [Project Democracy Backend](https://github.com/SkiingIsFun123/Project-Democracy-Backend)
+- Additional Files for Running Project Democracy: [Project Democracy Files](https://github.com/SkiingIsFun123/Project-Democracy-Files)
+- Landing Page: [Project Democracy Landing Page](https://github.com/SkiingIsFun123/Project-Democracy-Landing-Page)
 
 ## Download Project Democracy for Free
 Experience the power of democracy at your fingertips. Download Project Democracy from the App Store for free and become an informed and engaged citizen.
