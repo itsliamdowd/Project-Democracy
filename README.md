@@ -1,6 +1,6 @@
 ![appbanner](https://github.com/SkiingIsFun123/Project-Democracy/assets/101684827/205022a5-867f-43a5-953e-0a1ccfa590c5)
 
-# Project Democracy: Empowering Citizens for Informed Voting
+# Empowering Citizens for Informed Voting
 Welcome to **Project Democracy**, the ultimate app designed to empower citizens like you with the tools and information needed to actively participate in the democratic process. Our mission is to foster a well-informed electorate by providing transparent access to crucial election resources. With an array of features and a user-friendly interface, Project Democracy revolutionizes the way you engage with your representatives and stay informed about elections.
 
 ## Key Features for Informed Voting
