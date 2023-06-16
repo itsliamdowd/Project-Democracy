@@ -30,8 +30,7 @@ We believe in the power of collaboration and welcome contributions from passiona
 
 ## Download Project Democracy for Free
 Experience the power of democracy at your fingertips. Download Project Democracy from the App Store for free and become an informed and engaged citizen.
-
-Download Project Democracy on the App Store
+[Download Project Democracy on the App Store](https://apps.apple.com/us/app/project-democracy/id6443437676?uo=4)
 
 ##  Help Us Spread the Word!
 You can play a vital role in promoting democratic engagement by sharing Project Democracy with your friends, family, and social networks. By starring our GitHub repository, you show your support for our mission to empower citizens worldwide. Let's collaborate to build a stronger democracy for future generations.
