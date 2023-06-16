@@ -22,7 +22,7 @@ Information provided through Project Democracy is sourced from reputable and unb
 ### Contribute to Project Democracy
 We believe in the power of collaboration and welcome contributions from passionate individuals like you. Join us in improving Project Democracy by cloning our repository and suggesting enhancements or making changes. By working together, we can enhance the app's functionality, usability, and impact on democratic engagement.
 
-## To contribute, visit our GitHub repositories:
+## GitHub repositories:
 
 - Backend/Server: [Project Democracy Backend](https://github.com/SkiingIsFun123/Project-Democracy-Backend)
 - Additional Files for Running Project Democracy: [Project Democracy Files](https://github.com/SkiingIsFun123/Project-Democracy-Files)
