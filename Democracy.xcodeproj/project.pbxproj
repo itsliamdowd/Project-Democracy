@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6223E47F2A38E8A4005AECB7 /* SwiftGoogleTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */; };
 		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
+		6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223E4822A41F8BB005AECB7 /* Storage.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
+		6223E4822A41F8BB005AECB7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../Desktop/Storage.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BDBB58C6290F73C70057DD80 /* RepresentativesModel.swift */,
+				6223E4822A41F8BB005AECB7 /* Storage.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				BD0785DF28FB87CE0002F4A8 /* Check.swift in Sources */,
 				BDEB65A9290F5A3D0060553A /* MyRepresentativesScreen.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
+				6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
 			);

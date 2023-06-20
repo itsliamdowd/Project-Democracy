@@ -17,9 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         let plist = NSDictionary(contentsOfFile: filePath)
         guard let key = plist?.object(forKey: "translate_API_key") as? String else {
-            fatalError("Couldn't find key 'API_KEY' in 'TMDB-Info.plist'.")
+            fatalError("Couldn't find key 'API_KEY' in 'Secret.plist'.")
         }
         SwiftGoogleTranslate.shared.start(with: key)
+
         return true
     }
 
