@@ -21,8 +21,8 @@ class SettingsScreen: UIViewController {
     @IBOutlet weak var language: UIButton!
     @IBOutlet var appVersion: UILabel!
 
- // @Storage(key: "AllLanguages", defaultValue: [])
-    var allLanguages = [SwiftGoogleTranslate.Language]()
+    @Storage(key: "AllLanguages", defaultValue: [])
+    var allLanguages: [SwiftGoogleTranslate.Language]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,15 @@ class SettingsScreen: UIViewController {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
            self.appVersion.text = "App version " + version
        }
-        fetchLanguageList {
+        if allLanguages.isEmpty {
+            fetchLanguageList {
+                self.updateLanguageSettings(selection: self.savedLanguage)
+            }
+        }
+        else {
             self.updateLanguageSettings(selection: self.savedLanguage)
         }
+
     }
 
     var savedLanguage: SwiftGoogleTranslate.Language? {
@@ -63,19 +69,22 @@ class SettingsScreen: UIViewController {
         else {
             selectedLanguage = "en"
         }
-        SwiftGoogleTranslate.shared.translate(screenTitle.text!,
-                                              selectedLanguage,
-                                              "")
-        {[weak self] result, error in
-            guard let translatedText = result
-            else {
-                print(error ?? "Error occured while translating")
-                return
-            }
-            DispatchQueue.main.async {
-                self?.screenTitle.text = translatedText
+        DispatchQueue.main.async {
+            SwiftGoogleTranslate.shared.translate(self.screenTitle.text!,
+                                                  selectedLanguage,
+                                                  "")
+            {[weak self] result, error in
+                guard let translatedText = result
+                else {
+                    print(error ?? "Error occured while translating")
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.screenTitle.text = translatedText
+                }
             }
         }
+
     }
 
     func fetchLanguageList(completion: @escaping () -> Void) {
@@ -91,21 +100,6 @@ class SettingsScreen: UIViewController {
         }
     }
 
-}
-
-extension SwiftGoogleTranslate.Language: Hashable, Identifiable {
-    public var id: Int {
-        language.hashValue
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(language)
-        hasher.combine(name)
-    }
-
-    public static func == (lhs: SwiftGoogleTranslate.Language, rhs: SwiftGoogleTranslate.Language) -> Bool {
-        return lhs.language == rhs.language && lhs.name == rhs.name
-    }
 }
 
 struct LanguageSelectionView: View {

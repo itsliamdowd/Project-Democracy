@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6223E47F2A38E8A4005AECB7 /* SwiftGoogleTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */; };
+		621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */; };
 		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
 		6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223E4822A41F8BB005AECB7 /* Storage.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
@@ -70,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6223E4822A41F8BB005AECB7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../Desktop/Storage.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 			files = (
 				BD4FF72528E95A75005D84BC /* SDWebImage in Frameworks */,
 				BD40DF3328DA96B9002F55F0 /* SwiftyJSON in Frameworks */,
-				6223E47F2A38E8A4005AECB7 /* SwiftGoogleTranslate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +144,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62274BAB2A424EA20063A8AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		62B1B3F328C42629000EB586 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +190,7 @@
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BDBB58C6290F73C70057DD80 /* RepresentativesModel.swift */,
 				6223E4822A41F8BB005AECB7 /* Storage.swift */,
+				621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 				BD9D07E428B729C700CC5F0A /* DemocracyTests */,
 				BD9D07EE28B729C700CC5F0A /* DemocracyUITests */,
 				BD9D07CC28B729C400CC5F0A /* Products */,
+				62274BAB2A424EA20063A8AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,7 +270,6 @@
 			packageProductDependencies = (
 				BD40DF3228DA96B9002F55F0 /* SwiftyJSON */,
 				BD4FF72428E95A75005D84BC /* SDWebImage */,
-				6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */,
 			);
 			productName = Democracy;
 			productReference = BD9D07CB28B729C400CC5F0A /* Democracy.app */;
@@ -338,7 +346,6 @@
 			packageReferences = (
 				BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				BD4FF72328E95A75005D84BC /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */,
 			);
 			productRefGroup = BD9D07CC28B729C400CC5F0A /* Products */;
 			projectDirPath = "";
@@ -398,6 +405,7 @@
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
 				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
 				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
+				621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BDBB58CB291221F10057DD80 /* RepresentativeTwitterScreen.swift in Sources */,
 				BD0785E328FB90D90002F4A8 /* Polling.swift in Sources */,
@@ -766,14 +774,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/maximbilan/SwiftGoogleTranslate.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -793,11 +793,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6223E47E2A38E8A4005AECB7 /* SwiftGoogleTranslate */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6223E47D2A38E8A4005AECB7 /* XCRemoteSwiftPackageReference "SwiftGoogleTranslate" */;
-			productName = SwiftGoogleTranslate;
-		};
 		BD40DF3228DA96B9002F55F0 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
