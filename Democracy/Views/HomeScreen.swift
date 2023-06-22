@@ -474,6 +474,7 @@ class HomeScreen: UIViewController {
         partySwitcher.selectedSegmentIndex = 0
         partySwitcher.isHidden = true
         TranslateManager.shared.addViews(views: [electionDate, incumbentButton, electionOccuring, electionDisplayStyle, partySwitcher])
+        electionOccuring.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -485,11 +486,11 @@ class HomeScreen: UIViewController {
         generator.impactOccurred()
         stateElections.reloadData()
         if stateElections.visibleCells.isEmpty {
-            electionOccuring.isHidden = true
-            stateElections.isHidden = false
-        } else {
             electionOccuring.isHidden = false
             stateElections.isHidden = true
+        } else {
+            electionOccuring.isHidden = true
+            stateElections.isHidden = false
         }
     }
 }
@@ -535,7 +536,10 @@ private extension HomeScreen {
             DispatchQueue.main.async {[weak self] in
                 self?.electionInfo = elections
                 self?.stateElections.reloadData()
-                self?.allCandidates = self?.parseCandidates(for: elections) ?? [] 
+                self?.allCandidates = self?.parseCandidates(for: elections) ?? []
+                if elections.isEmpty {
+                    self?.electionOccuring.isHidden = false
+                }
             }
         }
     }

@@ -71,13 +71,23 @@ struct LanguageSelectionView: View {
     
     var body: some View {
         NavigationView {
-            Picker("Display Language", selection: $selectedLanguage) {
-                let allLanguages = SwiftGoogleTranslate.shared.allLanguages
-                ForEach(allLanguages) {language in
-                    Text(language.name).tag(language)
+            VStack {
+                Picker("Display Language", selection: $selectedLanguage) {
+                    let allLanguages = SwiftGoogleTranslate.shared.allLanguages
+                    ForEach(allLanguages) {language in
+                        Text(language.name).tag(language)
+                    }
                 }
+                .pickerStyle(.wheel)
+
+                Button("English (Default)") {
+                    withAnimation {
+                        selectedLanguage = .english
+                        TranslateManager.shared.revertToOriginal()
+                    }
+                }
+                .padding()
             }
-            .pickerStyle(.wheel)
             .navigationTitle("Display Language")
         }
         .onDisappear {
