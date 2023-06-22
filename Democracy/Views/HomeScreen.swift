@@ -473,6 +473,11 @@ class HomeScreen: UIViewController {
         partySwitcher.insertSegment(withTitle: "Other", at: 3, animated: false)
         partySwitcher.selectedSegmentIndex = 0
         partySwitcher.isHidden = true
+        TranslateManager.shared.addViews(views: [electionDate, incumbentButton, electionOccuring, electionDisplayStyle, partySwitcher])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
@@ -480,11 +485,11 @@ class HomeScreen: UIViewController {
         generator.impactOccurred()
         stateElections.reloadData()
         if stateElections.visibleCells.isEmpty {
-            electionOccuring.isHidden = false
-            stateElections.isHidden = true
-        } else {
             electionOccuring.isHidden = true
             stateElections.isHidden = false
+        } else {
+            electionOccuring.isHidden = false
+            stateElections.isHidden = true
         }
     }
 }

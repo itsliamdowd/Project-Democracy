@@ -16,13 +16,12 @@ class SettingsScreen: UIViewController {
     @IBOutlet weak var screenTitle: UILabel!
 
     @IBOutlet var privacy: UIButton!
-    @IBOutlet var source: UIButton!
     @IBOutlet weak var feedback: UIButton!
+    @IBOutlet var source: UIButton!
     @IBOutlet weak var language: UIButton!
     @IBOutlet var appVersion: UILabel!
-
-    @Storage(key: "AllLanguages", defaultValue: [])
-    var allLanguages: [SwiftGoogleTranslate.Language]
+    @IBOutlet weak var developerCaption: UILabel!
+    @IBOutlet weak var copyrightCaption: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,95 +33,60 @@ class SettingsScreen: UIViewController {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
            self.appVersion.text = "App version " + version
        }
-        if allLanguages.isEmpty {
-            fetchLanguageList {
-                self.updateLanguageSettings(selection: self.savedLanguage)
-            }
-        }
-        else {
-            self.updateLanguageSettings(selection: self.savedLanguage)
-        }
+        TranslateManager.shared.addViews(views: [privacy, source, feedback, language, screenTitle, appVersion, developerCaption, copyrightCaption])
 
     }
 
-    var savedLanguage: SwiftGoogleTranslate.Language? {
-        guard let savedLanguage = UserDefaults.standard.string(forKey: "AppLanguage")
-        else {
-            return nil
-        }
-        return allLanguages.first(where: {$0.language == savedLanguage})
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
+    }
+
+    private func updateTranslatedLabels() {
+        screenTitle.text?.translate()
+        privacy.setTranslated()
+        feedback.setTranslated()
+        source.setTranslated()
+        language.setTranslated()
     }
 
     @IBAction func openLanguageView(_ sender: UIButton) {
-        let swiftUIView = LanguageSelectionView(allLanguages: allLanguages,
-                                                selectedLanguage: savedLanguage,
-                                                completion: updateLanguageSettings)
-            let hostingController = UIHostingController(rootView: swiftUIView)
-            present(hostingController, animated: true, completion: nil)
+        let swiftUIView = LanguageSelectionView {
+            TranslateManager.shared.updateTranslatedLabels()
+        }
+
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        present(hostingController, animated: true, completion: nil)
     }
-
-    func updateLanguageSettings(selection: SwiftGoogleTranslate.Language?) {
-        var selectedLanguage: String
-        if let selected = selection {
-            selectedLanguage = selected.language
-        }
-        else {
-            selectedLanguage = "en"
-        }
-        DispatchQueue.main.async {
-            SwiftGoogleTranslate.shared.translate(self.screenTitle.text!,
-                                                  selectedLanguage,
-                                                  "")
-            {[weak self] result, error in
-                guard let translatedText = result
-                else {
-                    print(error ?? "Error occured while translating")
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.screenTitle.text = translatedText
-                }
-            }
-        }
-
-    }
-
-    func fetchLanguageList(completion: @escaping () -> Void) {
-        SwiftGoogleTranslate.shared.languages {[weak self] languages, error in
-            guard error == nil, let languages = languages
-            else {
-                print(error!)
-                return
-            }
-            self?.allLanguages = languages
-            
-            completion()
-        }
-    }
-
 }
 
 struct LanguageSelectionView: View {
-    @State var allLanguages: [SwiftGoogleTranslate.Language]
-    @State var selectedLanguage: SwiftGoogleTranslate.Language?
-    var completion: (SwiftGoogleTranslate.Language?) -> Void
+    init(completion: @escaping () -> Void) {
+        self.selectedLanguage = SwiftGoogleTranslate.shared.savedLanguage
+        self.completion = completion
+    }
 
+    //@State var allLanguages: [SwiftGoogleTranslate.Language]
+    @State var selectedLanguage = SwiftGoogleTranslate.shared.savedLanguage
+    var completion: () -> Void
+    
     var body: some View {
         NavigationView {
             Picker("Display Language", selection: $selectedLanguage) {
-                Text("English (Default)").tag(Optional<String>(nil))
+                let allLanguages = SwiftGoogleTranslate.shared.allLanguages
                 ForEach(allLanguages) {language in
-                    Text(language.name).tag(Optional(language))
+                    Text(language.name).tag(language)
                 }
             }
             .pickerStyle(.wheel)
             .navigationTitle("Display Language")
         }
         .onDisappear {
-            if let selected = selectedLanguage {
-                UserDefaults.standard.setValue(selected.language, forKey: "AppLanguage")
+            if selectedLanguage != SwiftGoogleTranslate.shared.savedLanguage {
+                UserDefaults.standard.setValue(selectedLanguage.language, forKey: "AppLanguage")
+                SwiftGoogleTranslate.shared.translationCache = [:]
+                completion()
             }
-            completion(selectedLanguage)
+
         }
     }
 }

@@ -385,17 +385,176 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "225BC620-22AB-40CF-A644-A2525989F668"
+            uuid = "7ABF745E-109F-4F49-8E40-3E836EBA98CA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/SwiftGoogleTranslate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "languages(_:_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7ABF745E-109F-4F49-8E40-3E836EBA98CA - 95d6505fcbe86a21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Democracy.SwiftGoogleTranslate.languages(Swift.String, Swift.String, (Swift.Optional&lt;Swift.Array&lt;Democracy.SwiftGoogleTranslate.Language&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/SwiftGoogleTranslate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "692">
+               </Location>
+               <Location
+                  uuid = "7ABF745E-109F-4F49-8E40-3E836EBA98CA - 95d6505fcbe86a21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Democracy.SwiftGoogleTranslate.languages(Swift.String, Swift.String, (Swift.Optional&lt;Swift.Array&lt;Democracy.SwiftGoogleTranslate.Language&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/SwiftGoogleTranslate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "796">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "871BA00F-3A06-4359-92B9-E117C72A7F3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/SwiftGoogleTranslate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "languages(_:_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0125E236-FD63-4E42-B475-098DCC4838AB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/String.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "translate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A69D117-09D0-49F8-B2DC-FFDC002BCF72"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Democracy/Views/SettingsScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "updateLanguageSettings(selection:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "openLanguageView(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B5F01DA-9005-4B34-9B4E-6591E5A7DD97"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/TranslationExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "translate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8FC2FCA8-544B-4DF2-848B-E95958AEED2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Democracy/Utility/TranslateManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "revertToOriginal()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8FC2FCA8-544B-4DF2-848B-E95958AEED2A - e53df80f011774cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;Swift.String&gt; in Democracy.TranslateManager.revertToOriginal() -&gt; ()"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/TranslateManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "8FC2FCA8-544B-4DF2-848B-E95958AEED2A - e53df80f011774cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;Swift.String&gt; in Democracy.TranslateManager.revertToOriginal() -&gt; ()"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/TranslateManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "8FC2FCA8-544B-4DF2-848B-E95958AEED2A - b4f8cbc5a9f7edfb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;Swift.String&gt; in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;Swift.String&gt; in Democracy.TranslateManager.revertToOriginal() -&gt; ()"
+                  moduleName = "Democracy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jevonmao/Documents/GitHub/Democracy/Democracy/Utility/TranslateManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

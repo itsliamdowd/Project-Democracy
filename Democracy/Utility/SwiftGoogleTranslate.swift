@@ -7,10 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
 /// A helper class for using Google Translate API.
 public class SwiftGoogleTranslate {
+    @Storage(key: "AllLanguages", defaultValue: [])
+    var allLanguages: [Language]
 
+    @Storage(key: "TranslationCache", defaultValue: [:])
+    var translationCache: [String: String]
+    
+    var savedLanguage: Language {
+        guard let languageCode = UserDefaults.standard.string(forKey: "AppLanguage")
+        else {
+            return .english
+        }
+        let language = allLanguages.first {$0.language == languageCode}
+
+        return language ?? .english
+    }
+    
     /// Shared instance.
     public static let shared = SwiftGoogleTranslate()
 
@@ -21,6 +37,7 @@ public class SwiftGoogleTranslate {
         public var id: Int {
             language.hashValue
         }
+        static let english = Language(language: "en", name: "English")
     }
 
     /// Detect response structure.
@@ -54,6 +71,11 @@ public class SwiftGoogleTranslate {
         }
     }
 
+    struct Translatable: Codable {
+        let original: String
+        var translated: String
+    }
+
     /// API key.
     private var apiKey: String!
     /// Default URL session.
@@ -67,6 +89,14 @@ public class SwiftGoogleTranslate {
     */
     public func start(with apiKey: String) {
         self.apiKey = apiKey
+        SwiftGoogleTranslate.shared.languages {[weak self] languages, error in
+            guard error == nil, let languages = languages
+            else {
+                print(error)
+                return
+            }
+            self?.allLanguages = languages
+        }
     }
 
     /**

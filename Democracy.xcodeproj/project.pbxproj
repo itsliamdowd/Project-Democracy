@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */; };
+		621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */; };
+		621562AD2A436DC7005F2B64 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AC2A436DC7005F2B64 /* TranslateManager.swift */; };
 		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
 		6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223E4822A41F8BB005AECB7 /* Storage.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
@@ -71,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
+		621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationExtensions.swift; sourceTree = "<group>"; };
+		621562AC2A436DC7005F2B64 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
 		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6223E4822A41F8BB005AECB7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../Desktop/Storage.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 				BDBB58C6290F73C70057DD80 /* RepresentativesModel.swift */,
 				6223E4822A41F8BB005AECB7 /* Storage.swift */,
 				621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */,
+				621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */,
+				621562AC2A436DC7005F2B64 /* TranslateManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
 				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
 				621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */,
+				621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BDBB58CB291221F10057DD80 /* RepresentativeTwitterScreen.swift in Sources */,
 				BD0785E328FB90D90002F4A8 /* Polling.swift in Sources */,
@@ -413,6 +420,7 @@
 				BD0785DB28FB83430002F4A8 /* Register.swift in Sources */,
 				62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */,
 				BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */,
+				621562AD2A436DC7005F2B64 /* TranslateManager.swift in Sources */,
 				BD3BFE3528C5A99C00582962 /* CandidateTwitterScreen.swift in Sources */,
 				BD9D07CF28B729C400CC5F0A /* AppDelegate.swift in Sources */,
 				62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */,
@@ -601,7 +609,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = NZTKYG24L3;
+				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to determine your election district";
@@ -632,7 +640,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = NZTKYG24L3;
+				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to determine your election district";
