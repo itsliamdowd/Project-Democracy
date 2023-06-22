@@ -15,7 +15,10 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
     let locationManager = CLLocationManager()
-    
+
+    @IBOutlet weak var useLocationButton: UIButton!
+    @IBOutlet weak var locationTitle: UILabel!
+    @IBOutlet weak var locationSubtitle: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var searchResultsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -102,6 +105,11 @@ class LocationScreen: UIViewController, CLLocationManagerDelegate {
         searchCompleter.delegate = self
         searchResultsTableView.isHidden = true
         searchBar.becomeFirstResponder()
+        TranslateManager.shared.addViews(views: [locationTitle, locationSubtitle, continueButton, useLocationButton])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 }
 

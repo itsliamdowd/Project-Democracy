@@ -72,7 +72,7 @@ struct LanguageSelectionView: View {
                 }
                 .pickerStyle(.wheel)
 
-                Button("English (Default)") {
+                Button("English (Default)".translated()) {
                     withAnimation {
                         selectedLanguage = .english
                         TranslateManager.shared.revertToOriginal()
@@ -80,7 +80,7 @@ struct LanguageSelectionView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Display Language")
+            .navigationTitle("Display Language".translated())
         }
         .onDisappear {
             if selectedLanguage != SwiftGoogleTranslate.shared.savedLanguage {

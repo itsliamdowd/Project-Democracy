@@ -76,7 +76,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="2hY-GJ-00n" id="pat-HB-Knr"/>
                         <outlet property="nextButton" destination="UIR-e2-81x" id="rll-jj-Jdf"/>
+                        <outlet property="titleLabel" destination="Vyc-3Q-jzV" id="u75-87-ayf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0F-jI-gYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,8 +154,11 @@
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="rKW-L1-TCa" id="BYF-VD-KSo"/>
+                        <outlet property="locationSubtitle" destination="EnF-1T-Piu" id="c6d-nO-Nrs"/>
+                        <outlet property="locationTitle" destination="32R-QF-uo7" id="x8E-cL-paE"/>
                         <outlet property="searchBar" destination="i6m-99-PYY" id="TX5-M9-gS8"/>
                         <outlet property="searchResultsTableView" destination="rUc-Xl-UXh" id="ROA-fl-zET"/>
+                        <outlet property="useLocationButton" destination="LIT-Yr-kDl" id="fcC-ra-5N5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yex-Pn-6gg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
