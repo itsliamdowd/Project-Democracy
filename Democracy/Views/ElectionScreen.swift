@@ -74,11 +74,11 @@ extension ElectionScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = candidateTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if candidates[indexPath.row].isIncumbent == false {
-            cell.textLabel?.text = candidates[indexPath.row].name
+            cell.textLabel?.text = candidates[indexPath.row].name.translated()
             return cell
         }
         else {
-            cell.textLabel?.text = candidates[indexPath.row].name + " - Incumbent"
+            cell.textLabel?.text = (candidates[indexPath.row].name + " - Incumbent").translated()
             return cell
         }
     }
@@ -94,7 +94,8 @@ class ElectionScreen: UIViewController {
     @IBOutlet var electionName: UILabel!
     @IBOutlet var candidateTable: UITableView!
     @IBOutlet weak var electionDescription: UILabel!
-    
+    @IBOutlet weak var candidatesLabel: UILabel!
+
     @IBAction func backButtonPressed(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -122,6 +123,11 @@ class ElectionScreen: UIViewController {
         candidateTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         candidateTable.dataSource = self
         candidateTable.delegate = self
+        TranslateManager.shared.addViews(views: [electionName, electionDescription, candidatesLabel])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 
     // Reverse geocode to get user's address

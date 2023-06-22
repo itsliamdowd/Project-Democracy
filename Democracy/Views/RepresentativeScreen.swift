@@ -292,7 +292,14 @@ class RepresentativeScreen: UIViewController {
         }
         
         // Make sure a valid URL exists
-        guard let url = representative.imageUrl
+        if let url = representative.imageUrl {
+            //Sets image to the candidate's image and caches the image for later use
+            representativeImage.sd_setImage(with: representative.imageUrl)
+            representativeImage.contentMode = .scaleAspectFill
+            representativeImage.layer.cornerRadius = 10
+            representativeImage.layer.cornerCurve = .continuous
+            representativeImage.layer.masksToBounds = true
+        }
         else {
             // Show image unavailable SwiftUI view
             let unavailableView = UIHostingController(rootView: ImageUnavailableView()).view! // We are sure that the view exists
@@ -309,14 +316,13 @@ class RepresentativeScreen: UIViewController {
                 unavailableView.topAnchor.constraint(equalTo: safeArea.topAnchor,
                                                      constant: 30),
             ])
-            return
         }
-        //Sets image to the representative's image and caches the image for later use
-        representativeImage.sd_setImage(with: representative.imageUrl)
-        representativeImage.contentMode = .scaleAspectFill
-        representativeImage.layer.cornerRadius = 10
-        representativeImage.layer.cornerCurve = .continuous
-        representativeImage.layer.masksToBounds = true
+
+        TranslateManager.shared.addViews(views: [representativeName, representativeParty, representativeOffice, representativeDescription, screenText, screenTitle])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 }
 

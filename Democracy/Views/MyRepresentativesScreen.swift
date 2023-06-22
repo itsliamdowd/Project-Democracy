@@ -13,7 +13,8 @@ class MyRepresentativesScreen: UIViewController, UITableViewDelegate, UITableVie
     var allCandidates = [BallotpediaElection.Candidate]()
     var arrayOfRepresentatives = [Current.Representative]()
     @IBOutlet weak var representatives: UITableView!
-    
+    @IBOutlet weak var myRepresentatives: UILabel!
+
     var list = ["Loading", "Loading", "Loading", "Loading", "Loading", "Loading", "Loading", "Loading"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,7 +23,7 @@ class MyRepresentativesScreen: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = list[indexPath.row]
+        cell.textLabel?.text = list[indexPath.row].translated()
         return cell
     }
     
@@ -68,5 +69,10 @@ class MyRepresentativesScreen: UIViewController, UITableViewDelegate, UITableVie
         list = self.arrayOfRepresentatives.map { $0.name }
         representatives.delegate = self
         representatives.dataSource = self
+        TranslateManager.shared.addViews(views: [myRepresentatives])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 }

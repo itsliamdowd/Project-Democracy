@@ -134,20 +134,38 @@ extension HomeScreen: UITableViewDataSource {
 
         if electionDisplayStyle.selectedSegmentIndex == 0 {
             // Get desired race's name by section index, then row index
-            cell.textLabel?.text = racesGroups[indexPath.section].races[indexPath.row].name
+            cell.textLabel?.text = racesGroups[indexPath.section]
+                .races[indexPath.row]
+                .name
+                .translated()
         }
         else {
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
-                    cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
+                    cell.textLabel?.text = candidateGroups[indexPath.section]
+                    .candidates[indexPath.row]
+                    .name
+                    .translated()
                 case 1:
-                    cell.textLabel?.text = republicanArray[indexPath.section].candidates[indexPath.row].name
+                    cell.textLabel?.text = republicanArray[indexPath.section]
+                    .candidates[indexPath.row]
+                    .name
+                    .translated()
                 case 2:
-                    cell.textLabel?.text = democratArray[indexPath.section].candidates[indexPath.row].name
+                    cell.textLabel?.text = democratArray[indexPath.section]
+                    .candidates[indexPath.row]
+                    .name
+                    .translated()
                 case 3:
-                    cell.textLabel?.text = otherArray[indexPath.section].candidates[indexPath.row].name
+                    cell.textLabel?.text = otherArray[indexPath.section]
+                    .candidates[indexPath.row]
+                    .name
+                    .translated()
                 default:
-                    cell.textLabel?.text = candidateGroups[indexPath.section].candidates[indexPath.row].name
+                    cell.textLabel?.text = candidateGroups[indexPath.section]
+                    .candidates[indexPath.row]
+                    .name
+                    .translated()
                 }
         }
         return cell
@@ -229,7 +247,7 @@ extension HomeScreen: UITableViewDataSource {
             partySwitcher.isHidden = true
             incumbentButton.isHidden = false
             stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 532)
-            return racesGroups[section].districtName
+            return racesGroups[section].districtName.translated()
         }
         else if electionDisplayStyle.selectedSegmentIndex == 1 {
             incumbentButton.isHidden = true

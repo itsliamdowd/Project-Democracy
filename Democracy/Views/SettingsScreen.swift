@@ -41,14 +41,6 @@ class SettingsScreen: UIViewController {
         TranslateManager.shared.updateTranslatedLabels()
     }
 
-    private func updateTranslatedLabels() {
-        screenTitle.text?.translate()
-        privacy.setTranslated()
-        feedback.setTranslated()
-        source.setTranslated()
-        language.setTranslated()
-    }
-
     @IBAction func openLanguageView(_ sender: UIButton) {
         let swiftUIView = LanguageSelectionView {
             TranslateManager.shared.updateTranslatedLabels()

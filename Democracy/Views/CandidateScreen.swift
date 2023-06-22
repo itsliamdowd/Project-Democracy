@@ -50,7 +50,7 @@ class CandidateScreen: UIViewController {
                 vc.candidate = self.candidate
                 self.present(vc, animated: true)
             }
-       }
+        }
     }
     
     @IBAction func candidateWebsiteButtonPressed(_ sender: Any) {
@@ -60,7 +60,7 @@ class CandidateScreen: UIViewController {
                 vc.candidate = self.candidate
                 self.present(vc, animated: true)
             }
-       }
+        }
     }
     
     @IBAction func candidatePhoneButtonPressed(_ sender: Any) {
@@ -84,11 +84,11 @@ class CandidateScreen: UIViewController {
             request.httpMethod = "GET"
 
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
-              guard let data = data else {
-                print(String(describing: error))
-                semaphore.signal()
-                return
-              }
+                guard let data = data else {
+                    print(String(describing: error))
+                    semaphore.signal()
+                    return
+                }
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                     let features = json["features"] as! [[String: Any]]
@@ -107,10 +107,10 @@ class CandidateScreen: UIViewController {
                     mapItem.name = self.candidate!.address
                     mapItem.openInMaps(launchOptions: options)
                 } catch {
-                  print("Error")
-                  print(error.localizedDescription)
+                    print("Error")
+                    print(error.localizedDescription)
                 }
-              semaphore.signal()
+                semaphore.signal()
             }
 
             task.resume()
@@ -136,57 +136,57 @@ class CandidateScreen: UIViewController {
         var party = candidate.party
         print(party)
         switch party {
-            case "Republican Party":
-                print("Republican")
-                candidateParty.backgroundColor = UIColor.red
-                candidateParty.setTitle("Republican", for: .normal)
-            case "Democratic Party":
-                print("Democrat")
-                candidateParty.backgroundColor = UIColor.blue
-                candidateParty.setTitle("Democrat", for: .normal)
-            case "Libertarian Party":
-                print("Libertarian")
-                candidateParty.backgroundColor = UIColor(red: 0.9176, green: 0.8431, blue: 0.2824, alpha: 1.0)
-                candidateParty.setTitle("Libertarian", for: .normal)
-                //make better color
-            case "Green Party":
-                print("Green")
-                candidateParty.backgroundColor = UIColor(hue: 0.3861, saturation: 0.79, brightness: 0.83, alpha: 1.0)
-                candidateParty.setTitle("Green Party", for: .normal)
-                //make better color
-            case "Nonpartisan":
-                print("Nonpartisan")
-                candidateParty.backgroundColor = UIColor.gray
-                candidateParty.setTitle("Nonpartisan", for: .normal)
-            case "No Party Affiliation":
-                print("Nonpartisan")
-                candidateParty.backgroundColor = UIColor.gray
-                candidateParty.setTitle("Nonpartisan", for: .normal)
-            default:
-                print("Other")
-                candidateParty.backgroundColor = UIColor.gray
-                candidateParty.setTitle(party, for: .normal)
-                if candidate.isIncumbent == true {
-                    print("Skipping")
-                }
-                else {
-                    candidateParty.sizeToFit()
-                    candidateParty.frame.size.width += 20
-                }
+        case "Republican Party":
+            print("Republican")
+            candidateParty.backgroundColor = UIColor.red
+            candidateParty.setTitle("Republican", for: .normal)
+        case "Democratic Party":
+            print("Democrat")
+            candidateParty.backgroundColor = UIColor.blue
+            candidateParty.setTitle("Democrat", for: .normal)
+        case "Libertarian Party":
+            print("Libertarian")
+            candidateParty.backgroundColor = UIColor(red: 0.9176, green: 0.8431, blue: 0.2824, alpha: 1.0)
+            candidateParty.setTitle("Libertarian", for: .normal)
+            //make better color
+        case "Green Party":
+            print("Green")
+            candidateParty.backgroundColor = UIColor(hue: 0.3861, saturation: 0.79, brightness: 0.83, alpha: 1.0)
+            candidateParty.setTitle("Green Party", for: .normal)
+            //make better color
+        case "Nonpartisan":
+            print("Nonpartisan")
+            candidateParty.backgroundColor = UIColor.gray
+            candidateParty.setTitle("Nonpartisan", for: .normal)
+        case "No Party Affiliation":
+            print("Nonpartisan")
+            candidateParty.backgroundColor = UIColor.gray
+            candidateParty.setTitle("Nonpartisan", for: .normal)
+        default:
+            print("Other")
+            candidateParty.backgroundColor = UIColor.gray
+            candidateParty.setTitle(party, for: .normal)
+            if candidate.isIncumbent == true {
+                print("Skipping")
+            }
+            else {
+                candidateParty.sizeToFit()
+                candidateParty.frame.size.width += 20
+            }
         }
         
         //Sets the incumbent button to be shown or not depending on if the candidate is currently serving
         var incumbent = candidate.isIncumbent
         switch incumbent {
-            case true:
-                print("Incumbent")
-                self.incumbent.isHidden = false
-            case false:
-                print("Not incumbent")
-                self.incumbent.isHidden = true
-            default:
-                print("Other")
-                self.incumbent.isHidden = true
+        case true:
+            print("Incumbent")
+            self.incumbent.isHidden = false
+        case false:
+            print("Not incumbent")
+            self.incumbent.isHidden = true
+        default:
+            print("Other")
+            self.incumbent.isHidden = true
         }
         
         //Sets name label
@@ -254,7 +254,7 @@ class CandidateScreen: UIViewController {
             topValuesFirst()
             self.candidateDescription.text = self.candidateDescription.text + additionalDataToAdd
         }
-            
+
         if self.candidateDescription.text == "" || self.candidateDescription.text == "\n\n" {
             self.candidateDescription.text = "No biography is available for this candidate.\n\nMake sure to check the candidate's website and social media for more information."
         }
@@ -290,7 +290,14 @@ class CandidateScreen: UIViewController {
         candidateOccupation.isHidden = true
 
         // Make sure a valid URL exists
-        guard let url = candidate.imageUrl
+        if let url = candidate.imageUrl {
+            //Sets image to the candidate's image and caches the image for later use
+            candidateImage.sd_setImage(with: candidate.imageUrl)
+            candidateImage.contentMode = .scaleAspectFill
+            candidateImage.layer.cornerRadius = 10
+            candidateImage.layer.cornerCurve = .continuous
+            candidateImage.layer.masksToBounds = true
+        }
         else {
             // Show image unavailable SwiftUI view
             let unavailableView = UIHostingController(rootView: ImageUnavailableView()).view! // We are sure that the view exists
@@ -307,14 +314,13 @@ class CandidateScreen: UIViewController {
                 unavailableView.topAnchor.constraint(equalTo: safeArea.topAnchor,
                                                      constant: 30),
             ])
-            return
         }
-        //Sets image to the candidate's image and caches the image for later use
-        candidateImage.sd_setImage(with: candidate.imageUrl)
-        candidateImage.contentMode = .scaleAspectFill
-        candidateImage.layer.cornerRadius = 10
-        candidateImage.layer.cornerCurve = .continuous
-        candidateImage.layer.masksToBounds = true
+
+        TranslateManager.shared.addViews(views: [candidateName, candidateParty, candidateOccupation, candidateDescription, screenText, screenTitle, self.incumbent])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        TranslateManager.shared.updateTranslatedLabels()
     }
 }
 

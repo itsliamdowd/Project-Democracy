@@ -20,6 +20,10 @@ extension String {
             self = result
             return
         }
+        if SwiftGoogleTranslate.shared.savedLanguage == .english {
+            return
+        }
+
         let semaphore = DispatchSemaphore(value: 0)
         var translatedText: String?
 
@@ -44,11 +48,5 @@ extension String {
             }
         SwiftGoogleTranslate.shared.translationCache[self] = translatedText
         self = translatedText
-    }
-}
-
-extension UIButton {
-    func setTranslated() {
-        self.setTitle(self.currentTitle?.translated(), for: .normal)
     }
 }

@@ -106,6 +106,9 @@ extension UIView {
             for (index, title) in transformed.enumerated() {
                 segmentedControl.setTitle(title, forSegmentAt: index)
             }
+        case let tableView as UITableView:
+            // Assume translation handled in respective delegates
+            tableView.reloadData()
 
         default:
             break

@@ -194,6 +194,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="myRepresentatives" destination="EpI-Hc-dmw" id="TcT-aS-i6M"/>
                         <outlet property="representatives" destination="VRJ-ae-r0d" id="UyJ-J0-IDF"/>
                     </connections>
                 </viewController>
@@ -921,6 +922,7 @@
                     </view>
                     <connections>
                         <outlet property="candidateTable" destination="b9D-P7-dgr" id="H22-Jb-8ZG"/>
+                        <outlet property="candidatesLabel" destination="HAo-eZ-SeE" id="0cW-0w-B0q"/>
                         <outlet property="electionDescription" destination="aDS-U2-Lpq" id="XYK-QC-3Lq"/>
                         <outlet property="electionName" destination="Ik6-Rw-dKO" id="fai-ML-uaW"/>
                     </connections>
@@ -1333,6 +1335,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="bottomCaption" destination="iYe-TD-oK6" id="zdi-Bx-4lI"/>
+                        <outlet property="electionHelp" destination="Tkw-b5-1MZ" id="QOh-3h-uy3"/>
                         <outlet property="polling" destination="KVk-t2-4th" id="K16-6f-pxR"/>
                         <outlet property="register" destination="yoo-U7-IcA" id="br0-u5-lpd"/>
                         <outlet property="reminder" destination="ROD-UP-VvF" id="aVv-Id-BjC"/>
