@@ -13,7 +13,7 @@ class CombinedWebView: UIViewController, WKUIDelegate {
     @IBOutlet weak var webView: WKWebView!
     var resource = UserDefaults.standard.string(forKey: "webViewResource")
     
-    //Allows the user to register to vote
+    //Setting webview URL and accessing it
     override func viewDidLoad() {
         super.viewDidLoad()
         var resourceURL = URL(string: "")
