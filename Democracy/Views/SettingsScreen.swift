@@ -64,6 +64,13 @@ struct LanguageSelectionView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Label("Powered by **Google** Translate",
+                      systemImage: "info.square.fill")
+                    .font(.callout)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+
+                Spacer()
                 Picker("Display Language", selection: $selectedLanguage) {
                     let allLanguages = SwiftGoogleTranslate.shared.allLanguages
                     ForEach(allLanguages) {language in
@@ -79,6 +86,12 @@ struct LanguageSelectionView: View {
                     }
                 }
                 .padding()
+                Spacer()
+                Text("THIS SERVICE MAY CONTAIN TRANSLATIONS POWERED BY GOOGLE. GOOGLE DISCLAIMS ALL WARRANTIES RELATED TO THE TRANSLATIONS, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTIES OF ACCURACY, RELIABILITY, AND ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nThe official text is the English version of the app. Any discrepancies or differences created in the translation are not binding and have no legal effect for compliance or enforcement purposes. If any questions arise related to the accuracy of the information contained in the translated website, refer to the English version of the website which is the official version.")
+                    .font(.caption)
+                    .textCase(.uppercase)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal)
             }
             .navigationTitle("Display Language".translated())
         }
