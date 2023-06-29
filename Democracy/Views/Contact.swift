@@ -17,8 +17,9 @@ class Contact: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         print("Made it to contact screen")
         //Loads the contact website in the webView
-        let contactURL = URL(string: "https://projectdemocracy.app/contact/")
-        let contactRequest = URLRequest(url: contactURL!)
+        let contactURL = URL(string: "https://projectdemocracy.app/contact/")!
+        let translatedURL = SwiftGoogleTranslate.shared.getTranslatedUrl(for: contactURL)
+        let contactRequest = URLRequest(url: translatedURL)
         ContactWebView.load(contactRequest)
     }
     

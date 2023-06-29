@@ -17,8 +17,9 @@ class Reminder: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         print("Made it to reminder screen")
         //Loads the vote.org website in the webView
-        let remindURL = URL(string: "https://www.vote.org/election-reminders/")
-        let remindRequest = URLRequest(url: remindURL!)
+        let remindURL = URL(string: "https://www.vote.org/election-reminders/")!
+        let translatedURL = SwiftGoogleTranslate.shared.getTranslatedUrl(for: remindURL)
+        let remindRequest = URLRequest(url: translatedURL)
         ReminderWebView.load(remindRequest)
     }
     

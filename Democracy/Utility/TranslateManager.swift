@@ -21,7 +21,7 @@ struct TranslateManager {
     
     func updateTranslatedLabels() {
         //revertToOriginal()
-        if SwiftGoogleTranslate.shared.savedLanguage != .english {
+        if !SwiftGoogleTranslate.shared.isDefaultLanguage {
             for (view, originalLabel) in originalTexts {
                 view.setTextLabel {_ in
                     originalLabel.compactMap {title in

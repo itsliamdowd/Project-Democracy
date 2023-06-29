@@ -26,6 +26,10 @@ public class SwiftGoogleTranslate {
 
         return language ?? .english
     }
+
+    var isDefaultLanguage: Bool {
+        savedLanguage == .english
+    }
     
     /// Shared instance.
     public static let shared = SwiftGoogleTranslate()
@@ -254,6 +258,24 @@ public class SwiftGoogleTranslate {
             completion(result, nil)
         }
         task.resume()
+    }
+
+    public func getTranslatedUrl(for url: URL) -> URL {
+        if SwiftGoogleTranslate.shared.isDefaultLanguage {
+            return url
+        }
+        else {
+            let targetLanguageCode = savedLanguage.language
+            guard let urlDomain = url.host?.replacingOccurrences(of: ".", with: "-"),
+                  let urlScheme = url.scheme,
+                  let pollingURL = URL(string: "\(urlScheme)://\(urlDomain).translate.goog\(url.relativePath)?_x_tr_sl=auto&_x_tr_tl=\(targetLanguageCode)&_x_tr_hl=en&_x_tr_pto=wapp")
+            else {
+                return url
+            }
+
+            return pollingURL
+        }
+
     }
 
 }

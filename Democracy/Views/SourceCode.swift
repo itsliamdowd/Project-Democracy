@@ -15,8 +15,9 @@ class SourceCode: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to source code screen")
-        let myURL = URL(string: "https://github.com/SkiingIsFun123/Democracy")
-        let myRequest = URLRequest(url: myURL!)
+        let myURL = URL(string: "https://github.com/SkiingIsFun123/Project-Democracy")!
+        let translatedURL = SwiftGoogleTranslate.shared.getTranslatedUrl(for: myURL)
+        let myRequest = URLRequest(url: translatedURL)
         SourceCodeWebView.load(myRequest)
     }
     

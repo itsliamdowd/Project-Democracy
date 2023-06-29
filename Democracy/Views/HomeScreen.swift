@@ -613,7 +613,7 @@ private extension HomeScreen {
             print(dateForDisplay)
             var dateForElection = "Election Date: " + dateForDisplay
             DispatchQueue.main.async {
-                self.electionDate.text = dateForElection
+                self.electionDate.text = dateForElection.translated()
             }
             UserDefaults.standard.set(dateForElection, forKey: "electionDate")
             return BallotpediaElection(date: date, districts: districts)

@@ -17,8 +17,9 @@ class Check: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         print("Made it to check screen")
         //Loads the vote.org website in the webView
-        let checkURL = URL(string: "https://www.vote.org/am-i-registered-to-vote/")
-        let checkRequest = URLRequest(url: checkURL!)
+        let checkURL = URL(string: "https://www.vote.org/am-i-registered-to-vote/")!
+        let translatedURL = SwiftGoogleTranslate.shared.getTranslatedUrl(for: checkURL)
+        let checkRequest = URLRequest(url: translatedURL)
         CheckWebView.load(checkRequest)
     }
     

@@ -34,7 +34,7 @@ class RepresentativeScreen: UIViewController {
     var allCandidates = [BallotpediaElection.Candidate]()
     var arrayOfRepresentatives = [Current.Representative]()
     var electionNameData = ""
-    
+
     //Presents ElectionScreen when back button is pressed and passes homescreendata along with it
     
     @IBAction func representativeSocialMediaButtonPressed(_ sender: Any) {
@@ -284,7 +284,7 @@ class RepresentativeScreen: UIViewController {
         
         if representative.level != nil {
             DispatchQueue.main.async {
-                self.representativeOffice.text = representative.level
+                self.representativeOffice.text = representative.level?.translated()
             }
         }
         else {

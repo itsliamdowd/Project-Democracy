@@ -17,8 +17,9 @@ class Register: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         print("Made it to register screen")
         //Loads the vote.org website in the webView
-        let resisterURL = URL(string: "https://vote.org/register-to-vote/")
-        let registerRequest = URLRequest(url: resisterURL!)
+        let registerURL = URL(string: "https://vote.org/register-to-vote/")!
+        let translatedURL = SwiftGoogleTranslate.shared.getTranslatedUrl(for: registerURL)
+        let registerRequest = URLRequest(url: translatedURL)
         RegisterWebView.load(registerRequest)
     }
     
