@@ -369,6 +369,7 @@ class HomeScreen: UIViewController {
     @IBOutlet weak var incumbentButton: UIButton!
     @IBOutlet weak var electionOccuring: UILabel!
     
+    
     @IBAction func incumbentButtonPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
