@@ -1289,6 +1289,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="registerButtonPressed:" destination="pny-Y3-fff" eventType="touchUpInside" id="0sz-Np-fks"/>
                                     <segue destination="kiv-ao-Wbm" kind="showDetail" id="SVc-6n-LzM"/>
                                 </connections>
                             </button>
@@ -1301,6 +1302,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="pollingButtonPressed:" destination="pny-Y3-fff" eventType="touchUpInside" id="E30-8Q-WUQ"/>
                                     <segue destination="pTG-Iq-gJw" kind="showDetail" id="VfP-Id-T7w"/>
                                 </connections>
                             </button>
@@ -1313,6 +1315,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="verifyButtonPressed:" destination="pny-Y3-fff" eventType="touchUpInside" id="Mpb-v0-a5O"/>
                                     <segue destination="efD-Jg-zpI" kind="showDetail" id="ABe-fz-PsW"/>
                                 </connections>
                             </button>
@@ -1325,6 +1328,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
+                                    <action selector="reminderButtonPressed:" destination="pny-Y3-fff" eventType="touchUpInside" id="8mV-Rv-x7O"/>
                                     <segue destination="YZj-Hd-Dvm" kind="showDetail" id="wcb-XK-FD9"/>
                                 </connections>
                             </button>

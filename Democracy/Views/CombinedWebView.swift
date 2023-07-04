@@ -38,8 +38,8 @@ class CombinedWebView: UIViewController, WKUIDelegate {
         else if (resource == "pollingStations"){
             resourceURL = URL(string: "https://www.vote.org/polling-place-locator/")
         }
-        
-        let request = URLRequest(url: resourceURL!)
+        let translatedUrl = SwiftGoogleTranslate.shared.getTranslatedUrl(for: resourceURL!)
+        let request = URLRequest(url: translatedUrl)
         webView.load(request)
     }
     
