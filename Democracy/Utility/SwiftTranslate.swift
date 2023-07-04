@@ -1,6 +1,6 @@
 //
-//  SwiftGoogleTranslate.swift
-//  SwiftGoogleTranslate
+//  SwiftTranslate.swift
+//  SwiftTranslate
 //
 //  Created by Maxim on 10/29/18.
 //  Copyright © 2018 Maksym Bilan. All rights reserved.
@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 /// A helper class for using Google Translate API.
-public class SwiftGoogleTranslate {
+public class SwiftTranslate {
     @Storage(key: "AllLanguages", defaultValue: [])
     var allLanguages: [Language]
 
     @Storage(key: "TranslationCache", defaultValue: [:])
     var translationCache: [String: String]
-
+    
     var savedLanguage: Language {
         guard let languageCode = UserDefaults.standard.string(forKey: "AppLanguage")
         else {
@@ -30,9 +30,9 @@ public class SwiftGoogleTranslate {
     var isDefaultLanguage: Bool {
         savedLanguage == .english
     }
-
+    
     /// Shared instance.
-    public static let shared = SwiftGoogleTranslate()
+    public static let shared = SwiftTranslate()
 
     /// Language response structure.
     public struct Language: Hashable, Identifiable, Codable {
@@ -54,12 +54,12 @@ public class SwiftGoogleTranslate {
     /// API structure.
     private struct API {
         /// Base Google Translation API url.
-        static let base = "https://translation.googleapis.com/language/translate/v2"
+        static let base = "https://translate.argosopentech.com"
 
         /// A translate endpoint.
         struct translate {
             static let method = "POST"
-            static let url = API.base
+            static let url = API.base + "/translate"
         }
 
         /// A detect endpoint.
@@ -93,7 +93,7 @@ public class SwiftGoogleTranslate {
     */
     public func start(with apiKey: String) {
         self.apiKey = apiKey
-        SwiftGoogleTranslate.shared.languages {[weak self] languages, error in
+        SwiftTranslate.shared.languages {[weak self] languages, error in
             guard error == nil, let languages = languages
             else {
                 print(error)
@@ -101,6 +101,16 @@ public class SwiftGoogleTranslate {
             }
             self?.allLanguages = languages
         }
+    }
+
+    func getPostString(params:[String:Any]) -> String
+        {
+            var data = [String]()
+            for(key, value) in params
+            {
+                data.append(key + "=\(value)")
+            }
+            return data.map { String($0) }.joined(separator: "&")
     }
 
     /**
@@ -114,28 +124,21 @@ public class SwiftGoogleTranslate {
             - model: The translation model. Can be either base to use the Phrase-Based Machine Translation (PBMT) model, or nmt to use the Neural Machine Translation (NMT) model. If omitted, then nmt is used. If the model is nmt, and the requested language translation pair is not supported for the NMT model, then the request is translated using the base model.
     */
     public func translate(_ q: String, _ target: String, _ source: String, _ format: String = "text", _ model: String = "base", _ completion: @escaping ((_ text: String?, _ error: Error?) -> Void)) {
-        guard var urlComponents = URLComponents(string: API.translate.url) else {
-            completion(nil, nil)
-            return
-        }
-
-        var queryItems = [URLQueryItem]()
-        queryItems.append(URLQueryItem(name: "key", value: apiKey))
-        queryItems.append(URLQueryItem(name: "q", value: q))
-        queryItems.append(URLQueryItem(name: "target", value: target))
-        queryItems.append(URLQueryItem(name: "source", value: source))
-        queryItems.append(URLQueryItem(name: "format", value: format))
-        queryItems.append(URLQueryItem(name: "model", value: model))
-        urlComponents.queryItems = queryItems
-
-        guard let url = urlComponents.url else {
-            completion(nil, nil)
-            return
-        }
-
-        var urlRequest = URLRequest(url: url)
+        var urlRequest = URLRequest(url: URL(string: API.translate.url)!)
         urlRequest.httpMethod = API.translate.method
+        let parameters: [String: Any] = [
+            "q": q,
+            "target": target,
+            "source": "en"
+        ]
+        //urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
+        if let jsonData = getPostString(params: parameters).data(using: .utf8) {
+            urlRequest.httpBody = jsonData
+        }
+        else {
+            preconditionFailure()
+        }
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
             guard let data = data,                                // is there data
                 let response = response as? HTTPURLResponse,    // is there HTTP response
@@ -145,7 +148,7 @@ public class SwiftGoogleTranslate {
                     return
             }
 
-            guard let object = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any], let d = object["data"] as? [String: Any], let translations = d["translations"] as? [[String: String]], let translation = translations.first, let translatedText = translation["translatedText"] else {
+            guard let object = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any], let translatedText = object["translatedText"] as? String else {
                 completion(nil, error)
                 return
             }
@@ -168,7 +171,7 @@ public class SwiftGoogleTranslate {
         }
 
         var queryItems = [URLQueryItem]()
-        queryItems.append(URLQueryItem(name: "key", value: apiKey))
+        //queryItems.append(URLQueryItem(name: "key", value: apiKey))
         queryItems.append(URLQueryItem(name: "q", value: q))
         urlComponents.queryItems = queryItems
 
@@ -221,11 +224,11 @@ public class SwiftGoogleTranslate {
             return
         }
 
-        var queryItems = [URLQueryItem]()
-        queryItems.append(URLQueryItem(name: "key", value: apiKey))
-        queryItems.append(URLQueryItem(name: "target", value: target))
-        queryItems.append(URLQueryItem(name: "model", value: model))
-        urlComponents.queryItems = queryItems
+        //var queryItems = [URLQueryItem]()
+        //queryItems.append(URLQueryItem(name: "key", value: apiKey))
+        //queryItems.append(URLQueryItem(name: "target", value: target))
+        //queryItems.append(URLQueryItem(name: "model", value: model))
+        //urlComponents.queryItems = queryItems
 
         guard let url = urlComponents.url else {
             completion(nil, nil)
@@ -244,14 +247,15 @@ public class SwiftGoogleTranslate {
                 return
             }
 
-            guard let object = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any], let d = object["data"] as? [String: Any], let languages = d["languages"] as? [[String: String]] else {
+            guard let languages = (try? JSONSerialization.jsonObject(with: data)) as? [[String: String]]
+            else {
                 completion(nil, error)
                 return
             }
 
             var result = [Language]()
             for language in languages {
-                if let code = language["language"], let name = language["name"] {
+                if let code = language["code"], let name = language["name"] {
                     result.append(Language(language: code, name: name))
                 }
             }
@@ -261,7 +265,7 @@ public class SwiftGoogleTranslate {
     }
 
     public func getTranslatedUrl(for url: URL) -> URL {
-        if SwiftGoogleTranslate.shared.isDefaultLanguage {
+        if SwiftTranslate.shared.isDefaultLanguage {
             return url
         }
         else {

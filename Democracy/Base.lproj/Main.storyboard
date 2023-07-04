@@ -76,7 +76,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="2hY-GJ-00n" id="sr9-nD-gH1"/>
                         <outlet property="nextButton" destination="UIR-e2-81x" id="rll-jj-Jdf"/>
+                        <outlet property="titleLabel" destination="Vyc-3Q-jzV" id="9FC-oX-kgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0F-jI-gYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,8 +154,11 @@
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="rKW-L1-TCa" id="BYF-VD-KSo"/>
+                        <outlet property="locationSubtitle" destination="EnF-1T-Piu" id="pV2-lk-ndc"/>
+                        <outlet property="locationTitle" destination="32R-QF-uo7" id="hm0-ph-d2w"/>
                         <outlet property="searchBar" destination="i6m-99-PYY" id="TX5-M9-gS8"/>
                         <outlet property="searchResultsTableView" destination="rUc-Xl-UXh" id="ROA-fl-zET"/>
+                        <outlet property="useLocationButton" destination="LIT-Yr-kDl" id="mry-yX-fSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yex-Pn-6gg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -922,6 +927,7 @@
                     </view>
                     <connections>
                         <outlet property="candidateTable" destination="b9D-P7-dgr" id="H22-Jb-8ZG"/>
+                        <outlet property="candidatesLabel" destination="HAo-eZ-SeE" id="hU4-sW-jSO"/>
                         <outlet property="electionDescription" destination="aDS-U2-Lpq" id="XYK-QC-3Lq"/>
                         <outlet property="electionName" destination="Ik6-Rw-dKO" id="fai-ML-uaW"/>
                     </connections>

@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "swifttranslate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SkiingIsFun123/SwiftTranslate.git",
+      "state" : {
+        "revision" : "095ffb874d4205d9b5936cdd00d1a9ba77d57206",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "swiftyjson",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON",

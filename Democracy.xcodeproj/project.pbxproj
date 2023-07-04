@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */; };
+		621562A92A425060005F2B64 /* SwiftTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftTranslate.swift */; };
 		621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */; };
 		621562AD2A436DC7005F2B64 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AC2A436DC7005F2B64 /* TranslateManager.swift */; };
 		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
 		6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223E4822A41F8BB005AECB7 /* Storage.swift */; };
+		6257BBB42A54971C00BDD59B /* SwiftTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6257BBB32A54971C00BDD59B /* SwiftTranslate */; };
+		6257BBB62A54B0C200BDD59B /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
 		62B1B3F828C42B1C000EB586 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F728C42B1C000EB586 /* Constants.swift */; };
 		62B1B3FA28C47E38000EB586 /* BallotpediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */; };
@@ -64,11 +66,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
+		621562A82A425060005F2B64 /* SwiftTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTranslate.swift; sourceTree = "<group>"; };
 		621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationExtensions.swift; sourceTree = "<group>"; };
 		621562AC2A436DC7005F2B64 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
 		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6223E4822A41F8BB005AECB7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../Desktop/Storage.swift; sourceTree = "<group>"; };
+		6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotpediaModel.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD4FF72528E95A75005D84BC /* SDWebImage in Frameworks */,
+				6257BBB42A54971C00BDD59B /* SwiftTranslate in Frameworks */,
 				BD40DF3328DA96B9002F55F0 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,9 +174,10 @@
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BDBB58C6290F73C70057DD80 /* RepresentativesModel.swift */,
 				6223E4822A41F8BB005AECB7 /* Storage.swift */,
-				621562A82A425060005F2B64 /* SwiftGoogleTranslate.swift */,
+				621562A82A425060005F2B64 /* SwiftTranslate.swift */,
 				621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */,
 				621562AC2A436DC7005F2B64 /* TranslateManager.swift */,
+				6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			packageProductDependencies = (
 				BD40DF3228DA96B9002F55F0 /* SwiftyJSON */,
 				BD4FF72428E95A75005D84BC /* SDWebImage */,
+				6257BBB32A54971C00BDD59B /* SwiftTranslate */,
 			);
 			productName = Democracy;
 			productReference = BD9D07CB28B729C400CC5F0A /* Democracy.app */;
@@ -328,6 +334,7 @@
 			packageReferences = (
 				BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				BD4FF72328E95A75005D84BC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6257BBB22A54971C00BDD59B /* XCRemoteSwiftPackageReference "SwiftTranslate" */,
 			);
 			productRefGroup = BD9D07CC28B729C400CC5F0A /* Products */;
 			projectDirPath = "";
@@ -379,14 +386,13 @@
 				BD3BFE3128BFD00C00582962 /* CandidateScreen.swift in Sources */,
 				BDBB58CD291222000057DD80 /* RepresentativeWebsiteScreen.swift in Sources */,
 				BD9D080328BEDFF500CC5F0A /* LocationScreen.swift in Sources */,
+				6257BBB62A54B0C200BDD59B /* SwiftGoogleTranslate.swift in Sources */,
 				BD3BFE3328C5A98B00582962 /* CandidateWebsiteScreen.swift in Sources */,
 				BD9D07D328B729C400CC5F0A /* HomeScreen.swift in Sources */,
 				BD0785DD28FB861D0002F4A8 /* Tools.swift in Sources */,
 				BD7B27322A466A6400482FAC /* CombinedWebView.swift in Sources */,
 				BD9D07FF28BEDB8600CC5F0A /* LaunchCheck.swift in Sources */,
-				BDD90B8428C83C67000E82E1 /* Terms.swift in Sources */,
-				BDD90B8628C83C6F000E82E1 /* Privacy.swift in Sources */,
-				621562A92A425060005F2B64 /* SwiftGoogleTranslate.swift in Sources */,
+				621562A92A425060005F2B64 /* SwiftTranslate.swift in Sources */,
 				621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */,
 				BD9D080128BEDFE600CC5F0A /* PromotionScreen.swift in Sources */,
 				BDBB58CB291221F10057DD80 /* RepresentativeTwitterScreen.swift in Sources */,
@@ -752,6 +758,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6257BBB22A54971C00BDD59B /* XCRemoteSwiftPackageReference "SwiftTranslate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SkiingIsFun123/SwiftTranslate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -771,6 +785,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6257BBB32A54971C00BDD59B /* SwiftTranslate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6257BBB22A54971C00BDD59B /* XCRemoteSwiftPackageReference "SwiftTranslate" */;
+			productName = SwiftTranslate;
+		};
 		BD40DF3228DA96B9002F55F0 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BD40DF3128DA96B9002F55F0 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

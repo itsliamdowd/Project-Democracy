@@ -13,11 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         guard let filePath = Bundle.main.path(forResource: "Secret", ofType: "plist") else {
-            fatalError("Couldn't find file 'Secret.plist'.")
+            print("Couldn't find file 'Secret.plist'. Please create a Secret.plist file in project's root directory.")
         }
         let plist = NSDictionary(contentsOfFile: filePath)
         guard let key = plist?.object(forKey: "translate_API_key") as? String else {
-            fatalError("Couldn't find key 'API_KEY' in 'Secret.plist'.")
+            print("Couldn't find key 'API_KEY' in 'Secret.plist'. Please create an API token from Google.")
         }
         SwiftGoogleTranslate.shared.start(with: key)
 
