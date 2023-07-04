@@ -14,10 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         guard let filePath = Bundle.main.path(forResource: "Secret", ofType: "plist") else {
             print("Couldn't find file 'Secret.plist'. Please create a Secret.plist file in project's root directory.")
+            return true
         }
         let plist = NSDictionary(contentsOfFile: filePath)
         guard let key = plist?.object(forKey: "translate_API_key") as? String else {
             print("Couldn't find key 'API_KEY' in 'Secret.plist'. Please create an API token from Google.")
+            return true
         }
         SwiftGoogleTranslate.shared.start(with: key)
 
