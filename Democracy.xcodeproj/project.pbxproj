@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		620E33462A5E76D1002C6A36 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E33452A5E76D1002C6A36 /* Storage.swift */; };
 		621562A92A425060005F2B64 /* SwiftTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftTranslate.swift */; };
 		621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */; };
 		621562AD2A436DC7005F2B64 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AC2A436DC7005F2B64 /* TranslateManager.swift */; };
 		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
-		6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6223E4822A41F8BB005AECB7 /* Storage.swift */; };
 		6257BBB42A54971C00BDD59B /* SwiftTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6257BBB32A54971C00BDD59B /* SwiftTranslate */; };
 		6257BBB62A54B0C200BDD59B /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
@@ -66,11 +66,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		620E33452A5E76D1002C6A36 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		621562A82A425060005F2B64 /* SwiftTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTranslate.swift; sourceTree = "<group>"; };
 		621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationExtensions.swift; sourceTree = "<group>"; };
 		621562AC2A436DC7005F2B64 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
 		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
-		6223E4822A41F8BB005AECB7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = ../../../../../Desktop/Storage.swift; sourceTree = "<group>"; };
 		6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -169,11 +169,11 @@
 		62B1B3F428C42637000EB586 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				620E33452A5E76D1002C6A36 /* Storage.swift */,
 				62B1B3F528C42641000EB586 /* Endpoint.swift */,
 				62B1B3F728C42B1C000EB586 /* Constants.swift */,
 				62B1B3F928C47E38000EB586 /* BallotpediaModel.swift */,
 				BDBB58C6290F73C70057DD80 /* RepresentativesModel.swift */,
-				6223E4822A41F8BB005AECB7 /* Storage.swift */,
 				621562A82A425060005F2B64 /* SwiftTranslate.swift */,
 				621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */,
 				621562AC2A436DC7005F2B64 /* TranslateManager.swift */,
@@ -406,8 +406,8 @@
 				BDF5B2F329134FC000F5AB94 /* RepresentativeVideoScreen.swift in Sources */,
 				BDEB65A9290F5A3D0060553A /* MyRepresentativesScreen.swift in Sources */,
 				BD9D07D128B729C400CC5F0A /* SceneDelegate.swift in Sources */,
-				6223E4832A41F8BB005AECB7 /* Storage.swift in Sources */,
 				62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */,
+				620E33462A5E76D1002C6A36 /* Storage.swift in Sources */,
 				BD3BFE2F28BFC7A100582962 /* ElectionScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +588,8 @@
 				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Democracy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to determine your election district";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to determine your election district";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -600,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -619,6 +621,8 @@
 				DEVELOPMENT_TEAM = 2WZXS2AJPY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Democracy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Democracy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to determine your election district";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to determine your election district";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -631,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

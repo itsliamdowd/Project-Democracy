@@ -8,7 +8,6 @@
 import UIKit
 import WebKit
 import SwiftUI
-import SwiftGoogleTranslate
 import Foundation
 
 class SettingsScreen: UIViewController {

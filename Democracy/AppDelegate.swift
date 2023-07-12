@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftGoogleTranslate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
