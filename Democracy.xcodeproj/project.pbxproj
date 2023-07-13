@@ -11,7 +11,6 @@
 		621562A92A425060005F2B64 /* SwiftTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562A82A425060005F2B64 /* SwiftTranslate.swift */; };
 		621562AB2A4252CC005F2B64 /* TranslationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */; };
 		621562AD2A436DC7005F2B64 /* TranslateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621562AC2A436DC7005F2B64 /* TranslateManager.swift */; };
-		6223E4812A38E939005AECB7 /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6223E4802A38E939005AECB7 /* Secret.plist */; };
 		6257BBB42A54971C00BDD59B /* SwiftTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = 6257BBB32A54971C00BDD59B /* SwiftTranslate */; };
 		6257BBB62A54B0C200BDD59B /* SwiftGoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */; };
 		62B1B3F628C42641000EB586 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B1B3F528C42641000EB586 /* Endpoint.swift */; };
@@ -43,6 +42,7 @@
 		BDBB58C9291161D10057DD80 /* RepresentativeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB58C8291161D10057DD80 /* RepresentativeScreen.swift */; };
 		BDBB58CB291221F10057DD80 /* RepresentativeTwitterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB58CA291221F10057DD80 /* RepresentativeTwitterScreen.swift */; };
 		BDBB58CD291222000057DD80 /* RepresentativeWebsiteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB58CC291222000057DD80 /* RepresentativeWebsiteScreen.swift */; };
+		BDC80F572A6039CE00FABA0E /* Secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = BDC80F562A6039CE00FABA0E /* Secret.plist */; };
 		BDD90B8228C83A6B000E82E1 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */; };
 		BDEB65A9290F5A3D0060553A /* MyRepresentativesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEB65A8290F5A3D0060553A /* MyRepresentativesScreen.swift */; };
 		BDF5B2F329134FC000F5AB94 /* RepresentativeVideoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF5B2F229134FC000F5AB94 /* RepresentativeVideoScreen.swift */; };
@@ -70,7 +70,6 @@
 		621562A82A425060005F2B64 /* SwiftTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTranslate.swift; sourceTree = "<group>"; };
 		621562AA2A4252CC005F2B64 /* TranslationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationExtensions.swift; sourceTree = "<group>"; };
 		621562AC2A436DC7005F2B64 /* TranslateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateManager.swift; sourceTree = "<group>"; };
-		6223E4802A38E939005AECB7 /* Secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		6257BBB52A54B0C200BDD59B /* SwiftGoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGoogleTranslate.swift; sourceTree = "<group>"; };
 		62B1B3F528C42641000EB586 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		62B1B3F728C42B1C000EB586 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		BDBB58C8291161D10057DD80 /* RepresentativeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentativeScreen.swift; sourceTree = "<group>"; };
 		BDBB58CA291221F10057DD80 /* RepresentativeTwitterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentativeTwitterScreen.swift; sourceTree = "<group>"; };
 		BDBB58CC291222000057DD80 /* RepresentativeWebsiteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentativeWebsiteScreen.swift; sourceTree = "<group>"; };
+		BDC80F562A6039CE00FABA0E /* Secret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secret.plist; sourceTree = "<group>"; };
 		BDD90B8128C83A6B000E82E1 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BDEB65A8290F5A3D0060553A /* MyRepresentativesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepresentativesScreen.swift; sourceTree = "<group>"; };
 		BDF5B2F229134FC000F5AB94 /* RepresentativeVideoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentativeVideoScreen.swift; sourceTree = "<group>"; };
@@ -210,11 +210,11 @@
 				62B1B3F328C42629000EB586 /* Views */,
 				BD9D07FE28BEDB8600CC5F0A /* LaunchCheck.swift */,
 				BD9D07CE28B729C400CC5F0A /* AppDelegate.swift */,
-				6223E4802A38E939005AECB7 /* Secret.plist */,
 				BD9D07D028B729C400CC5F0A /* SceneDelegate.swift */,
 				BD9D07D428B729C400CC5F0A /* Main.storyboard */,
 				BD9D07D728B729C600CC5F0A /* Assets.xcassets */,
 				BD9D07D928B729C600CC5F0A /* LaunchScreen.storyboard */,
+				BDC80F562A6039CE00FABA0E /* Secret.plist */,
 				BD9D07DC28B729C600CC5F0A /* Info.plist */,
 				BD9D080628BF14B200CC5F0A /* Flag.png */,
 			);
@@ -354,7 +354,7 @@
 			files = (
 				BD9D07DB28B729C600CC5F0A /* LaunchScreen.storyboard in Resources */,
 				BD9D080728BF14B200CC5F0A /* Flag.png in Resources */,
-				6223E4812A38E939005AECB7 /* Secret.plist in Resources */,
+				BDC80F572A6039CE00FABA0E /* Secret.plist in Resources */,
 				BD9D07D828B729C600CC5F0A /* Assets.xcassets in Resources */,
 				BD9D07D628B729C400CC5F0A /* Main.storyboard in Resources */,
 			);
@@ -602,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -635,7 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projectdemocracyapp.democracy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

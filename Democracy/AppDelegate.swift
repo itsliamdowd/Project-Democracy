@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         let plist = NSDictionary(contentsOfFile: filePath)
-        guard let key = plist?.object(forKey: "translate_API_key") as? String else {
+        guard let key = plist?.object(forKey: "translateAPIKey") as? String else {
             print("Couldn't find key 'API_KEY' in 'Secret.plist'. Please create an API token from Google.")
             return true
         }
