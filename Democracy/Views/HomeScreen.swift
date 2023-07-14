@@ -62,9 +62,11 @@ extension HomeScreen: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // Segmented toggle between races and candidates
         if electionDisplayStyle.selectedSegmentIndex == 0 {
+            noElections.text = "There are no elections currently. Check back when there is an election going on."
             return racesGroups.count
         }
         if electionDisplayStyle.selectedSegmentIndex == 1 {
+            noElections.text = "There are no candidates for this party in the election."
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
                     return candidateGroups.count
@@ -79,6 +81,7 @@ extension HomeScreen: UITableViewDataSource {
                 }
         }
         else {
+            noElections.text = "There are no candidates for this party in the election."
             switch(partySwitcher.selectedSegmentIndex) {
                 case 0:
                     return candidateGroups.count
@@ -368,7 +371,7 @@ class HomeScreen: UIViewController {
     @IBOutlet weak var partySwitcher: UISegmentedControl!
     @IBOutlet weak var incumbentButton: UIButton!
     @IBOutlet weak var electionOccuring: UILabel!
-    
+    @IBOutlet weak var noElections: UILabel!
     
     @IBAction func incumbentButtonPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -618,9 +621,7 @@ private extension HomeScreen {
             }
             UserDefaults.standard.set(dateForElection, forKey: "electionDate")
             return BallotpediaElection(date: date, districts: districts)
-
         }
-
         return elections
     }
 
