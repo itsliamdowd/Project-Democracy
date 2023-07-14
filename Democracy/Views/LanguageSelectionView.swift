@@ -19,11 +19,10 @@ struct LanguageSelectionView: View {
     var completion: () -> Void
     
     @State var displayLanguage = "Display Language".translated()
-    @State private var englishDefault = "English (Default)".translated()
+    @State var englishDefault = "English (Default)".translated()
     
     var body: some View {
         NavigationView {
-            if #available(iOS 16.0, *) {
                 VStack {
                     Label("Powered by **Google** Translate",
                           systemImage: "info.square.fill")
@@ -69,10 +68,7 @@ struct LanguageSelectionView: View {
                         .foregroundColor(.secondary)
                         .padding(.horizontal)
                 }
-                .navigationTitle($displayLanguage)
-            } else {
-                // Fallback on earlier versions
-            }
+                .navigationTitle(displayLanguage)
         }
         .onDisappear() {
             completion()

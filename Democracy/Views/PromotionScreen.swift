@@ -26,8 +26,6 @@ class PromotionScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to promotion screen")
-        //var appLanguage = UserDefaults.standard.string(forKey: "AppLanguage")
-        //languageSwitch.setTitle(appLanguage, for: .normal)
         var existingIndex = UserDefaults.standard.integer(forKey: "index")
         existingIndex = existingIndex + 1
         UserDefaults.standard.set(existingIndex, forKey: "index")
