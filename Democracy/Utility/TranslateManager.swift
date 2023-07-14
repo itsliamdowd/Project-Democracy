@@ -119,5 +119,6 @@ extension UIView {
 extension UILabel {
     func setAutoShrink() {
         self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.3    }
+        self.minimumScaleFactor = 0.3
+    }
 }

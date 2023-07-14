@@ -18,7 +18,7 @@ public class SwiftTranslate {
     var translationCache: [String: String]
     
     var savedLanguage: Language {
-        guard let languageCode = UserDefaults.standard.string(forKey: "AppLanguage")
+        guard let languageCode = UserDefaults.standard.string(forKey: "appLanguage")
         else {
             return .english
         }
