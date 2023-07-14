@@ -250,7 +250,12 @@ extension HomeScreen: UITableViewDataSource {
             partySwitcher.isHidden = true
             incumbentButton.isHidden = false
             stateElections.frame = CGRect(x: 23, y: 206, width: 382, height: 532)
-            return racesGroups[section].districtName.translated()
+            if self.tableView(tableView, numberOfRowsInSection: section) > 0 {
+                return racesGroups[section].districtName.translated()
+            }
+            else {
+                return nil
+           }
         }
         else if electionDisplayStyle.selectedSegmentIndex == 1 {
             incumbentButton.isHidden = true
