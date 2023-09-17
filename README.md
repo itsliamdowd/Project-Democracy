@@ -8,7 +8,7 @@ Welcome to **Project Democracy**, the ultimate app designed to empower citizens 
 Project Democracy makes it effortless to connect with your current representatives. With just a few taps, you can access contact information for your elected officials, enabling you to voice your concerns, ask questions, or express support for issues that matter to you. Engage in meaningful conversations with those who represent your interests.
 
 ### Discover Candidates Running for Election
-Stay ahead of the curve by exploring the candidates running for election in your district or jurisdiction. Our app provides comprehensive profiles of each candidate, including their biographies, political affiliations, and key policy positions. With this information at your fingertips, you can make informed decisions and choose representatives who align with your values and aspirations.
+Stay ahead of the curve by exploring the candidates running for election in your district or jurisdiction. Our app provides comprehensive profiles of each candidate, including their biographies, political affiliations, and key policy positions. With this information at your fingertips, you can make informed decisions and choose representatives who align with your values.
 
 ### Social Media Integration
 Project Democracy integrates social media platforms seamlessly, allowing you to access candidates' official social media accounts directly from their profiles. Follow their campaigns, engage in discussions, and gain deeper insights into their visions and policy proposals. Stay connected with the candidates who are vying for your support.
@@ -24,15 +24,15 @@ We believe in the power of collaboration and welcome contributions from passiona
 
 ## GitHub repositories:
 
+- Landing Page: [Project Democracy Landing Page](https://github.com/SkiingIsFun123/Project-Democracy-Landing-Page)
 - Backend/Server: [Project Democracy Backend](https://github.com/SkiingIsFun123/Project-Democracy-Backend)
 - Additional Files for Running Project Democracy: [Project Democracy Files](https://github.com/SkiingIsFun123/Project-Democracy-Files)
-- Landing Page: [Project Democracy Landing Page](https://github.com/SkiingIsFun123/Project-Democracy-Landing-Page)
 
 ## Download Project Democracy for Free
 Experience the power of democracy at your fingertips. Download Project Democracy from the App Store for free and become an informed and engaged citizen.
 [Download Project Democracy on the App Store](https://apps.apple.com/us/app/project-democracy/id6443437676?uo=4)
 
 ##  Help Us Spread the Word!
-You can play a vital role in promoting democratic engagement by sharing Project Democracy with your friends, family, and social networks. By starring our GitHub repository, you show your support for our mission to empower citizens worldwide. Let's collaborate to build a stronger democracy for future generations.
+You can play a vital role in promoting democratic engagement by sharing Project Democracy with your friends and family. By starring our GitHub repository, you show your support for our mission to empower citizens worldwide. Let's collaborate to build a stronger democracy for future generations.
 
 Together, let's unleash the potential of democratic participation
