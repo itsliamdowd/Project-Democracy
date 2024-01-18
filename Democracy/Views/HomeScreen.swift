@@ -622,7 +622,7 @@ private extension HomeScreen {
                 dateForDisplay.remove(at: dateForDisplay.startIndex)
             }
             print(dateForDisplay)
-            var dateForElection = "Election Date: " + dateForDisplay
+            var dateForElection = "Election: " + dateForDisplay
             DispatchQueue.main.async {
                 self.electionDate.text = dateForElection.translated()
             }
