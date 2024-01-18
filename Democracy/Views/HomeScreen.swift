@@ -377,6 +377,7 @@ class HomeScreen: UIViewController {
     @IBOutlet weak var incumbentButton: UIButton!
     @IBOutlet weak var electionOccuring: UILabel!
     @IBOutlet weak var noElections: UILabel!
+    @IBOutlet weak var year: UILabel!
     
     @IBAction func incumbentButtonPressed(_ sender: Any) {
         let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -473,6 +474,7 @@ class HomeScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Made it to home screen")
+        year.text = "- " + String(Calendar(identifier: .gregorian).dateComponents([.year], from: .now).year!) + " -"
         var existingIndex = UserDefaults.standard.integer(forKey: "index")
         existingIndex = existingIndex + 1
         print(existingIndex)
@@ -485,7 +487,7 @@ class HomeScreen: UIViewController {
                 homescreendata.removeAll()
             }
         }
-        if UserDefaults.standard.string(forKey: "electionDate") != nil && self.electionDate.text == "Election Date:" {
+        if UserDefaults.standard.string(forKey: "electionDate") != nil && self.electionDate.text == "Election:" {
             self.electionDate.text = UserDefaults.standard.string(forKey: "electionDate")
         }
         stateElections.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
