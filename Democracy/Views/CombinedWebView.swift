@@ -18,7 +18,7 @@ class CombinedWebView: UIViewController, WKUIDelegate {
         super.viewDidLoad()
         var resourceURL = URL(string: "")
         if (resource == "sourceCode") {
-            resourceURL = URL(string: "https://github.com/SkiingIsFun123/Democracy")
+            resourceURL = URL(string: "https://github.com/itsliamdowd/Project-Democracy")
         }
         else if (resource == "privacyPolicy") {
             resourceURL = URL(string: "https://projectdemocracy.app/privacypolicy/")
